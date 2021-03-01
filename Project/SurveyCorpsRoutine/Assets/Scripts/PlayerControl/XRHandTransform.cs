@@ -2,9 +2,8 @@
 using UnityEngine;
 using XRInput;
 using UnityEngine.XR;
-public class XRHand : MonoBehaviour
+public class XRHandTransform : MonoBehaviour
 {
-    public XRInputChannelSO XRInputChannel;
     public enum Hand
     {
         left, right
@@ -14,13 +13,13 @@ public class XRHand : MonoBehaviour
     {
         if (hand == Hand.left)
         {
-            XRInputChannel.onLeftPosition += OnPosition;
-            XRInputChannel.onLeftRotation += OnRotation;
+            XRInputManager.i.onLeftPosition += OnPosition;
+            XRInputManager.i.onLeftRotation += OnRotation;
         }
         else
         {
-            XRInputChannel.onRightPosition += OnPosition;
-            XRInputChannel.onRightRotation += OnRotation;
+            XRInputManager.i.onRightPosition += OnPosition;
+            XRInputManager.i.onRightRotation += OnRotation;
         }
     }
  
@@ -28,13 +27,13 @@ public class XRHand : MonoBehaviour
     {
         if (hand == Hand.left)
         {
-            XRInputChannel.onLeftPosition -= OnPosition;
-            XRInputChannel.onLeftRotation -= OnRotation;
+            XRInputManager.i.onLeftPosition -= OnPosition;
+            XRInputManager.i.onLeftRotation -= OnRotation;
         }
         else
         {
-            XRInputChannel.onRightPosition -= OnPosition;
-            XRInputChannel.onRightRotation -= OnRotation;
+            XRInputManager.i.onRightPosition -= OnPosition;
+            XRInputManager.i.onRightRotation -= OnRotation;
         }
 
     }
@@ -48,9 +47,5 @@ public class XRHand : MonoBehaviour
         transform.localPosition = pos;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

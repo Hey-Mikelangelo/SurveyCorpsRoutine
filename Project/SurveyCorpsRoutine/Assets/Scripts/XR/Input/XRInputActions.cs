@@ -129,6 +129,30 @@ namespace XRInput
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""TriggerTouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""2437283f-c3ce-4fe2-a597-62938a65a756"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""PrimaryButtonTouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""b5f55241-f688-41e8-ab1c-fcb46ac6cbd8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ThumbstickTouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""eb499f23-9732-4f8c-b9eb-bb4e3e489e32"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -307,6 +331,39 @@ namespace XRInput
                     ""action"": ""Rotation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b35cf63c-b4bd-4b9e-b5aa-664cfae4352c"",
+                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerRight>{RightHand}/triggertouched"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TriggerTouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""50725d25-ac64-4d7e-a368-a6e720f9b9bd"",
+                    ""path"": ""<XRController>{RightHand}/primaryTouched"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PrimaryButtonTouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e164798a-8434-4579-ac95-e675eb3eb567"",
+                    ""path"": ""<XRController>{RightHand}/thumbstickTouched"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ThumbstickTouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -374,6 +431,30 @@ namespace XRInput
                     ""name"": ""PrimaryAxisClicked"",
                     ""type"": ""Button"",
                     ""id"": ""2136973e-fcab-47f5-9562-81c87e3aa792"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""TriggerTouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""8fe2a446-525b-4b39-b234-38ce6eb0026d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""PrimaryButtonTouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""1cc9b9dd-b2d3-4558-986b-031d1a03f6ab"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ThumbstickTouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""68c2cff0-523f-4f52-9ef4-521b6f602501"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -555,6 +636,39 @@ namespace XRInput
                     ""action"": ""Rotation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9d9a6608-9344-4b62-b5bc-85488c6310b4"",
+                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerLeft>{LeftHand}/triggertouched"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TriggerTouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7be207aa-a96a-4619-ad33-d91cff9fca36"",
+                    ""path"": ""<XRController>{LeftHand}/primaryTouched"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PrimaryButtonTouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""42d926c8-58ec-4dea-9a09-025a4bb6d9ef"",
+                    ""path"": ""<XRController>{LeftHand}/thumbstickTouched"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ThumbstickTouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -575,6 +689,9 @@ namespace XRInput
             m_RightHand_SecondaryButton = m_RightHand.FindAction("SecondaryButton", throwIfNotFound: true);
             m_RightHand_PrimaryAxis = m_RightHand.FindAction("PrimaryAxis", throwIfNotFound: true);
             m_RightHand_PrimaryAxisClicked = m_RightHand.FindAction("PrimaryAxisClicked", throwIfNotFound: true);
+            m_RightHand_TriggerTouch = m_RightHand.FindAction("TriggerTouch", throwIfNotFound: true);
+            m_RightHand_PrimaryButtonTouch = m_RightHand.FindAction("PrimaryButtonTouch", throwIfNotFound: true);
+            m_RightHand_ThumbstickTouch = m_RightHand.FindAction("ThumbstickTouch", throwIfNotFound: true);
             // LeftHand
             m_LeftHand = asset.FindActionMap("LeftHand", throwIfNotFound: true);
             m_LeftHand_Position = m_LeftHand.FindAction("Position", throwIfNotFound: true);
@@ -585,6 +702,9 @@ namespace XRInput
             m_LeftHand_SecondaryButton = m_LeftHand.FindAction("SecondaryButton", throwIfNotFound: true);
             m_LeftHand_PrimaryAxis = m_LeftHand.FindAction("PrimaryAxis", throwIfNotFound: true);
             m_LeftHand_PrimaryAxisClicked = m_LeftHand.FindAction("PrimaryAxisClicked", throwIfNotFound: true);
+            m_LeftHand_TriggerTouch = m_LeftHand.FindAction("TriggerTouch", throwIfNotFound: true);
+            m_LeftHand_PrimaryButtonTouch = m_LeftHand.FindAction("PrimaryButtonTouch", throwIfNotFound: true);
+            m_LeftHand_ThumbstickTouch = m_LeftHand.FindAction("ThumbstickTouch", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -683,6 +803,9 @@ namespace XRInput
         private readonly InputAction m_RightHand_SecondaryButton;
         private readonly InputAction m_RightHand_PrimaryAxis;
         private readonly InputAction m_RightHand_PrimaryAxisClicked;
+        private readonly InputAction m_RightHand_TriggerTouch;
+        private readonly InputAction m_RightHand_PrimaryButtonTouch;
+        private readonly InputAction m_RightHand_ThumbstickTouch;
         public struct RightHandActions
         {
             private @XRInputActions m_Wrapper;
@@ -695,6 +818,9 @@ namespace XRInput
             public InputAction @SecondaryButton => m_Wrapper.m_RightHand_SecondaryButton;
             public InputAction @PrimaryAxis => m_Wrapper.m_RightHand_PrimaryAxis;
             public InputAction @PrimaryAxisClicked => m_Wrapper.m_RightHand_PrimaryAxisClicked;
+            public InputAction @TriggerTouch => m_Wrapper.m_RightHand_TriggerTouch;
+            public InputAction @PrimaryButtonTouch => m_Wrapper.m_RightHand_PrimaryButtonTouch;
+            public InputAction @ThumbstickTouch => m_Wrapper.m_RightHand_ThumbstickTouch;
             public InputActionMap Get() { return m_Wrapper.m_RightHand; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -728,6 +854,15 @@ namespace XRInput
                     @PrimaryAxisClicked.started -= m_Wrapper.m_RightHandActionsCallbackInterface.OnPrimaryAxisClicked;
                     @PrimaryAxisClicked.performed -= m_Wrapper.m_RightHandActionsCallbackInterface.OnPrimaryAxisClicked;
                     @PrimaryAxisClicked.canceled -= m_Wrapper.m_RightHandActionsCallbackInterface.OnPrimaryAxisClicked;
+                    @TriggerTouch.started -= m_Wrapper.m_RightHandActionsCallbackInterface.OnTriggerTouch;
+                    @TriggerTouch.performed -= m_Wrapper.m_RightHandActionsCallbackInterface.OnTriggerTouch;
+                    @TriggerTouch.canceled -= m_Wrapper.m_RightHandActionsCallbackInterface.OnTriggerTouch;
+                    @PrimaryButtonTouch.started -= m_Wrapper.m_RightHandActionsCallbackInterface.OnPrimaryButtonTouch;
+                    @PrimaryButtonTouch.performed -= m_Wrapper.m_RightHandActionsCallbackInterface.OnPrimaryButtonTouch;
+                    @PrimaryButtonTouch.canceled -= m_Wrapper.m_RightHandActionsCallbackInterface.OnPrimaryButtonTouch;
+                    @ThumbstickTouch.started -= m_Wrapper.m_RightHandActionsCallbackInterface.OnThumbstickTouch;
+                    @ThumbstickTouch.performed -= m_Wrapper.m_RightHandActionsCallbackInterface.OnThumbstickTouch;
+                    @ThumbstickTouch.canceled -= m_Wrapper.m_RightHandActionsCallbackInterface.OnThumbstickTouch;
                 }
                 m_Wrapper.m_RightHandActionsCallbackInterface = instance;
                 if (instance != null)
@@ -756,6 +891,15 @@ namespace XRInput
                     @PrimaryAxisClicked.started += instance.OnPrimaryAxisClicked;
                     @PrimaryAxisClicked.performed += instance.OnPrimaryAxisClicked;
                     @PrimaryAxisClicked.canceled += instance.OnPrimaryAxisClicked;
+                    @TriggerTouch.started += instance.OnTriggerTouch;
+                    @TriggerTouch.performed += instance.OnTriggerTouch;
+                    @TriggerTouch.canceled += instance.OnTriggerTouch;
+                    @PrimaryButtonTouch.started += instance.OnPrimaryButtonTouch;
+                    @PrimaryButtonTouch.performed += instance.OnPrimaryButtonTouch;
+                    @PrimaryButtonTouch.canceled += instance.OnPrimaryButtonTouch;
+                    @ThumbstickTouch.started += instance.OnThumbstickTouch;
+                    @ThumbstickTouch.performed += instance.OnThumbstickTouch;
+                    @ThumbstickTouch.canceled += instance.OnThumbstickTouch;
                 }
             }
         }
@@ -772,6 +916,9 @@ namespace XRInput
         private readonly InputAction m_LeftHand_SecondaryButton;
         private readonly InputAction m_LeftHand_PrimaryAxis;
         private readonly InputAction m_LeftHand_PrimaryAxisClicked;
+        private readonly InputAction m_LeftHand_TriggerTouch;
+        private readonly InputAction m_LeftHand_PrimaryButtonTouch;
+        private readonly InputAction m_LeftHand_ThumbstickTouch;
         public struct LeftHandActions
         {
             private @XRInputActions m_Wrapper;
@@ -784,6 +931,9 @@ namespace XRInput
             public InputAction @SecondaryButton => m_Wrapper.m_LeftHand_SecondaryButton;
             public InputAction @PrimaryAxis => m_Wrapper.m_LeftHand_PrimaryAxis;
             public InputAction @PrimaryAxisClicked => m_Wrapper.m_LeftHand_PrimaryAxisClicked;
+            public InputAction @TriggerTouch => m_Wrapper.m_LeftHand_TriggerTouch;
+            public InputAction @PrimaryButtonTouch => m_Wrapper.m_LeftHand_PrimaryButtonTouch;
+            public InputAction @ThumbstickTouch => m_Wrapper.m_LeftHand_ThumbstickTouch;
             public InputActionMap Get() { return m_Wrapper.m_LeftHand; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -817,6 +967,15 @@ namespace XRInput
                     @PrimaryAxisClicked.started -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnPrimaryAxisClicked;
                     @PrimaryAxisClicked.performed -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnPrimaryAxisClicked;
                     @PrimaryAxisClicked.canceled -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnPrimaryAxisClicked;
+                    @TriggerTouch.started -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnTriggerTouch;
+                    @TriggerTouch.performed -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnTriggerTouch;
+                    @TriggerTouch.canceled -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnTriggerTouch;
+                    @PrimaryButtonTouch.started -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnPrimaryButtonTouch;
+                    @PrimaryButtonTouch.performed -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnPrimaryButtonTouch;
+                    @PrimaryButtonTouch.canceled -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnPrimaryButtonTouch;
+                    @ThumbstickTouch.started -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnThumbstickTouch;
+                    @ThumbstickTouch.performed -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnThumbstickTouch;
+                    @ThumbstickTouch.canceled -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnThumbstickTouch;
                 }
                 m_Wrapper.m_LeftHandActionsCallbackInterface = instance;
                 if (instance != null)
@@ -845,6 +1004,15 @@ namespace XRInput
                     @PrimaryAxisClicked.started += instance.OnPrimaryAxisClicked;
                     @PrimaryAxisClicked.performed += instance.OnPrimaryAxisClicked;
                     @PrimaryAxisClicked.canceled += instance.OnPrimaryAxisClicked;
+                    @TriggerTouch.started += instance.OnTriggerTouch;
+                    @TriggerTouch.performed += instance.OnTriggerTouch;
+                    @TriggerTouch.canceled += instance.OnTriggerTouch;
+                    @PrimaryButtonTouch.started += instance.OnPrimaryButtonTouch;
+                    @PrimaryButtonTouch.performed += instance.OnPrimaryButtonTouch;
+                    @PrimaryButtonTouch.canceled += instance.OnPrimaryButtonTouch;
+                    @ThumbstickTouch.started += instance.OnThumbstickTouch;
+                    @ThumbstickTouch.performed += instance.OnThumbstickTouch;
+                    @ThumbstickTouch.canceled += instance.OnThumbstickTouch;
                 }
             }
         }
@@ -864,6 +1032,9 @@ namespace XRInput
             void OnSecondaryButton(InputAction.CallbackContext context);
             void OnPrimaryAxis(InputAction.CallbackContext context);
             void OnPrimaryAxisClicked(InputAction.CallbackContext context);
+            void OnTriggerTouch(InputAction.CallbackContext context);
+            void OnPrimaryButtonTouch(InputAction.CallbackContext context);
+            void OnThumbstickTouch(InputAction.CallbackContext context);
         }
         public interface ILeftHandActions
         {
@@ -875,6 +1046,9 @@ namespace XRInput
             void OnSecondaryButton(InputAction.CallbackContext context);
             void OnPrimaryAxis(InputAction.CallbackContext context);
             void OnPrimaryAxisClicked(InputAction.CallbackContext context);
+            void OnTriggerTouch(InputAction.CallbackContext context);
+            void OnPrimaryButtonTouch(InputAction.CallbackContext context);
+            void OnThumbstickTouch(InputAction.CallbackContext context);
         }
     }
 }

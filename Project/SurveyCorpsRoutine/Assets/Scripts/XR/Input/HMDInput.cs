@@ -5,7 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation;
 
 namespace XRInput
 {
-    internal class HMDInput :  XRInput.XRInputActions.IHMDActions, IActionReceiver
+    internal class HMDInput :  XRInput.XRInputActions.IHMDActions, IXRActionReceiver
     {
         public event UnityAction<InputAction.CallbackContext> onPosition;
         public event UnityAction<InputAction.CallbackContext> onRotation;

@@ -1,22 +1,27 @@
-﻿using UnityEngine;
+using System;
+using System.Runtime.CompilerServices;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.XR.Haptics;
+using UnityEngine.iOS;
+using UnityEngine.XR;
 
 namespace XRInput
 {
-    internal interface IActionReceiver
+    internal interface IXRActionReceiver
     {
         void SubsribeCallbacks(XRInputActions inputActions);
     }
 
-    [CreateAssetMenu(fileName = "InputChannelSO", menuName = "Game/Input/Input Channel")]
-    public class XRInputChannelSO : ScriptableObject
+    [DisallowMultipleComponent]
+    public class XRInputManager : MonoBehaviour
     {
-        public XRInputActions inputActions;
-        HMDInput HMDInput;
-        LeftControllerInput leftControllerInput;
-        RightControllerInput rightControllerInput;
+        public static XRInputManager i;
+        
+        [SerializeField] private XRInputActions inputActions;
+        private HMDInput HMDInput;
+        private LeftControllerInput leftControllerInput;
+        private RightControllerInput rightControllerInput;
 
         public event UnityAction<Vector3> onHeadPosition;
         public event UnityAction<Quaternion> onHeadRotation;
@@ -34,6 +39,12 @@ namespace XRInput
         public event UnityAction onLeftSecondaryButtonReleased;
         public event UnityAction onLeftTriggerButton;
         public event UnityAction onLeftTriggerButtonReleased;
+        public event UnityAction onLeftTriggerTouch;
+        public event UnityAction onLeftTriggerTouchReleased;
+        public event UnityAction onLeftPrimaryButtonTouch;
+        public event UnityAction onLeftPrimaryButtonTouchReleased;
+        public event UnityAction onLeftThumbstickTouch;
+        public event UnityAction onLeftThumbstickTouchReleased;
 
         public event UnityAction<Vector3> onRightPosition;
         public event UnityAction<Quaternion> onRightRotation;
@@ -48,7 +59,26 @@ namespace XRInput
         public event UnityAction onRightSecondaryButtonReleased;
         public event UnityAction onRightTriggerButton;
         public event UnityAction onRightTriggerButtonReleased;
+        public event UnityAction onRightTriggerTouch;
+        public event UnityAction onRightTriggerTouchReleased;
+        public event UnityAction onRightPrimaryButtonTouch;
+        public event UnityAction onRightPrimaryButtonTouchReleased;
+        public event UnityAction onRightThumbstickTouch;
+        public event UnityAction onRightThumbstickTouchReleased;
 
+        private void Awake()
+        {
+            if (i == null)
+            {
+                i = this;
+            }
+            else
+            {
+                Destroy(this);
+                LogHelper.LogDeletedDuplicateSingletonComponent(
+                    this, i.gameObject);
+            }
+        }
         private void OnEnable()
         {
             if (inputActions == null)
@@ -79,6 +109,9 @@ namespace XRInput
             leftControllerInput.onPrimaryButton += OnLeftPrimaryButton;
             leftControllerInput.onSecondaryButton += OnLeftSecondaryButton;
             leftControllerInput.onTriggerButton += OnLeftTriggerButton;
+            leftControllerInput.onTriggerTouch += OnLeftTriggerTouch;
+            leftControllerInput.onPrimaryButtonTouch += OnLeftPrimaryButtonTouch;
+            leftControllerInput.onThumbstickTouch += OnLeftThumbstickTouch;
 
             rightControllerInput.onPosition += OnRightPosition;
             rightControllerInput.onRotation += OnRightRotation;
@@ -88,12 +121,19 @@ namespace XRInput
             rightControllerInput.onPrimaryButton += OnRightPrimaryButton;
             rightControllerInput.onSecondaryButton += OnRightSecondaryButton;
             rightControllerInput.onTriggerButton += OnRightTriggerButton;
+            rightControllerInput.onTriggerTouch += OnRightTriggerTouch;
+            rightControllerInput.onPrimaryButtonTouch += OnRightPrimaryButtonTouch;
+            rightControllerInput.onThumbstickTouch += OnRightThumbstickTouch;
         }
         private void OnDisable()
         {
+            if (HMDInput == null)
+            {
+                return;
+            }
+
             HMDInput.onPosition -= OnHeadPosition;
             HMDInput.onRotation -= OnHeadRotation;
-
 
             leftControllerInput.onPosition -= OnLeftPosition;
             leftControllerInput.onRotation -= OnLeftRotation;
@@ -103,6 +143,9 @@ namespace XRInput
             leftControllerInput.onPrimaryButton -= OnLeftPrimaryButton;
             leftControllerInput.onSecondaryButton -= OnLeftSecondaryButton;
             leftControllerInput.onTriggerButton -= OnLeftTriggerButton;
+            leftControllerInput.onTriggerTouch -= OnLeftTriggerTouch;
+            leftControllerInput.onPrimaryButtonTouch -= OnLeftPrimaryButtonTouch;
+            leftControllerInput.onThumbstickTouch -= OnLeftThumbstickTouch;
 
             rightControllerInput.onPosition -= OnRightPosition;
             rightControllerInput.onRotation -= OnRightRotation;
@@ -112,11 +155,14 @@ namespace XRInput
             rightControllerInput.onPrimaryButton -= OnRightPrimaryButton;
             rightControllerInput.onSecondaryButton -= OnRightSecondaryButton;
             rightControllerInput.onTriggerButton -= OnRightTriggerButton;
+            rightControllerInput.onTriggerTouch -= OnRightTriggerTouch;
+            rightControllerInput.onPrimaryButtonTouch -= OnRightPrimaryButtonTouch;
+            rightControllerInput.onThumbstickTouch -= OnRightThumbstickTouch;
 
             inputActions.Disable();
 
         }
-        
+
         #region HMD
         void OnHeadPosition(InputAction.CallbackContext context)
         {
@@ -200,6 +246,39 @@ namespace XRInput
                 onLeftTriggerButtonReleased?.Invoke();
             }
         }
+        void OnLeftTriggerTouch(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                onLeftTriggerTouch?.Invoke();
+            }
+            else if (context.canceled)
+            {
+                onLeftTriggerTouchReleased?.Invoke();
+            }
+        }
+        void OnLeftPrimaryButtonTouch(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                onLeftPrimaryButtonTouch?.Invoke();
+            }
+            else if (context.canceled)
+            {
+                onLeftPrimaryButtonTouchReleased?.Invoke();
+            }
+        }
+        void OnLeftThumbstickTouch(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                onLeftThumbstickTouch?.Invoke();
+            }
+            else if (context.canceled)
+            {
+                onLeftThumbstickTouchReleased?.Invoke();
+            }
+        }
         #endregion
 
         #region rightController
@@ -271,6 +350,39 @@ namespace XRInput
             else if (context.canceled)
             {
                 onRightTriggerButtonReleased?.Invoke();
+            }
+        }
+        void OnRightTriggerTouch(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                onRightTriggerTouch?.Invoke();
+            }
+            else if (context.canceled)
+            {
+                onRightTriggerTouchReleased?.Invoke();
+            }
+        }
+        void OnRightPrimaryButtonTouch(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                onRightPrimaryButtonTouch?.Invoke();
+            }
+            else if (context.canceled)
+            {
+                onRightPrimaryButtonTouchReleased?.Invoke();
+            }
+        }
+        void OnRightThumbstickTouch(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                onRightThumbstickTouch?.Invoke();
+            }
+            else if (context.canceled)
+            {
+                onRightThumbstickTouchReleased?.Invoke();
             }
         }
         #endregion

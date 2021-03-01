@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
+using UnityEngine.XR;
+using XRFeedback;
 using XRInput;
 
 public class InputTest : MonoBehaviour
 {
-    public XRInputChannelSO inputChannel;
 
     class EventSubscribtionManager
     {
@@ -38,16 +38,16 @@ public class InputTest : MonoBehaviour
         EventSubscribtionManager subscribtionManager = new EventSubscribtionManager(1);
         //subscribtionManager.Subscribe(inputChannel.onLeftTriggerButtonReleased, OnButton);
 
-        inputChannel.onLeftTriggerButtonReleased += OnButton;
+        XRInputManager.i.onLeftTriggerButtonReleased += OnButton;
     }
     private void OnDisable()
     {
-        inputChannel.onLeftGripButton -= OnButton;
+        XRInputManager.i.onLeftGripButton -= OnButton;
 
     }
     void OnButton()
     {
-        Debug.Log("Ok");
+        XRFeedbackManager.i.SendImpulseRightH(1, 0.5f);
     }
     // Update is called once per frame
     void Update()
