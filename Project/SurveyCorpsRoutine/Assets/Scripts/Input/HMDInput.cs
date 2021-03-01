@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation;
 
 namespace XRInput
 {
@@ -8,7 +9,7 @@ namespace XRInput
     {
         public event UnityAction<InputAction.CallbackContext> onPosition;
         public event UnityAction<InputAction.CallbackContext> onRotation;
-
+        
         internal void EnableInputActions(XRInputActions inputActions)
         {
             if (inputActions == null)

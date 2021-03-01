@@ -64,7 +64,6 @@ namespace XRInput
             HMDInput.SubsribeCallbacks(inputActions);
             leftControllerInput.SubsribeCallbacks(inputActions);
             rightControllerInput.SubsribeCallbacks(inputActions);
-
             inputActions.Enable();
 
 
