@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-namespace XRInput
+namespace CoreSystems.XR.Input
 {
     public class @XRInputActions : IInputActionCollection, IDisposable
     {

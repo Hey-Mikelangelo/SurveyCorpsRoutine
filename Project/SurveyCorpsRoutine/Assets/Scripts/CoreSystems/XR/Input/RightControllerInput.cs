@@ -1,10 +1,9 @@
-﻿using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-namespace XRInput
+namespace CoreSystems.XR.Input
 {
-    internal class RightControllerInput : XRInput.XRInputActions.IRightHandActions, IXRActionReceiver
+    internal class RightControllerInput : XRInputActions.IRightHandActions, IXRActionReceiver
     {
         public event UnityAction<InputAction.CallbackContext> onPosition;
         public event UnityAction<InputAction.CallbackContext> onRotation;

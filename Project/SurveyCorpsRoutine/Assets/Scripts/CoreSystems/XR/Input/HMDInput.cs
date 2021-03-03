@@ -1,11 +1,9 @@
-﻿using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation;
 
-namespace XRInput
+namespace CoreSystems.XR.Input
 {
-    internal class HMDInput :  XRInput.XRInputActions.IHMDActions, IXRActionReceiver
+    internal class HMDInput :  XRInputActions.IHMDActions, IXRActionReceiver
     {
         public event UnityAction<InputAction.CallbackContext> onPosition;
         public event UnityAction<InputAction.CallbackContext> onRotation;

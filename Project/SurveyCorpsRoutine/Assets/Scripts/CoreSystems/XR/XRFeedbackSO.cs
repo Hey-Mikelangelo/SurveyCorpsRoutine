@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
-namespace XRFeedback
+namespace CoreSystems.XR
 {
     [CreateAssetMenu(fileName = "XRFeedbackSO", menuName = "XR/XR Feedback")]
     public class XRFeedbackSO : ScriptableObject

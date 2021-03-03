@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-namespace XRInput
+namespace CoreSystems.XR.Input
 {
     internal interface IXRActionReceiver
     {
@@ -289,7 +289,6 @@ namespace XRInput
         }
         void OnRightPrimaryAxisClicked(InputAction.CallbackContext context)
         {
-            Debug.Log(context.phase);
             if (context.started)
             {
                 onRightJoystickClicked?.Invoke(InputActionPhase.Started);
