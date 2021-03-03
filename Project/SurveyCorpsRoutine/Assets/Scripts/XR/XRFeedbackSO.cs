@@ -5,27 +5,16 @@ using UnityEngine.XR;
 
 namespace XRFeedback
 {
-    [DisallowMultipleComponent]
-    public class XRFeedbackManager : MonoBehaviour
-    {
-        public static XRFeedbackManager i;
-
+    [CreateAssetMenu(fileName = "XRFeedbackSO", menuName = "XR/XR Feedback")]
+    public class XRFeedbackSO : ScriptableObject
+    { 
         private void Awake()
         {
-            if (i == null)
-            {
-                i = this;
-            }
-            else
-            {
-                Destroy(this);
-                LogHelper.LogDeletedDuplicateSingletonComponent(
-                    this, i.gameObject);
-            }
+            
         }
         private void OnEnable()
         {
-            
+
         }
         private void OnDisable()
         {

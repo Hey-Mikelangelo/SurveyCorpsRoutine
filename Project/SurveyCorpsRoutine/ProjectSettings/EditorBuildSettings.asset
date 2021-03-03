@@ -13,5 +13,7 @@ EditorBuildSettings:
       type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: c99418a9452c78c49a3e9a087c61af22,
       type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: c73b900e4bace6d4db2eee9dbcce6484,
+      type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 889f471241afbfb4fae7d1b25cc68130,
       type: 2}

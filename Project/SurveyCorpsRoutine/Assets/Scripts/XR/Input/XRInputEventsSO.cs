@@ -1,10 +1,6 @@
-using System;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.iOS;
-using UnityEngine.XR;
 
 namespace XRInput
 {
@@ -13,11 +9,9 @@ namespace XRInput
         void SubsribeCallbacks(XRInputActions inputActions);
     }
 
-    [DisallowMultipleComponent]
-    public class XRInputManager : MonoBehaviour
+    [CreateAssetMenu(fileName ="XRInputEventsSO", menuName = "XR/Input/XR Input Events")]
+    public class XRInputEventsSO : ScriptableObject
     {
-        public static XRInputManager i;
-        
         [SerializeField] private XRInputActions inputActions;
         private HMDInput HMDInput;
         private LeftControllerInput leftControllerInput;
@@ -28,56 +22,47 @@ namespace XRInput
 
         public event UnityAction<Vector3> onLeftPosition;
         public event UnityAction<Quaternion> onLeftRotation;
-        public event UnityAction<Vector2> onLeftPrimaryAxis;
-        public event UnityAction onLeftPrimaryAxisClicked;
-        public event UnityAction onLeftPrimaryAxisReleased;
-        public event UnityAction onLeftGripButton;
+        public event UnityAction<Vector2> onLeftJoystick;
+        public event UnityAction<InputActionPhase> onLeftJoystickClicked;
+        public event UnityAction<InputActionPhase> onLeftGripButton;
+        public event UnityAction<InputActionPhase> onLeftPrimaryButton;
+        public event UnityAction<InputActionPhase> onLeftSecondaryButton;
+        public event UnityAction<InputActionPhase> onLeftTriggerButton;
+        public event UnityAction<InputActionPhase> onLeftTriggerTouch;
+        public event UnityAction<InputActionPhase> onLeftPrimaryButtonTouch;
+        public event UnityAction<InputActionPhase> onLeftJoystickTouch;
+        public event UnityAction onLeftJoystickReleased;
         public event UnityAction onLeftGripButtonReleased;
-        public event UnityAction onLeftPrimaryButton;
         public event UnityAction onLeftPrimaryButtonReleased;
-        public event UnityAction onLeftSecondaryButton;
         public event UnityAction onLeftSecondaryButtonReleased;
-        public event UnityAction onLeftTriggerButton;
         public event UnityAction onLeftTriggerButtonReleased;
-        public event UnityAction onLeftTriggerTouch;
         public event UnityAction onLeftTriggerTouchReleased;
-        public event UnityAction onLeftPrimaryButtonTouch;
         public event UnityAction onLeftPrimaryButtonTouchReleased;
-        public event UnityAction onLeftThumbstickTouch;
-        public event UnityAction onLeftThumbstickTouchReleased;
+        public event UnityAction onLeftJoystickTouchReleased;
 
         public event UnityAction<Vector3> onRightPosition;
         public event UnityAction<Quaternion> onRightRotation;
-        public event UnityAction<Vector2> onRightPrimaryAxis;
-        public event UnityAction onRightPrimaryAxisClicked;
-        public event UnityAction onRightPrimaryAxisReleased;
-        public event UnityAction onRightGripButton;
+        public event UnityAction<Vector2> onRightJoystick;
+        public event UnityAction<InputActionPhase> onRightJoystickClicked;
+        public event UnityAction<InputActionPhase> onRightGripButton;
+        public event UnityAction<InputActionPhase> onRightPrimaryButton;
+        public event UnityAction<InputActionPhase> onRightSecondaryButton;
+        public event UnityAction<InputActionPhase> onRightTriggerButton;
+        public event UnityAction<InputActionPhase> onRightTriggerTouch;
+        public event UnityAction<InputActionPhase> onRightPrimaryButtonTouch;
+        public event UnityAction<InputActionPhase> onRightJoystickTouch;
+        public event UnityAction onRightJoystickReleased;
         public event UnityAction onRightGripButtonReleased;
-        public event UnityAction onRightPrimaryButton;
         public event UnityAction onRightPrimaryButtonReleased;
-        public event UnityAction onRightSecondaryButton;
         public event UnityAction onRightSecondaryButtonReleased;
-        public event UnityAction onRightTriggerButton;
         public event UnityAction onRightTriggerButtonReleased;
-        public event UnityAction onRightTriggerTouch;
         public event UnityAction onRightTriggerTouchReleased;
-        public event UnityAction onRightPrimaryButtonTouch;
         public event UnityAction onRightPrimaryButtonTouchReleased;
-        public event UnityAction onRightThumbstickTouch;
-        public event UnityAction onRightThumbstickTouchReleased;
+        public event UnityAction onRightJoystickTouchReleased;
 
         private void Awake()
         {
-            if (i == null)
-            {
-                i = this;
-            }
-            else
-            {
-                Destroy(this);
-                LogHelper.LogDeletedDuplicateSingletonComponent(
-                    this, i.gameObject);
-            }
+           
         }
         private void OnEnable()
         {
@@ -186,28 +171,30 @@ namespace XRInput
         }
         void OnLeftPrimaryAxis(InputAction.CallbackContext context)
         {
-            onLeftPrimaryAxis?.Invoke(context.ReadValue<Vector2>());
+            onLeftJoystick?.Invoke(context.ReadValue<Vector2>());
         }
         void OnLeftPrimaryAxisClicked(InputAction.CallbackContext context)
         {
             Debug.Log(context.phase);
             if (context.started)
             {
-                onLeftPrimaryAxisClicked?.Invoke();
+                onLeftJoystickClicked?.Invoke(InputActionPhase.Started);
             }
             else if (context.canceled)
             {
-                onLeftPrimaryAxisReleased?.Invoke();
+                onLeftJoystickClicked?.Invoke(InputActionPhase.Canceled);
+                onLeftJoystickReleased?.Invoke();
             }
         }
         void OnLeftGripButton(InputAction.CallbackContext context)
         {
             if (context.started)
             {
-                onLeftGripButton?.Invoke();
+                onLeftGripButton?.Invoke(InputActionPhase.Started);
             }
             else if (context.canceled)
             {
+                onLeftGripButton?.Invoke(InputActionPhase.Canceled);
                 onLeftGripButtonReleased?.Invoke();
             }
         }
@@ -216,10 +203,11 @@ namespace XRInput
         {
             if (context.started)
             {
-                onLeftPrimaryButton?.Invoke();
+                onLeftPrimaryButton?.Invoke(InputActionPhase.Started);
             }
             else if (context.canceled)
             {
+                onLeftPrimaryButton?.Invoke(InputActionPhase.Canceled);
                 onLeftPrimaryButtonReleased?.Invoke();
             }
         }
@@ -227,10 +215,11 @@ namespace XRInput
         {
             if (context.started)
             {
-                onLeftSecondaryButton?.Invoke();
+                onLeftSecondaryButton?.Invoke(InputActionPhase.Started);
             }
             else if (context.canceled)
             {
+                onLeftSecondaryButton?.Invoke(InputActionPhase.Canceled);
                 onLeftSecondaryButtonReleased?.Invoke();
             }
         }
@@ -239,10 +228,11 @@ namespace XRInput
         {
             if (context.started)
             {
-                onLeftTriggerButton?.Invoke();
+                onLeftTriggerButton?.Invoke(InputActionPhase.Started);
             }
             else if (context.canceled)
             {
+                onLeftTriggerButton?.Invoke(InputActionPhase.Canceled);
                 onLeftTriggerButtonReleased?.Invoke();
             }
         }
@@ -250,10 +240,11 @@ namespace XRInput
         {
             if (context.started)
             {
-                onLeftTriggerTouch?.Invoke();
+                onLeftTriggerTouch?.Invoke(InputActionPhase.Started);
             }
             else if (context.canceled)
             {
+                onLeftTriggerTouch?.Invoke(InputActionPhase.Canceled);
                 onLeftTriggerTouchReleased?.Invoke();
             }
         }
@@ -261,10 +252,11 @@ namespace XRInput
         {
             if (context.started)
             {
-                onLeftPrimaryButtonTouch?.Invoke();
+                onLeftPrimaryButtonTouch?.Invoke(InputActionPhase.Started);
             }
             else if (context.canceled)
             {
+                onLeftPrimaryButtonTouch?.Invoke(InputActionPhase.Canceled);
                 onLeftPrimaryButtonTouchReleased?.Invoke();
             }
         }
@@ -272,11 +264,12 @@ namespace XRInput
         {
             if (context.started)
             {
-                onLeftThumbstickTouch?.Invoke();
+                onLeftJoystickTouch?.Invoke(InputActionPhase.Started);
             }
             else if (context.canceled)
             {
-                onLeftThumbstickTouchReleased?.Invoke();
+                onLeftJoystickTouch?.Invoke(InputActionPhase.Canceled);
+                onLeftJoystickTouchReleased?.Invoke();
             }
         }
         #endregion
@@ -292,28 +285,30 @@ namespace XRInput
         }
         void OnRightPrimaryAxis(InputAction.CallbackContext context)
         {
-            onRightPrimaryAxis?.Invoke(context.ReadValue<Vector2>());
+            onRightJoystick?.Invoke(context.ReadValue<Vector2>());
         }
         void OnRightPrimaryAxisClicked(InputAction.CallbackContext context)
         {
             Debug.Log(context.phase);
             if (context.started)
             {
-                onRightPrimaryAxisClicked?.Invoke();
+                onRightJoystickClicked?.Invoke(InputActionPhase.Started);
             }
             else if (context.canceled)
             {
-                onRightPrimaryAxisReleased?.Invoke();
+                onRightJoystickClicked?.Invoke(InputActionPhase.Canceled);
+                onRightJoystickReleased?.Invoke();
             }
         }
         void OnRightGripButton(InputAction.CallbackContext context)
         {
             if (context.started)
             {
-                onRightGripButton?.Invoke();
+                onRightGripButton?.Invoke(InputActionPhase.Started);
             }
             else if (context.canceled)
             {
+                onRightGripButton?.Invoke(InputActionPhase.Canceled);
                 onRightGripButtonReleased?.Invoke();
             }
         }
@@ -322,10 +317,11 @@ namespace XRInput
         {
             if (context.started)
             {
-                onRightPrimaryButton?.Invoke();
+                onRightPrimaryButton?.Invoke(InputActionPhase.Started);
             }
             else if (context.canceled)
             {
+                onRightPrimaryButton?.Invoke(InputActionPhase.Canceled);
                 onRightPrimaryButtonReleased?.Invoke();
             }
         }
@@ -333,10 +329,11 @@ namespace XRInput
         {
             if (context.started)
             {
-                onRightSecondaryButton?.Invoke();
+                onRightSecondaryButton?.Invoke(InputActionPhase.Started);
             }
             else if (context.canceled)
             {
+                onRightSecondaryButton?.Invoke(InputActionPhase.Canceled);
                 onRightSecondaryButtonReleased?.Invoke();
             }
         }
@@ -345,10 +342,11 @@ namespace XRInput
         {
             if (context.started)
             {
-                onRightTriggerButton?.Invoke();
+                onRightTriggerButton?.Invoke(InputActionPhase.Started);
             }
             else if (context.canceled)
             {
+                onRightTriggerButton?.Invoke(InputActionPhase.Canceled);
                 onRightTriggerButtonReleased?.Invoke();
             }
         }
@@ -356,10 +354,11 @@ namespace XRInput
         {
             if (context.started)
             {
-                onRightTriggerTouch?.Invoke();
+                onRightTriggerTouch?.Invoke(InputActionPhase.Started);
             }
             else if (context.canceled)
             {
+                onRightTriggerTouch?.Invoke(InputActionPhase.Canceled);
                 onRightTriggerTouchReleased?.Invoke();
             }
         }
@@ -367,10 +366,11 @@ namespace XRInput
         {
             if (context.started)
             {
-                onRightPrimaryButtonTouch?.Invoke();
+                onRightPrimaryButtonTouch?.Invoke(InputActionPhase.Started);
             }
             else if (context.canceled)
             {
+                onRightPrimaryButtonTouch?.Invoke(InputActionPhase.Canceled);
                 onRightPrimaryButtonTouchReleased?.Invoke();
             }
         }
@@ -378,11 +378,12 @@ namespace XRInput
         {
             if (context.started)
             {
-                onRightThumbstickTouch?.Invoke();
+                onRightJoystickTouch?.Invoke(InputActionPhase.Started);
             }
             else if (context.canceled)
             {
-                onRightThumbstickTouchReleased?.Invoke();
+                onRightJoystickTouch?.Invoke(InputActionPhase.Canceled);
+                onRightJoystickTouchReleased?.Invoke();
             }
         }
         #endregion

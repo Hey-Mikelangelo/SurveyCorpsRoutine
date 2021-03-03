@@ -10,48 +10,27 @@ using XRInput;
 
 public class InputTest : MonoBehaviour
 {
-
-    class EventSubscribtionManager
-    {
-        Dictionary<UnityAction, UnityAction> EventsDictionary;
-        public EventSubscribtionManager(int eventCount = 1)
-        {
-            EventsDictionary = new Dictionary<UnityAction, UnityAction>(eventCount);
-        }
-        public void Subscribe(UnityAction action, UnityAction function)
-        {
-            EventsDictionary.Add(action, function);
-            action += function;
-        }
-        public void UnsubscribeAll()
-        {
-            for (int i = 0; i < EventsDictionary.Count; i++)
-            {
-                KeyValuePair<UnityAction, UnityAction> pair = EventsDictionary.ElementAt(i);
-                UnityAction action = pair.Key;
-                action -= pair.Value;
-            }
-        }
-    }
+    public XRInputMappingSO inputMapping;
+    public XRFeedbackSO XRFeedback;
     private void OnEnable()
-    {
-        EventSubscribtionManager subscribtionManager = new EventSubscribtionManager(1);
-        //subscribtionManager.Subscribe(inputChannel.onLeftTriggerButtonReleased, OnButton);
-
-        XRInputManager.i.onLeftTriggerButtonReleased += OnButton;
-    }
-    private void OnDisable()
-    {
-        XRInputManager.i.onLeftGripButton -= OnButton;
-
-    }
-    void OnButton()
-    {
-        XRFeedbackManager.i.SendImpulseRightH(1, 0.5f);
-    }
-    // Update is called once per frame
-    void Update()
     {
         
     }
+    private void OnDisable()
+    {
+
+    }
+    public void Update()
+    {
+        if (inputMapping.jump)
+        {
+            XRFeedback.SendImpulseRightH(0.01f, 0.5f);
+        }
+    }
+    void OnButton()
+    {
+        XRFeedback.SendImpulseLeftH(1, 0.5f);
+    }
+    // Update is called once per frame
+   
 }

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5013504f90602274ab0c6b8c99b26c6b, type: 3}
+  m_Name: XRInputMappingSO
+  m_EditorClassIdentifier: 
+  _inputMap: {fileID: 11400000, guid: 699dff9cc2f832840b7c8c034650141a, type: 2}
+  _inputEvents: {fileID: 11400000, guid: 9674f7f718faef84b9b99d82a8bc0448, type: 2}
+  joystickMoveValue: {x: 0, y: 0}
+  jump: 0
+  sprint: 0
+  rotateBack: 0
+  rotateRight: 0
+  rotateLeft: 0
