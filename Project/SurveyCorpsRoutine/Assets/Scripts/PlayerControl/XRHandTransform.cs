@@ -1,39 +1,64 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using XRInput;
-using UnityEngine.XR;
+
+[AddComponentMenu("XR/XR Hand Transform")]
+[DisallowMultipleComponent]
 public class XRHandTransform : MonoBehaviour
 {
+    public XRInputEventsSO XRInputEvents;
     public enum Hand
     {
         left, right
     }
-    public Hand hand;
-    private void OnEnable()
+    public Hand hand
     {
-        if (hand == Hand.left)
+        get
         {
-            XRInputManager.i.onLeftPosition += OnPosition;
-            XRInputManager.i.onLeftRotation += OnRotation;
+            return _hand;
         }
-        else
+        set
         {
-            XRInputManager.i.onRightPosition += OnPosition;
-            XRInputManager.i.onRightRotation += OnRotation;
+            UnbindActions();
+            _hand = value;
+            BindActions();
         }
     }
- 
+    [SerializeField] Hand _hand;
+
+    private void OnEnable()
+    {
+        BindActions();
+    }
+
     private void OnDisable()
     {
-        if (hand == Hand.left)
+        UnbindActions();
+    }
+    void BindActions()
+    {
+        if (_hand == Hand.left)
         {
-            XRInputManager.i.onLeftPosition -= OnPosition;
-            XRInputManager.i.onLeftRotation -= OnRotation;
+            XRInputEvents.onLeftPosition += OnPosition;
+            XRInputEvents.onLeftRotation += OnRotation;
         }
         else
         {
-            XRInputManager.i.onRightPosition -= OnPosition;
-            XRInputManager.i.onRightRotation -= OnRotation;
+            XRInputEvents.onRightPosition += OnPosition;
+            XRInputEvents.onRightRotation += OnRotation;
+        }
+    }
+    void UnbindActions()
+    {
+        if (_hand == Hand.left)
+        {
+            XRInputEvents.onLeftPosition -= OnPosition;
+            XRInputEvents.onLeftRotation -= OnRotation;
+
+        }
+        else
+        {
+            XRInputEvents.onRightPosition -= OnPosition;
+            XRInputEvents.onRightRotation -= OnRotation;
         }
 
     }
@@ -47,5 +72,5 @@ public class XRHandTransform : MonoBehaviour
         transform.localPosition = pos;
     }
 
-    
+
 }
