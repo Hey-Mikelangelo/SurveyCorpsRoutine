@@ -25,7 +25,7 @@ namespace CoreSystems.XR.Input
         rightPrimaryButton,
         rightSecondaryButton,
         rightGrip,
-        rightTrigger,
+        rightTriggerButton,
         rightJoystickClick,
         rightJoystickUp,
         rightJoystickDown,

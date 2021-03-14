@@ -4,11 +4,11 @@ namespace CoreSystems.XR.Input
 {
     public class InputTest : MonoBehaviour
     {
-        public XRInputMappingSO inputMapping;
+        public XRInputSO inputMapping;
         public XRFeedbackSO xrFeedback;
         private void OnEnable()
         {
-        
+            //input
         }
         private void OnDisable()
         {

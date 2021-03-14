@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
+using UnityEngine.Video;
 
 namespace CoreSystems.XR.Input
 {
-    [CreateAssetMenu(fileName = "XRInputMappingSO", menuName = "XR/Input/XR Input Mapping")]
-    public class XRInputMappingSO : ScriptableObject
+    [CreateAssetMenu(fileName = "XRInputSO", menuName = "XR/Input/XR InputSO")]
+    public class XRInputSO : ScriptableObject
     {
         [SerializeField] XRInputMapSO _inputMap;
         [SerializeField] XRInputEventsSO _inputEvents;
@@ -34,13 +36,21 @@ namespace CoreSystems.XR.Input
             }
         }
 
-        public Vector2 joystickMoveValue;
-        public bool jump;
-        public float sprint;
-        public bool rotateBack;
-        public float rotateRight;
-        public float rotateLeft;
-
+        public Vector3 headPosition { get; private set; }
+        public Quaternion headRotation{ get; private set; }
+        public Vector3 leftHandPosition { get; private set; }
+        public Quaternion leftHandRotation { get; private set; }
+        public Vector3 rightHandPosition { get; private set; }
+        public Quaternion rightHandRotation { get; private set; }
+        public Vector2 joystickMoveValue{ get; private set; }
+        public bool jump{ get; private set; }
+        public float sprint{ get; private set; }
+        public bool rotateBack{ get; private set; }
+        public float rotateRight{ get; private set; }
+        public float rotateLeft{ get; private set; }
+        public bool rightGesture { get; private set; }
+        public bool leftGesture { get; private set; }
+        public bool rightTrigger { get; private set; }
         public event UnityAction onRotateBack;
 
         private void OnEnable()
@@ -53,10 +63,14 @@ namespace CoreSystems.XR.Input
         }
         private void Update()
         {
-        
         }
         void BindActions()
         {
+            _inputEvents.onHeadPosition += OnHeadPosition;
+            _inputEvents.onHeadRotation += OnHeadRotation;
+
+            _inputEvents.onLeftPosition += OnLeftPosition;
+            _inputEvents.onLeftRotation += OnLeftRotation;
             _inputEvents.onLeftJoystick += OnLeftJoystick;
             _inputEvents.onLeftGripButton += OnLeftGripButton;
             _inputEvents.onLeftGripButtonReleased += OnLeftGripButtonReleased;
@@ -69,6 +83,8 @@ namespace CoreSystems.XR.Input
             _inputEvents.onLeftSecondaryButton += OnLeftSecondaryButton;
             _inputEvents.onLeftSecondaryButtonReleased += OnLeftSecondaryButtonReleased;
 
+            _inputEvents.onRightPosition += OnRightPosition;
+            _inputEvents.onRightRotation += OnRightRotation;
             _inputEvents.onRightJoystick += OnRightJoystick;
             _inputEvents.onRightGripButton += OnRightGripButton;
             _inputEvents.onRightGripButtonReleased += OnRightGripButtonReleased;
@@ -83,6 +99,11 @@ namespace CoreSystems.XR.Input
         }
         void UnbindActions()
         {
+            _inputEvents.onHeadPosition -= OnHeadPosition;
+            _inputEvents.onHeadRotation -= OnHeadRotation;
+
+            _inputEvents.onLeftPosition -= OnLeftPosition;
+            _inputEvents.onLeftRotation -= OnLeftRotation;
             _inputEvents.onLeftJoystick -= OnLeftJoystick;
             _inputEvents.onLeftGripButton -= OnLeftGripButton;
             _inputEvents.onLeftGripButtonReleased -= OnLeftGripButtonReleased;
@@ -95,6 +116,8 @@ namespace CoreSystems.XR.Input
             _inputEvents.onLeftSecondaryButton -= OnLeftSecondaryButton;
             _inputEvents.onLeftSecondaryButtonReleased -= OnLeftSecondaryButtonReleased;
 
+            _inputEvents.onLeftPosition -= OnRightPosition;
+            _inputEvents.onLeftRotation -= OnRightRotation;
             _inputEvents.onRightJoystick -= OnRightJoystick;
             _inputEvents.onRightGripButton -= OnRightGripButton;
             _inputEvents.onRightGripButtonReleased -= OnRightGripButtonReleased;
@@ -166,6 +189,39 @@ namespace CoreSystems.XR.Input
                     sprint = 0;
                 }
             }
+            else if(button == _inputMap.leftGestureButton)
+            {
+                if (phase == InputActionPhase.Started)
+                {
+                    leftGesture = true;
+                }
+                else
+                {
+                    leftGesture = false;
+                }
+            }
+            else if (button == _inputMap.rightGestureButton)
+            {
+                if (phase == InputActionPhase.Started)
+                {
+                    rightGesture = true;
+                }
+                else
+                {
+                    rightGesture = false;
+                }
+            }
+            else if (button == _inputMap.rightTrigger)
+            {
+                if (phase == InputActionPhase.Started)
+                {
+                    rightTrigger = true;
+                }
+                else
+                {
+                    rightTrigger = false;
+                }
+            }
         }
         bool JoystickMoved(XRInputMapSO.Hand joystickSide, Vector2 value)
         {
@@ -177,7 +233,27 @@ namespace CoreSystems.XR.Input
             return false;
         }
 
+        #region head
+        void OnHeadPosition(Vector3 pos)
+        {
+            headPosition = pos;
+        }
+        void OnHeadRotation(Quaternion rot)
+        {
+            headRotation = rot;
+        }
+        #endregion
+
         #region left
+        void OnLeftPosition(Vector3 pos)
+        {
+            leftHandPosition = pos;
+        }
+        void OnLeftRotation(Quaternion rot)
+        {
+            leftHandRotation = rot;
+        }
+
         Vector2 prevLeftJoystickValue;
         Vector2 vectorZero = new Vector2(0, 0);
 
@@ -321,6 +397,15 @@ namespace CoreSystems.XR.Input
 
 
         #region right
+        void OnRightPosition(Vector3 pos)
+        {
+            rightHandPosition = pos;
+        }
+        void OnRightRotation(Quaternion rot)
+        {
+            rightHandRotation = rot;
+        }
+
         Vector2 prevRightJoystickValue;
 
         void SetRightJoystickZeroValues()
@@ -429,7 +514,7 @@ namespace CoreSystems.XR.Input
         }
         void OnRightTriggerButton(InputActionPhase phase)
         {
-            ButtonPressed(XRInputButton.rightTrigger, 1, phase);
+            ButtonPressed(XRInputButton.rightTriggerButton, 1, phase);
         }
         void OnRightTriggerButtonReleased()
         {

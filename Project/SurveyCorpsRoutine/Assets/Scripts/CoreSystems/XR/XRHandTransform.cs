@@ -7,7 +7,20 @@ namespace CoreSystems.XR
     [DisallowMultipleComponent]
     public class XRHandTransform : MonoBehaviour
     {
-        public XRInputEventsSO xrInputEvents;
+        [SerializeField] XRInputSO _input;
+
+        public XRInputSO input
+        {
+            get
+            {
+                return _input;
+            }
+            set
+            {
+                _input = value;
+            }
+        }
+
         public enum Hand
         {
             left, right
@@ -20,60 +33,23 @@ namespace CoreSystems.XR
             }
             set
             {
-                UnbindActions();
                 _hand = value;
-                BindActions();
             }
         }
         [SerializeField] Hand _hand;
-
-        private void OnEnable()
+        private void FixedUpdate()
         {
-            BindActions();
-        }
-
-        private void OnDisable()
-        {
-            UnbindActions();
-        }
-        void BindActions()
-        {
-            if (_hand == Hand.left)
+            if(_hand == Hand.left)
             {
-                xrInputEvents.onLeftPosition += OnPosition;
-                xrInputEvents.onLeftRotation += OnRotation;
+                transform.position = _input.leftHandPosition;
+                transform.rotation = _input.leftHandRotation;
             }
             else
             {
-                xrInputEvents.onRightPosition += OnPosition;
-                xrInputEvents.onRightRotation += OnRotation;
+                transform.position = _input.rightHandPosition;
+                transform.rotation = _input.rightHandRotation;
             }
         }
-        void UnbindActions()
-        {
-            if (_hand == Hand.left)
-            {
-                xrInputEvents.onLeftPosition -= OnPosition;
-                xrInputEvents.onLeftRotation -= OnRotation;
-
-            }
-            else
-            {
-                xrInputEvents.onRightPosition -= OnPosition;
-                xrInputEvents.onRightRotation -= OnRotation;
-            }
-
-        }
-        private void OnRotation(Quaternion rot)
-        {
-            transform.localRotation = rot;
-        }
-
-        private void OnPosition(Vector3 pos)
-        {
-            transform.localPosition = pos;
-        }
-
 
     }
 }

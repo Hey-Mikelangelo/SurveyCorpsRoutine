@@ -17,9 +17,10 @@ namespace CoreSystems.XR.Input
             rotateLeftButton = XRInputButton.rightJoystickLeft,
             rotateRightButton = XRInputButton.rightJoystickRight,
             rotateBackButton = XRInputButton.rightJoystickDown,
-            sprintButton = XRInputButton.rightJoystickUp;
-
-
+            sprintButton = XRInputButton.rightJoystickUp,
+            rightGestureButton = XRInputButton.rightSecondaryButton,
+            leftGestureButton = XRInputButton.leftSecondaryButton,
+            rightTrigger = XRInputButton.rightTriggerButton;
 
     
     }
