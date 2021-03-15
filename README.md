@@ -1,3 +1,3 @@
 # SurveyCorpsRoutine
 
-Project to test and develop XR game systems
+Unity project to test and develop XR game systems
