@@ -16,7 +16,8 @@ namespace CoreSystems.XR.Input
         public event UnityAction<InputAction.CallbackContext> onTriggerTouch;
         public event UnityAction<InputAction.CallbackContext> onPrimaryButtonTouch;
         public event UnityAction<InputAction.CallbackContext> onThumbstickTouch;
-
+        public event UnityAction<InputAction.CallbackContext> onGrip;
+        public event UnityAction<InputAction.CallbackContext> onTrigger;
 
         XRInputActions inputActions;
         public void SubsribeCallbacks(XRInputActions inputActions)
@@ -71,6 +72,16 @@ namespace CoreSystems.XR.Input
         public void OnThumbstickTouch(InputAction.CallbackContext context)
         {
             onThumbstickTouch?.Invoke(context);
+        }
+
+        public void OnGrip(InputAction.CallbackContext context)
+        {
+            onGrip?.Invoke(context);
+        }
+
+        public void OnTrigger(InputAction.CallbackContext context)
+        {
+            onTrigger?.Invoke(context);
         }
     }
 

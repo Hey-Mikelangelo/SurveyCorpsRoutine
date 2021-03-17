@@ -2,11 +2,12 @@
 namespace CoreSystems.XR.Input
 {
     public enum XRInputButton
-    {
+    {        
+        any,
         leftPrimaryButton,
         leftSecondaryButton,
-        leftGrip,
-        leftTrigger,
+        leftGripButton,
+        leftTriggerButton,
         leftJoystickClick,
         leftJoystickUp,
         leftJoystickDown,
@@ -20,11 +21,11 @@ namespace CoreSystems.XR.Input
         leftJoystickUpRelease,
         leftJoystickDownRelease,
         leftJoystickRightRelease,
-        leftJoystickLeftRelease,
-
+        leftJoystickLeftRelease, 
+       
         rightPrimaryButton,
         rightSecondaryButton,
-        rightGrip,
+        rightGripButton,
         rightTriggerButton,
         rightJoystickClick,
         rightJoystickUp,
@@ -40,5 +41,13 @@ namespace CoreSystems.XR.Input
         rightJoystickDownRelease,
         rightJoystickRightRelease,
         rightJoystickLeftRelease,
+
+        leftGrip,       //float
+        leftTrigger,    //float
+        rightGrip,      //float
+        rightTrigger,   //float
+
+        leftJoystick,   //vector2
+        rightJoystick,  //vector2
     }
 }

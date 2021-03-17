@@ -51,7 +51,6 @@ public class GestureLibrary : ScriptableObject
             this.maxRecognitionDistance = maxRecognitionDistance;
         }
     }
-    [SerializeField] public List<Gesture> Gestures = new List<Gesture>();
     [SerializeField]
     public List<Gesture> GesturesList = new List<Gesture>()
     {

@@ -1,7 +1,6 @@
 using CoreSystems.XR.Input;
 using Helpers;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
 
@@ -9,7 +8,7 @@ namespace CoreSystems.XR
 {
     public class XRPlayerMovement : MonoBehaviour
     {
-        public XRInputSO input;
+        public XRInputMap1 input;
         public Rigidbody locomotionRb;
         public Transform rotationDirTransform;
         public GameObject playerCamera;
@@ -57,7 +56,7 @@ namespace CoreSystems.XR
             _prevHeadPos = input.headPosition;
             Vector3 headVelocity = headMovementAmount / Time.fixedDeltaTime;
             headVelocity.y = 0;
-            Vector3 joystickMoveAmount = new Vector3(input.joystickMoveValue.x, 0, input.joystickMoveValue.y);
+            Vector3 joystickMoveAmount = new Vector3(input.move.value.x, 0, input.move.value.y);
             Debug.Log(joystickMoveAmount);
             Vector3 joystickVelocity = joystickMoveAmount * speed * Time.fixedDeltaTime;
             locomotionRb.velocity = headVelocity + joystickVelocity;

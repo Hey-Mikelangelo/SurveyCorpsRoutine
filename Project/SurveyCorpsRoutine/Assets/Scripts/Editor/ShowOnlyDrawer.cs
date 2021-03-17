@@ -1,4 +1,3 @@
-using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -27,6 +26,9 @@ public class ShowOnlyDrawer : PropertyDrawer
                 break;
             case SerializedPropertyType.Enum:
                 valueStr = prop.enumNames[prop.enumValueIndex];
+                break;
+            case SerializedPropertyType.Vector2:
+                valueStr = prop.vector2Value.x.ToString() + ", " + prop.vector2Value.x.ToString();
                 break;
             default:
                 valueStr = "(not supported)";

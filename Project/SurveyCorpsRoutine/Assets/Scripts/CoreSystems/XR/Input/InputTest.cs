@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using Unity.Profiling;
+using UnityEngine;
 
 namespace CoreSystems.XR.Input
 {
     public class InputTest : MonoBehaviour
     {
-        public XRInputSO inputMapping;
+        public XRInputMap1 inputMapLayer;
         public XRFeedbackSO xrFeedback;
+        public XRInputMapperSO mapper;
         private void OnEnable()
         {
             //input
@@ -14,12 +16,27 @@ namespace CoreSystems.XR.Input
         {
 
         }
+        static readonly ProfilerMarker testMarker = new ProfilerMarker("InputTest.Test");
         public void Update()
         {
-            if (inputMapping.jump)
+            // Debug.Log(inputMapLayer.jump.value);
+            /*if (inputMapLayer.jump.value)
             {
-                xrFeedback.SendImpulseRightH(0.01f, 0.5f);
+                Debug.Log("jump" + inputMapLayer.jump.value);
             }
+            if (inputMapLayer.move.value != Vector2.zero)
+            {
+                Debug.Log("move" + inputMapLayer.move);
+            }
+            if (inputMapLayer.rightGesture)
+            {
+                Debug.Log("rightGesture" + inputMapLayer.rightGesture);
+            }
+            if(inputMapLayer.rightHandGrab.value > 0)
+            {
+                Debug.Log("rightHandGrab" + inputMapLayer.rightHandGrab);
+            }*/
+
         }
         void OnButton()
         {

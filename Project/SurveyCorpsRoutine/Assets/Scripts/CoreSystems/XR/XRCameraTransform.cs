@@ -11,7 +11,7 @@ namespace CoreSystems.XR
     [DisallowMultipleComponent]
     public class XRCameraTransform : MonoBehaviour
     {
-        public XRInputSO input
+        public XRInputMap input
         {
             get
             {
@@ -23,7 +23,7 @@ namespace CoreSystems.XR
             }
         }
 
-        [SerializeField] XRInputSO _input;
+        [SerializeField] XRInputMap _input;
         private void OnEnable()
         {
             InputSystem.onAfterUpdate += UpdateCallback;

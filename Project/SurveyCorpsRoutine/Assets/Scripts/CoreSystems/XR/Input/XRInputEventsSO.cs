@@ -9,7 +9,8 @@ namespace CoreSystems.XR.Input
         void SubsribeCallbacks(XRInputActions inputActions);
     }
 
-    [CreateAssetMenu(fileName ="XRInputEventsSO", menuName = "XR/Input/XR Input Events")]
+
+    [CreateAssetMenu(fileName = "XRInputEventsSO", menuName = "XR/Input/XR Input Events")]
     public class XRInputEventsSO : ScriptableObject
     {
         [SerializeField] private XRInputActions inputActions;
@@ -39,6 +40,9 @@ namespace CoreSystems.XR.Input
         public event UnityAction onLeftTriggerTouchReleased;
         public event UnityAction onLeftPrimaryButtonTouchReleased;
         public event UnityAction onLeftJoystickTouchReleased;
+        public event UnityAction<float> onLeftGrip;
+        public event UnityAction<float> onLeftTrigger;
+
 
         public event UnityAction<Vector3> onRightPosition;
         public event UnityAction<Quaternion> onRightRotation;
@@ -59,10 +63,12 @@ namespace CoreSystems.XR.Input
         public event UnityAction onRightTriggerTouchReleased;
         public event UnityAction onRightPrimaryButtonTouchReleased;
         public event UnityAction onRightJoystickTouchReleased;
+        public event UnityAction<float> onRightGrip;
+        public event UnityAction<float> onRightTrigger;
 
         private void Awake()
         {
-           
+
         }
         private void OnEnable()
         {
@@ -97,6 +103,8 @@ namespace CoreSystems.XR.Input
             leftControllerInput.onTriggerTouch += OnLeftTriggerTouch;
             leftControllerInput.onPrimaryButtonTouch += OnLeftPrimaryButtonTouch;
             leftControllerInput.onThumbstickTouch += OnLeftThumbstickTouch;
+            leftControllerInput.onGrip += OnLeftGrip;
+            leftControllerInput.onTrigger += OnLeftTrigger;
 
             rightControllerInput.onPosition += OnRightPosition;
             rightControllerInput.onRotation += OnRightRotation;
@@ -109,7 +117,10 @@ namespace CoreSystems.XR.Input
             rightControllerInput.onTriggerTouch += OnRightTriggerTouch;
             rightControllerInput.onPrimaryButtonTouch += OnRightPrimaryButtonTouch;
             rightControllerInput.onThumbstickTouch += OnRightThumbstickTouch;
+            rightControllerInput.onGrip += OnRightGrip;
+            rightControllerInput.onTrigger += OnRightTrigger;
         }
+
         private void OnDisable()
         {
             if (HMDInput == null)
@@ -131,6 +142,8 @@ namespace CoreSystems.XR.Input
             leftControllerInput.onTriggerTouch -= OnLeftTriggerTouch;
             leftControllerInput.onPrimaryButtonTouch -= OnLeftPrimaryButtonTouch;
             leftControllerInput.onThumbstickTouch -= OnLeftThumbstickTouch;
+            leftControllerInput.onGrip -= OnLeftGrip;
+            leftControllerInput.onTrigger -= OnLeftTrigger;
 
             rightControllerInput.onPosition -= OnRightPosition;
             rightControllerInput.onRotation -= OnRightRotation;
@@ -143,6 +156,8 @@ namespace CoreSystems.XR.Input
             rightControllerInput.onTriggerTouch -= OnRightTriggerTouch;
             rightControllerInput.onPrimaryButtonTouch -= OnRightPrimaryButtonTouch;
             rightControllerInput.onThumbstickTouch -= OnRightThumbstickTouch;
+            rightControllerInput.onGrip -= OnRightGrip;
+            rightControllerInput.onTrigger -= OnRightTrigger;
 
             inputActions.Disable();
 
@@ -272,6 +287,14 @@ namespace CoreSystems.XR.Input
                 onLeftJoystickTouchReleased?.Invoke();
             }
         }
+        void OnLeftGrip(InputAction.CallbackContext context)
+        {
+            onLeftGrip?.Invoke(context.ReadValue<float>());
+        }
+        void OnLeftTrigger(InputAction.CallbackContext context)
+        {
+            onLeftTrigger?.Invoke(context.ReadValue<float>());
+        }
         #endregion
 
         #region rightController
@@ -384,6 +407,14 @@ namespace CoreSystems.XR.Input
                 onRightJoystickTouch?.Invoke(InputActionPhase.Canceled);
                 onRightJoystickTouchReleased?.Invoke();
             }
+        }
+        void OnRightGrip(InputAction.CallbackContext context)
+        {
+            onRightGrip?.Invoke(context.ReadValue<float>());
+        }
+        void OnRightTrigger(InputAction.CallbackContext context)
+        {
+            onRightTrigger?.Invoke(context.ReadValue<float>());
         }
         #endregion
     }

@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1335be5f5a2d56846aedcf848224a423, type: 3}
+  m_Name: XRInputMap1
+  m_EditorClassIdentifier: 
+  FloatInputs:
+  - inputButton: 24
+    type: System.Single
+    value: 0
+  - inputButton: 37
+    type: System.Single
+    value: 0
+  - inputButton: 39
+    type: System.Single
+    value: 0
+  Vector2Inputs:
+  - inputButton: 41
+    type: UnityEngine.Vector2
+    value: {x: 0, y: 0}
+  jump:
+    inputButton: 33
+    type: System.Boolean
+    value: 0
+  rotateLeft:
+    inputButton: 27
+    type: System.Boolean
+    value: 0
+  rotateRight:
+    inputButton: 26
+    type: System.Boolean
+    value: 0
+  rotateBack:
+    inputButton: 25
+    type: System.Boolean
+    value: 0
+  rightGesture:
+    inputButton: 20
+    type: System.Boolean
+    value: 0
+  leftGesture:
+    inputButton: 2
+    type: System.Boolean
+    value: 0
+  rightGestureChange:
+    inputButton: 22
+    type: System.Boolean
+    value: 0
+  leftGestureChange:
+    inputButton: 4
+    type: System.Boolean
+    value: 0
+  sprint:
+    inputButton: 24
+    type: System.Single
+    value: 0
+  leftHandGrab:
+    inputButton: 37
+    type: System.Single
+    value: 0
+  rightHandGrab:
+    inputButton: 39
+    type: System.Single
+    value: 0
+  move:
+    inputButton: 41
+    type: UnityEngine.Vector2
+    value: {x: 0, y: 0}

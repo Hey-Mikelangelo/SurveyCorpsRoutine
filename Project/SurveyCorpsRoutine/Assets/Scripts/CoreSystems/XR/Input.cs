@@ -6,12 +6,12 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-namespace CoreSystems.XR.Input
+namespace XRInput
 {
-    public class @XRInputActions : IInputActionCollection, IDisposable
+    public class @XRInputActionss : IInputActionCollection, IDisposable
     {
         public InputActionAsset asset { get; }
-        public @XRInputActions()
+        public @XRInputActionss()
         {
             asset = InputActionAsset.FromJson(@"{
     ""name"": ""XR_InputActions"",
@@ -838,8 +838,8 @@ namespace CoreSystems.XR.Input
         private readonly InputAction m_HMD_Position;
         public struct HMDActions
         {
-            private @XRInputActions m_Wrapper;
-            public HMDActions(@XRInputActions wrapper) { m_Wrapper = wrapper; }
+            private @XRInputActionss m_Wrapper;
+            public HMDActions(@XRInputActionss wrapper) { m_Wrapper = wrapper; }
             public InputAction @Rotation => m_Wrapper.m_HMD_Rotation;
             public InputAction @Position => m_Wrapper.m_HMD_Position;
             public InputActionMap Get() { return m_Wrapper.m_HMD; }
@@ -890,8 +890,8 @@ namespace CoreSystems.XR.Input
         private readonly InputAction m_RightHand_ThumbstickTouch;
         public struct RightHandActions
         {
-            private @XRInputActions m_Wrapper;
-            public RightHandActions(@XRInputActions wrapper) { m_Wrapper = wrapper; }
+            private @XRInputActionss m_Wrapper;
+            public RightHandActions(@XRInputActionss wrapper) { m_Wrapper = wrapper; }
             public InputAction @Position => m_Wrapper.m_RightHand_Position;
             public InputAction @Rotation => m_Wrapper.m_RightHand_Rotation;
             public InputAction @GripButton => m_Wrapper.m_RightHand_GripButton;
@@ -1019,8 +1019,8 @@ namespace CoreSystems.XR.Input
         private readonly InputAction m_LeftHand_ThumbstickTouch;
         public struct LeftHandActions
         {
-            private @XRInputActions m_Wrapper;
-            public LeftHandActions(@XRInputActions wrapper) { m_Wrapper = wrapper; }
+            private @XRInputActionss m_Wrapper;
+            public LeftHandActions(@XRInputActionss wrapper) { m_Wrapper = wrapper; }
             public InputAction @Position => m_Wrapper.m_LeftHand_Position;
             public InputAction @Rotation => m_Wrapper.m_LeftHand_Rotation;
             public InputAction @GripButton => m_Wrapper.m_LeftHand_GripButton;

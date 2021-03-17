@@ -76,10 +76,26 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Grip",
+                    "type": "Value",
+                    "id": "3ef7e404-91d7-46cb-afdd-325f21c8b6ed",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "TriggerButton",
                     "type": "Button",
                     "id": "20fbe516-a70c-470e-8c4d-f2adb662aca9",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Trigger",
+                    "type": "Value",
+                    "id": "d308b088-9f2c-4426-a31b-c3d245f388fd",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
                 },
@@ -349,6 +365,28 @@
                     "action": "ThumbstickTouch",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f99dd5e1-d9da-439a-8785-cdd2c1b22043",
+                    "path": "<XRController>{RightHand}/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Trigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e601d4a9-d945-4651-a532-5b9184d0efe9",
+                    "path": "<XRController>{RightHand}/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -381,10 +419,26 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Grip",
+                    "type": "Value",
+                    "id": "b56111fd-12b7-4550-bd03-6b6abd14055e",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "TriggerButton",
                     "type": "Button",
                     "id": "995b846b-ea0a-4f1a-b59d-ca1109674c6a",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Trigger",
+                    "type": "Value",
+                    "id": "02a4d964-9789-4e38-9af6-b2f4662b4a6d",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
                 },
@@ -652,6 +706,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "ThumbstickTouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1f7d6247-8762-4a26-bde4-b2f3ea71cf93",
+                    "path": "<XRController>{LeftHand}/grip",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7237e60c-2af5-48fb-90f2-2a953d744996",
+                    "path": "<XRController>{LeftHand}/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Trigger",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
