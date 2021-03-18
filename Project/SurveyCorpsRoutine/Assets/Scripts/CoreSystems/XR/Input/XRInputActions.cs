@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Settings/Default Input Actions/XR_InputActions.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Settings/Default Input Actions/XRInputActions.inputactions'
 
 using System;
 using System.Collections;
@@ -14,25 +14,201 @@ namespace CoreSystems.XR.Input
         public @XRInputActions()
         {
             asset = InputActionAsset.FromJson(@"{
-    ""name"": ""XR_InputActions"",
+    ""name"": ""XRInputActions"",
     ""maps"": [
         {
-            ""name"": ""HMD"",
-            ""id"": ""a3a4db6d-60a9-403f-af0a-4f631bb9b7df"",
+            ""name"": ""OpenVR"",
+            ""id"": ""442f0a8c-3a55-453e-a10f-db09262ef44a"",
             ""actions"": [
                 {
-                    ""name"": ""Rotation"",
+                    ""name"": ""HeadRotation"",
                     ""type"": ""Value"",
-                    ""id"": ""555ed2ee-d38c-4e80-a14b-f131a0a09bc4"",
+                    ""id"": ""d197241e-fc75-4625-b68d-27180fe73fcf"",
                     ""expectedControlType"": ""Quaternion"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Position"",
+                    ""name"": ""HeadPosition"",
                     ""type"": ""Value"",
-                    ""id"": ""b19fcb82-9246-44d9-b2bd-63c4f92473f8"",
+                    ""id"": ""ebed8afd-01c5-411c-b205-48eb8819982f"",
                     ""expectedControlType"": ""Vector3"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RightPosition"",
+                    ""type"": ""Value"",
+                    ""id"": ""1e8b6c52-f328-4689-8e20-b536770747e7"",
+                    ""expectedControlType"": ""Vector3"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RightRotation"",
+                    ""type"": ""Value"",
+                    ""id"": ""f157e6bc-8496-4b2e-a2e5-d5c135b81456"",
+                    ""expectedControlType"": ""Quaternion"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RightPrimaryAxis"",
+                    ""type"": ""Value"",
+                    ""id"": ""ee2e96b8-0ab8-4096-aebb-6fddea9686df"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RightGrip"",
+                    ""type"": ""Value"",
+                    ""id"": ""c34f04ae-9804-4901-8d58-88a72107f2b5"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RightTrigger"",
+                    ""type"": ""Value"",
+                    ""id"": ""aef2cac2-f2d4-4539-99aa-421cebbcdfba"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RightGripButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""66ed4c20-2bf7-418c-816d-bba3e985de38"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RightTriggerButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""f960176b-06ac-4b78-a2a9-0940745f0324"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RightPrimaryButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""b5fa976f-b903-433e-bbdb-c3309b11cd35"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RightSecondaryButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""1282af09-cb83-4718-88fc-e1b8dfdb8a80"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RightPrimaryAxisClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""103ebeff-7b2b-4708-90db-4abab3f2fe06"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RightPrimaryAxisTouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""ce243026-49e2-4335-8054-cc79b5cb8b8d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""LeftPosition"",
+                    ""type"": ""Value"",
+                    ""id"": ""949d9316-ce31-4acf-924f-7a9ac7441ab4"",
+                    ""expectedControlType"": ""Vector3"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""LeftRotation"",
+                    ""type"": ""Value"",
+                    ""id"": ""a4894109-7b8f-441e-9a31-51ee632dec75"",
+                    ""expectedControlType"": ""Quaternion"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""LeftPrimaryAxis"",
+                    ""type"": ""Value"",
+                    ""id"": ""f7555399-3d85-4a77-bdf2-32f2cda4e854"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""LeftGrip"",
+                    ""type"": ""Value"",
+                    ""id"": ""21d9fd8c-bf26-492a-8b9b-29f182b843b2"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""LeftTrigger"",
+                    ""type"": ""Value"",
+                    ""id"": ""bf5c5f0b-8666-4317-b04d-fe269ecce35d"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""LeftGripButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""c8040fbb-1c34-4e78-8808-aff057ac40be"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""LeftTriggerButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""4adacbde-b022-4802-a3c1-8930bc9c3bd0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""LeftPrimaryButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""4adad690-2a1d-49a3-8850-3809e3cff972"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""LeftSecondaryButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""7f440a59-3efa-4539-8ba3-1029dc76e1e6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""LeftPrimaryAxisClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""6d3e9c06-7b79-4abe-80ca-4719e6fb7774"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""LeftPrimaryAxisTouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""2954b2c3-80a8-4061-82a3-29188ec3bee3"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -40,709 +216,463 @@ namespace CoreSystems.XR.Input
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""bef6b585-7085-427b-a4ae-edcade6ec809"",
+                    ""id"": ""05ab80cb-8321-4f6b-98a3-d79d6c27a35e"",
                     ""path"": ""<XRHMD>/centerEyePosition"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Generic XR Controller"",
-                    ""action"": ""Position"",
+                    ""action"": ""HeadPosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""eca32440-65d1-41ed-a784-cf0db90f8e8d"",
+                    ""id"": ""bb0e9225-4c32-4552-9d1b-56eac73579fe"",
                     ""path"": ""<XRHMD>/centerEyeRotation"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Generic XR Controller"",
-                    ""action"": ""Rotation"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""RightHand"",
-            ""id"": ""88147c3d-acf0-4475-9886-9b24bb2a6403"",
-            ""actions"": [
-                {
-                    ""name"": ""Position"",
-                    ""type"": ""Value"",
-                    ""id"": ""fe438135-7b23-4e58-bd41-0d5394c69d37"",
-                    ""expectedControlType"": ""Vector3"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Rotation"",
-                    ""type"": ""Value"",
-                    ""id"": ""19b8cf94-25f6-4713-9bb8-9ec465a6e586"",
-                    ""expectedControlType"": ""Quaternion"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""GripButton"",
-                    ""type"": ""Button"",
-                    ""id"": ""89a8e330-27d1-49b2-aa0b-f14e16b05112"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Grip"",
-                    ""type"": ""Value"",
-                    ""id"": ""3ef7e404-91d7-46cb-afdd-325f21c8b6ed"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""TriggerButton"",
-                    ""type"": ""Button"",
-                    ""id"": ""20fbe516-a70c-470e-8c4d-f2adb662aca9"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Trigger"",
-                    ""type"": ""Value"",
-                    ""id"": ""d308b088-9f2c-4426-a31b-c3d245f388fd"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""PrimaryButton"",
-                    ""type"": ""Button"",
-                    ""id"": ""cdf05bc2-6c6f-40e5-b2a9-9d05b5c911e3"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""SecondaryButton"",
-                    ""type"": ""Button"",
-                    ""id"": ""d0993b25-97b6-4171-81d0-83d24807c611"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""PrimaryAxis"",
-                    ""type"": ""Value"",
-                    ""id"": ""e947d2e6-3a3f-494b-b999-519d8a13ae3b"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""PrimaryAxisClicked"",
-                    ""type"": ""Button"",
-                    ""id"": ""12c19756-3f10-4e11-b9bc-8a2073fd4a2d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""TriggerTouch"",
-                    ""type"": ""Button"",
-                    ""id"": ""2437283f-c3ce-4fe2-a597-62938a65a756"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""PrimaryButtonTouch"",
-                    ""type"": ""Button"",
-                    ""id"": ""b5f55241-f688-41e8-ab1c-fcb46ac6cbd8"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""ThumbstickTouch"",
-                    ""type"": ""Button"",
-                    ""id"": ""eb499f23-9732-4f8c-b9eb-bb4e3e489e32"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""ff61a971-93b4-4624-af27-b933c84db425"",
-                    ""path"": ""<XRController>{RightHand}/devicePosition"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Generic XR Controller"",
-                    ""action"": ""Position"",
+                    ""action"": ""HeadRotation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""246e384b-9ba7-4a09-affc-dad250139185"",
-                    ""path"": ""<XRController>{RightHand}/gripButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Generic XR Controller"",
-                    ""action"": ""GripButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""90fd8901-f5d7-4948-8a06-8293225290dc"",
-                    ""path"": ""<XRController>{RightHand}/gripPressed"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""GripButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b8c4a537-8a9f-406d-8d20-23b084dfc908"",
-                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerRight>{RightHand}/grippressed"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""GripButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d97c7ae6-f30f-4eca-80c5-0af3367ebf66"",
-                    ""path"": ""<XRController>{RightHand}/triggerPressed"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Generic XR Controller"",
-                    ""action"": ""TriggerButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""dca2ac6a-6c3b-4720-8610-9dfc42d8c86c"",
-                    ""path"": ""<XRController>{RightHand}/triggerButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TriggerButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""58538949-57dc-4798-96de-c37500a446c8"",
-                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerRight>{RightHand}/triggerpressed"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TriggerButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""40904b55-35c7-43f9-83ef-a1c2a0208aa7"",
-                    ""path"": ""<XRController>{RightHand}/primaryButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PrimaryButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""35e065e6-1176-4276-8452-b4e1009ff21f"",
-                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerRight>{RightHand}/primarybutton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PrimaryButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8ef8b794-08c3-40ff-a097-c4f8414abb17"",
-                    ""path"": ""<XRController>{RightHand}/secondaryButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SecondaryButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""600b0604-cf40-4c3d-ae8f-d80163d2184e"",
-                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerRight>{RightHand}/secondarybutton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SecondaryButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""93fd947d-ee3f-48f5-8640-1f037ca86957"",
-                    ""path"": ""<XRController>{RightHand}/primary2DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PrimaryAxis"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""60c55d67-142f-4a34-8d88-8f9dbe7c35d3"",
-                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerRight>{RightHand}/thumbstick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PrimaryAxis"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7f1271c9-6204-421b-8a4e-3058d7a3e5dc"",
-                    ""path"": ""<XRController>{RightHand}/primary2DAxisClick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PrimaryAxisClicked"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6ff42e33-3f75-43d5-8cbe-1a71bcd32d7a"",
-                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerRight>{RightHand}/thumbstickclicked"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PrimaryAxisClicked"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""cb6061be-24fe-40c6-bc14-6aef3a2d2d29"",
-                    ""path"": ""<XRController>{RightHand}/deviceRotation"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Generic XR Controller"",
-                    ""action"": ""Rotation"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b35cf63c-b4bd-4b9e-b5aa-664cfae4352c"",
-                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerRight>{RightHand}/triggertouched"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TriggerTouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""50725d25-ac64-4d7e-a368-a6e720f9b9bd"",
-                    ""path"": ""<XRController>{RightHand}/primaryTouched"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PrimaryButtonTouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e164798a-8434-4579-ac95-e675eb3eb567"",
+                    ""id"": ""f8575609-bbd0-4de0-b873-b429cbf8d157"",
                     ""path"": ""<XRController>{RightHand}/thumbstickTouched"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ThumbstickTouch"",
+                    ""action"": ""RightPrimaryAxisTouch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f99dd5e1-d9da-439a-8785-cdd2c1b22043"",
-                    ""path"": ""<XRController>{RightHand}/trigger"",
+                    ""id"": ""798ba10c-316c-4915-91c2-e24c0dba4787"",
+                    ""path"": ""<XRController>{RightHand}/trackpadTouched"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Trigger"",
+                    ""action"": ""RightPrimaryAxisTouch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""e601d4a9-d945-4651-a532-5b9184d0efe9"",
-                    ""path"": ""<XRController>{RightHand}/trigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Grip"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""LeftHand"",
-            ""id"": ""fe4cff47-77e3-4fc6-a129-36c7f7fa626c"",
-            ""actions"": [
-                {
-                    ""name"": ""Position"",
-                    ""type"": ""Value"",
-                    ""id"": ""107f3b44-485f-42ee-af6a-e2d4126587b3"",
-                    ""expectedControlType"": ""Vector3"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Rotation"",
-                    ""type"": ""Value"",
-                    ""id"": ""6308f524-6c01-41a5-aa51-1d8d9720cb77"",
-                    ""expectedControlType"": ""Quaternion"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""GripButton"",
-                    ""type"": ""Button"",
-                    ""id"": ""19eb737b-866f-4f7c-8617-65545d70079d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Grip"",
-                    ""type"": ""Value"",
-                    ""id"": ""b56111fd-12b7-4550-bd03-6b6abd14055e"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""TriggerButton"",
-                    ""type"": ""Button"",
-                    ""id"": ""995b846b-ea0a-4f1a-b59d-ca1109674c6a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Trigger"",
-                    ""type"": ""Value"",
-                    ""id"": ""02a4d964-9789-4e38-9af6-b2f4662b4a6d"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""PrimaryButton"",
-                    ""type"": ""Button"",
-                    ""id"": ""e9a938e8-9f59-4965-8af8-d3b38169c7d0"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""SecondaryButton"",
-                    ""type"": ""Button"",
-                    ""id"": ""7cf26d4d-a597-4073-9bb4-21b7d4ee0fe8"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""PrimaryAxis"",
-                    ""type"": ""Value"",
-                    ""id"": ""e74699b5-9212-4758-a385-38e3b92163c9"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""PrimaryAxisClicked"",
-                    ""type"": ""Button"",
-                    ""id"": ""2136973e-fcab-47f5-9562-81c87e3aa792"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""TriggerTouch"",
-                    ""type"": ""Button"",
-                    ""id"": ""8fe2a446-525b-4b39-b234-38ce6eb0026d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""PrimaryButtonTouch"",
-                    ""type"": ""Button"",
-                    ""id"": ""1cc9b9dd-b2d3-4558-986b-031d1a03f6ab"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""ThumbstickTouch"",
-                    ""type"": ""Button"",
-                    ""id"": ""68c2cff0-523f-4f52-9ef4-521b6f602501"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""8d2f55a3-0a53-45d0-b191-f8a49ddb4a8e"",
-                    ""path"": ""<XRController>{LeftHand}/devicePosition"",
+                    ""id"": ""1ee339a0-56dc-4087-9df0-ea25656790f6"",
+                    ""path"": ""<XRController>{RightHand}/devicePosition"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Generic XR Controller"",
-                    ""action"": ""Position"",
+                    ""action"": ""RightPosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""96448503-fd2b-4dfa-a4b0-c1255231842c"",
+                    ""id"": ""f12c0cb9-549f-428b-8edc-d038117aa1d5"",
+                    ""path"": ""<XRController>{RightHand}/deviceRotation"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Generic XR Controller"",
+                    ""action"": ""RightRotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""68824735-4320-4eb9-9c60-15390a6e0b76"",
+                    ""path"": ""<XRController>{RightHand}/trigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightGrip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""55be7168-0b45-4ce7-80d7-90a8e0a256eb"",
+                    ""path"": ""<XRController>{RightHand}/trigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightTrigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""edaad9d8-ea6a-4aa6-87d1-0638e2c50076"",
+                    ""path"": ""<XRController>{RightHand}/triggerPressed"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Generic XR Controller"",
+                    ""action"": ""RightTriggerButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fcbbcb30-8918-4553-b042-569a9137e373"",
+                    ""path"": ""<XRController>{RightHand}/triggerButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightTriggerButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dcfcb53d-1d37-446d-960f-29ea522db8fb"",
+                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerRight>{RightHand}/triggerpressed"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightTriggerButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8ea1daae-3743-4b2e-aca8-26498dea9521"",
+                    ""path"": ""<XRController>{RightHand}/secondaryButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightSecondaryButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""01a6a1f8-eaa4-4cbd-8576-58fbe58f17ec"",
+                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerRight>{RightHand}/secondarybutton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightSecondaryButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bfb780cf-4374-4b12-9b37-9c63a4d29ba3"",
+                    ""path"": ""<XRController>{RightHand}/primary2DAxisClick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightPrimaryAxisClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cb8bd46e-45e2-43ba-bcf8-aefa4de005ad"",
+                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerRight>{RightHand}/thumbstickclicked"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightPrimaryAxisClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f0e1bcdd-020a-4acd-8369-a260c9039047"",
+                    ""path"": ""<XRController>{RightHand}/primaryButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightPrimaryButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a330987e-24d3-4aa0-b500-e9a198ba8dd2"",
+                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerRight>{RightHand}/primarybutton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightPrimaryButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e35ebf68-63c9-4b63-aa50-eaf8613bda68"",
                     ""path"": ""<XRController>{RightHand}/gripButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Generic XR Controller"",
-                    ""action"": ""GripButton"",
+                    ""action"": ""RightGripButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""5b2b8ac0-cb45-4938-893b-b05a92f0636d"",
-                    ""path"": ""<XRController>{LeftHand}/gripPressed"",
+                    ""id"": ""e1e09401-2831-4542-a9e2-c39d52c244bc"",
+                    ""path"": ""<XRController>{RightHand}/gripPressed"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""GripButton"",
+                    ""action"": ""RightGripButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""dfb8e6fe-3cd8-4813-af48-c962b0898e84"",
-                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerLeft>{LeftHand}/grippressed"",
+                    ""id"": ""ad44338a-00e3-48d6-bc11-a08450baf117"",
+                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerRight>{RightHand}/grippressed"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""GripButton"",
+                    ""action"": ""RightGripButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a52f93ef-678c-4dcf-9ea5-c887cf57140d"",
-                    ""path"": ""<XRController>{LeftHand}/triggerPressed"",
+                    ""id"": ""efdbdb34-67bb-4c89-b544-13592b7ab2fc"",
+                    ""path"": ""<XRController>{RightHand}/primary2DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightPrimaryAxis"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0aafe9ba-8062-4e10-bec1-eee7480c1bc7"",
+                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerRight>{RightHand}/thumbstick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightPrimaryAxis"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""709d003f-9e21-42c4-a668-2693d0d7172a"",
+                    ""path"": ""<XRController>{LeftHand}/devicePosition"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Generic XR Controller"",
-                    ""action"": ""TriggerButton"",
+                    ""action"": ""LeftPosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""570eef1f-29c5-4957-a815-adb0b8a3fa69"",
-                    ""path"": ""<XRController>{LeftHand}/triggerButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TriggerButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""15f4925c-c0d1-42e8-8271-3142abdd59d7"",
-                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerLeft>{LeftHand}/triggerpressed"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TriggerButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e00d9562-430e-4872-8bf2-2835ccbe6320"",
-                    ""path"": ""<XRController>{LeftHand}/primaryButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PrimaryButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""333064a8-13c7-40f6-899b-ef17e6a50710"",
-                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerLeft>{LeftHand}/primarybutton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PrimaryButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a946ce1c-ce75-4301-86d7-03d00828b343"",
-                    ""path"": ""<XRController>{LeftHand}/secondaryButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SecondaryButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3b32cdeb-8c05-4303-9f90-35ff37e73750"",
-                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerLeft>{LeftHand}/secondarybutton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SecondaryButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""14428b8d-9a5c-4a1d-8786-48ad12c3dd0a"",
-                    ""path"": ""<XRController>{LeftHand}/primary2DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PrimaryAxis"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4dd24081-357e-4a05-8330-5ef17e8fb0d8"",
-                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerLeft>{LeftHand}/thumbstick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PrimaryAxis"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""64c40549-5c6e-4301-8bee-e487d8f17a0b"",
-                    ""path"": ""<XRController>{LeftHand}/primary2DAxisClick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PrimaryAxisClicked"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""916c6f41-cf26-4408-9aa9-ba2865dcd93f"",
-                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerLeft>{LeftHand}/thumbstickclicked"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PrimaryAxisClicked"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3e7b230c-4cd7-475f-bcc1-b1124f3486df"",
+                    ""id"": ""a034efeb-86da-468e-96d9-f11fc1aa1733"",
                     ""path"": ""<XRController>{LeftHand}/deviceRotation"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Generic XR Controller"",
-                    ""action"": ""Rotation"",
+                    ""action"": ""LeftRotation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9d9a6608-9344-4b62-b5bc-85488c6310b4"",
-                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerLeft>{LeftHand}/triggertouched"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TriggerTouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7be207aa-a96a-4619-ad33-d91cff9fca36"",
-                    ""path"": ""<XRController>{LeftHand}/primaryTouched"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PrimaryButtonTouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""42d926c8-58ec-4dea-9a09-025a4bb6d9ef"",
-                    ""path"": ""<XRController>{LeftHand}/thumbstickTouched"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ThumbstickTouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1f7d6247-8762-4a26-bde4-b2f3ea71cf93"",
+                    ""id"": ""0ad7a2c1-0b05-44ee-9818-e3ce7a7c3b4f"",
                     ""path"": ""<XRController>{LeftHand}/grip"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Grip"",
+                    ""action"": ""LeftGrip"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""7237e60c-2af5-48fb-90f2-2a953d744996"",
+                    ""id"": ""f086a110-95f2-422c-bcf8-8091f5de4ca0"",
                     ""path"": ""<XRController>{LeftHand}/trigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Trigger"",
+                    ""action"": ""LeftTrigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1db5b994-0a9b-4eba-9df1-af3c031f7cfb"",
+                    ""path"": ""<XRController>{RightHand}/gripButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Generic XR Controller"",
+                    ""action"": ""LeftGripButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""67c7493b-2b00-4206-a5b4-18214c280f85"",
+                    ""path"": ""<XRController>{LeftHand}/gripPressed"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftGripButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5bdd1938-5b19-4316-8562-b9f7f1011418"",
+                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerLeft>{LeftHand}/grippressed"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftGripButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""03886f35-174c-4709-bd57-1dcef4aa5698"",
+                    ""path"": ""<XRController>{LeftHand}/triggerPressed"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Generic XR Controller"",
+                    ""action"": ""LeftTriggerButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e052d6e0-857f-43b7-a5eb-4ad0ebf2f405"",
+                    ""path"": ""<XRController>{LeftHand}/triggerButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftTriggerButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fb62de26-efa3-411e-be5e-a89821894f3d"",
+                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerLeft>{LeftHand}/triggerpressed"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftTriggerButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""727d0860-715c-49ef-9c95-9a6620ddeb96"",
+                    ""path"": ""<XRController>{LeftHand}/primaryButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftPrimaryButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d786c06d-0527-4e6e-87da-7e2ba74da901"",
+                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerLeft>{LeftHand}/primarybutton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftPrimaryButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ee7e4e47-455d-454b-98d6-1c332ed9c83a"",
+                    ""path"": ""<XRController>{LeftHand}/secondaryButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftSecondaryButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""21dbf68e-5f7e-4052-a85b-d0533d79269f"",
+                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerLeft>{LeftHand}/secondarybutton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftSecondaryButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""826e86cb-31ce-4e7f-a0e9-23ba33d14446"",
+                    ""path"": ""<XRController>{LeftHand}/primary2DAxisClick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftPrimaryAxisClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""af2b6772-a30c-4467-8af9-98f592f21b4c"",
+                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerLeft>{LeftHand}/thumbstickclicked"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftPrimaryAxisClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""97163af8-7228-40b5-a4f1-e38676353b27"",
+                    ""path"": ""<XRController>{LeftHand}/thumbstickTouched"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftPrimaryAxisTouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""05712632-b675-4603-9388-6a464e1fd8b9"",
+                    ""path"": ""<XRController>{LeftHand}/trackpadTouched"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftPrimaryAxisTouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""990d080b-47c7-438a-a577-201aaa983eab"",
+                    ""path"": ""<XRController>{LeftHand}/primary2DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftPrimaryAxis"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8f6e5dd3-e01e-4aeb-8ce0-0468654bf97d"",
+                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerLeft>{LeftHand}/thumbstick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftPrimaryAxis"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -751,40 +681,32 @@ namespace CoreSystems.XR.Input
     ],
     ""controlSchemes"": []
 }");
-            // HMD
-            m_HMD = asset.FindActionMap("HMD", throwIfNotFound: true);
-            m_HMD_Rotation = m_HMD.FindAction("Rotation", throwIfNotFound: true);
-            m_HMD_Position = m_HMD.FindAction("Position", throwIfNotFound: true);
-            // RightHand
-            m_RightHand = asset.FindActionMap("RightHand", throwIfNotFound: true);
-            m_RightHand_Position = m_RightHand.FindAction("Position", throwIfNotFound: true);
-            m_RightHand_Rotation = m_RightHand.FindAction("Rotation", throwIfNotFound: true);
-            m_RightHand_GripButton = m_RightHand.FindAction("GripButton", throwIfNotFound: true);
-            m_RightHand_Grip = m_RightHand.FindAction("Grip", throwIfNotFound: true);
-            m_RightHand_TriggerButton = m_RightHand.FindAction("TriggerButton", throwIfNotFound: true);
-            m_RightHand_Trigger = m_RightHand.FindAction("Trigger", throwIfNotFound: true);
-            m_RightHand_PrimaryButton = m_RightHand.FindAction("PrimaryButton", throwIfNotFound: true);
-            m_RightHand_SecondaryButton = m_RightHand.FindAction("SecondaryButton", throwIfNotFound: true);
-            m_RightHand_PrimaryAxis = m_RightHand.FindAction("PrimaryAxis", throwIfNotFound: true);
-            m_RightHand_PrimaryAxisClicked = m_RightHand.FindAction("PrimaryAxisClicked", throwIfNotFound: true);
-            m_RightHand_TriggerTouch = m_RightHand.FindAction("TriggerTouch", throwIfNotFound: true);
-            m_RightHand_PrimaryButtonTouch = m_RightHand.FindAction("PrimaryButtonTouch", throwIfNotFound: true);
-            m_RightHand_ThumbstickTouch = m_RightHand.FindAction("ThumbstickTouch", throwIfNotFound: true);
-            // LeftHand
-            m_LeftHand = asset.FindActionMap("LeftHand", throwIfNotFound: true);
-            m_LeftHand_Position = m_LeftHand.FindAction("Position", throwIfNotFound: true);
-            m_LeftHand_Rotation = m_LeftHand.FindAction("Rotation", throwIfNotFound: true);
-            m_LeftHand_GripButton = m_LeftHand.FindAction("GripButton", throwIfNotFound: true);
-            m_LeftHand_Grip = m_LeftHand.FindAction("Grip", throwIfNotFound: true);
-            m_LeftHand_TriggerButton = m_LeftHand.FindAction("TriggerButton", throwIfNotFound: true);
-            m_LeftHand_Trigger = m_LeftHand.FindAction("Trigger", throwIfNotFound: true);
-            m_LeftHand_PrimaryButton = m_LeftHand.FindAction("PrimaryButton", throwIfNotFound: true);
-            m_LeftHand_SecondaryButton = m_LeftHand.FindAction("SecondaryButton", throwIfNotFound: true);
-            m_LeftHand_PrimaryAxis = m_LeftHand.FindAction("PrimaryAxis", throwIfNotFound: true);
-            m_LeftHand_PrimaryAxisClicked = m_LeftHand.FindAction("PrimaryAxisClicked", throwIfNotFound: true);
-            m_LeftHand_TriggerTouch = m_LeftHand.FindAction("TriggerTouch", throwIfNotFound: true);
-            m_LeftHand_PrimaryButtonTouch = m_LeftHand.FindAction("PrimaryButtonTouch", throwIfNotFound: true);
-            m_LeftHand_ThumbstickTouch = m_LeftHand.FindAction("ThumbstickTouch", throwIfNotFound: true);
+            // OpenVR
+            m_OpenVR = asset.FindActionMap("OpenVR", throwIfNotFound: true);
+            m_OpenVR_HeadRotation = m_OpenVR.FindAction("HeadRotation", throwIfNotFound: true);
+            m_OpenVR_HeadPosition = m_OpenVR.FindAction("HeadPosition", throwIfNotFound: true);
+            m_OpenVR_RightPosition = m_OpenVR.FindAction("RightPosition", throwIfNotFound: true);
+            m_OpenVR_RightRotation = m_OpenVR.FindAction("RightRotation", throwIfNotFound: true);
+            m_OpenVR_RightPrimaryAxis = m_OpenVR.FindAction("RightPrimaryAxis", throwIfNotFound: true);
+            m_OpenVR_RightGrip = m_OpenVR.FindAction("RightGrip", throwIfNotFound: true);
+            m_OpenVR_RightTrigger = m_OpenVR.FindAction("RightTrigger", throwIfNotFound: true);
+            m_OpenVR_RightGripButton = m_OpenVR.FindAction("RightGripButton", throwIfNotFound: true);
+            m_OpenVR_RightTriggerButton = m_OpenVR.FindAction("RightTriggerButton", throwIfNotFound: true);
+            m_OpenVR_RightPrimaryButton = m_OpenVR.FindAction("RightPrimaryButton", throwIfNotFound: true);
+            m_OpenVR_RightSecondaryButton = m_OpenVR.FindAction("RightSecondaryButton", throwIfNotFound: true);
+            m_OpenVR_RightPrimaryAxisClick = m_OpenVR.FindAction("RightPrimaryAxisClick", throwIfNotFound: true);
+            m_OpenVR_RightPrimaryAxisTouch = m_OpenVR.FindAction("RightPrimaryAxisTouch", throwIfNotFound: true);
+            m_OpenVR_LeftPosition = m_OpenVR.FindAction("LeftPosition", throwIfNotFound: true);
+            m_OpenVR_LeftRotation = m_OpenVR.FindAction("LeftRotation", throwIfNotFound: true);
+            m_OpenVR_LeftPrimaryAxis = m_OpenVR.FindAction("LeftPrimaryAxis", throwIfNotFound: true);
+            m_OpenVR_LeftGrip = m_OpenVR.FindAction("LeftGrip", throwIfNotFound: true);
+            m_OpenVR_LeftTrigger = m_OpenVR.FindAction("LeftTrigger", throwIfNotFound: true);
+            m_OpenVR_LeftGripButton = m_OpenVR.FindAction("LeftGripButton", throwIfNotFound: true);
+            m_OpenVR_LeftTriggerButton = m_OpenVR.FindAction("LeftTriggerButton", throwIfNotFound: true);
+            m_OpenVR_LeftPrimaryButton = m_OpenVR.FindAction("LeftPrimaryButton", throwIfNotFound: true);
+            m_OpenVR_LeftSecondaryButton = m_OpenVR.FindAction("LeftSecondaryButton", throwIfNotFound: true);
+            m_OpenVR_LeftPrimaryAxisClick = m_OpenVR.FindAction("LeftPrimaryAxisClick", throwIfNotFound: true);
+            m_OpenVR_LeftPrimaryAxisTouch = m_OpenVR.FindAction("LeftPrimaryAxisTouch", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -831,340 +753,248 @@ namespace CoreSystems.XR.Input
             asset.Disable();
         }
 
-        // HMD
-        private readonly InputActionMap m_HMD;
-        private IHMDActions m_HMDActionsCallbackInterface;
-        private readonly InputAction m_HMD_Rotation;
-        private readonly InputAction m_HMD_Position;
-        public struct HMDActions
+        // OpenVR
+        private readonly InputActionMap m_OpenVR;
+        private IOpenVRActions m_OpenVRActionsCallbackInterface;
+        private readonly InputAction m_OpenVR_HeadRotation;
+        private readonly InputAction m_OpenVR_HeadPosition;
+        private readonly InputAction m_OpenVR_RightPosition;
+        private readonly InputAction m_OpenVR_RightRotation;
+        private readonly InputAction m_OpenVR_RightPrimaryAxis;
+        private readonly InputAction m_OpenVR_RightGrip;
+        private readonly InputAction m_OpenVR_RightTrigger;
+        private readonly InputAction m_OpenVR_RightGripButton;
+        private readonly InputAction m_OpenVR_RightTriggerButton;
+        private readonly InputAction m_OpenVR_RightPrimaryButton;
+        private readonly InputAction m_OpenVR_RightSecondaryButton;
+        private readonly InputAction m_OpenVR_RightPrimaryAxisClick;
+        private readonly InputAction m_OpenVR_RightPrimaryAxisTouch;
+        private readonly InputAction m_OpenVR_LeftPosition;
+        private readonly InputAction m_OpenVR_LeftRotation;
+        private readonly InputAction m_OpenVR_LeftPrimaryAxis;
+        private readonly InputAction m_OpenVR_LeftGrip;
+        private readonly InputAction m_OpenVR_LeftTrigger;
+        private readonly InputAction m_OpenVR_LeftGripButton;
+        private readonly InputAction m_OpenVR_LeftTriggerButton;
+        private readonly InputAction m_OpenVR_LeftPrimaryButton;
+        private readonly InputAction m_OpenVR_LeftSecondaryButton;
+        private readonly InputAction m_OpenVR_LeftPrimaryAxisClick;
+        private readonly InputAction m_OpenVR_LeftPrimaryAxisTouch;
+        public struct OpenVRActions
         {
             private @XRInputActions m_Wrapper;
-            public HMDActions(@XRInputActions wrapper) { m_Wrapper = wrapper; }
-            public InputAction @Rotation => m_Wrapper.m_HMD_Rotation;
-            public InputAction @Position => m_Wrapper.m_HMD_Position;
-            public InputActionMap Get() { return m_Wrapper.m_HMD; }
+            public OpenVRActions(@XRInputActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @HeadRotation => m_Wrapper.m_OpenVR_HeadRotation;
+            public InputAction @HeadPosition => m_Wrapper.m_OpenVR_HeadPosition;
+            public InputAction @RightPosition => m_Wrapper.m_OpenVR_RightPosition;
+            public InputAction @RightRotation => m_Wrapper.m_OpenVR_RightRotation;
+            public InputAction @RightPrimaryAxis => m_Wrapper.m_OpenVR_RightPrimaryAxis;
+            public InputAction @RightGrip => m_Wrapper.m_OpenVR_RightGrip;
+            public InputAction @RightTrigger => m_Wrapper.m_OpenVR_RightTrigger;
+            public InputAction @RightGripButton => m_Wrapper.m_OpenVR_RightGripButton;
+            public InputAction @RightTriggerButton => m_Wrapper.m_OpenVR_RightTriggerButton;
+            public InputAction @RightPrimaryButton => m_Wrapper.m_OpenVR_RightPrimaryButton;
+            public InputAction @RightSecondaryButton => m_Wrapper.m_OpenVR_RightSecondaryButton;
+            public InputAction @RightPrimaryAxisClick => m_Wrapper.m_OpenVR_RightPrimaryAxisClick;
+            public InputAction @RightPrimaryAxisTouch => m_Wrapper.m_OpenVR_RightPrimaryAxisTouch;
+            public InputAction @LeftPosition => m_Wrapper.m_OpenVR_LeftPosition;
+            public InputAction @LeftRotation => m_Wrapper.m_OpenVR_LeftRotation;
+            public InputAction @LeftPrimaryAxis => m_Wrapper.m_OpenVR_LeftPrimaryAxis;
+            public InputAction @LeftGrip => m_Wrapper.m_OpenVR_LeftGrip;
+            public InputAction @LeftTrigger => m_Wrapper.m_OpenVR_LeftTrigger;
+            public InputAction @LeftGripButton => m_Wrapper.m_OpenVR_LeftGripButton;
+            public InputAction @LeftTriggerButton => m_Wrapper.m_OpenVR_LeftTriggerButton;
+            public InputAction @LeftPrimaryButton => m_Wrapper.m_OpenVR_LeftPrimaryButton;
+            public InputAction @LeftSecondaryButton => m_Wrapper.m_OpenVR_LeftSecondaryButton;
+            public InputAction @LeftPrimaryAxisClick => m_Wrapper.m_OpenVR_LeftPrimaryAxisClick;
+            public InputAction @LeftPrimaryAxisTouch => m_Wrapper.m_OpenVR_LeftPrimaryAxisTouch;
+            public InputActionMap Get() { return m_Wrapper.m_OpenVR; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
             public bool enabled => Get().enabled;
-            public static implicit operator InputActionMap(HMDActions set) { return set.Get(); }
-            public void SetCallbacks(IHMDActions instance)
+            public static implicit operator InputActionMap(OpenVRActions set) { return set.Get(); }
+            public void SetCallbacks(IOpenVRActions instance)
             {
-                if (m_Wrapper.m_HMDActionsCallbackInterface != null)
+                if (m_Wrapper.m_OpenVRActionsCallbackInterface != null)
                 {
-                    @Rotation.started -= m_Wrapper.m_HMDActionsCallbackInterface.OnRotation;
-                    @Rotation.performed -= m_Wrapper.m_HMDActionsCallbackInterface.OnRotation;
-                    @Rotation.canceled -= m_Wrapper.m_HMDActionsCallbackInterface.OnRotation;
-                    @Position.started -= m_Wrapper.m_HMDActionsCallbackInterface.OnPosition;
-                    @Position.performed -= m_Wrapper.m_HMDActionsCallbackInterface.OnPosition;
-                    @Position.canceled -= m_Wrapper.m_HMDActionsCallbackInterface.OnPosition;
+                    @HeadRotation.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnHeadRotation;
+                    @HeadRotation.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnHeadRotation;
+                    @HeadRotation.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnHeadRotation;
+                    @HeadPosition.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnHeadPosition;
+                    @HeadPosition.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnHeadPosition;
+                    @HeadPosition.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnHeadPosition;
+                    @RightPosition.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightPosition;
+                    @RightPosition.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightPosition;
+                    @RightPosition.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightPosition;
+                    @RightRotation.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightRotation;
+                    @RightRotation.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightRotation;
+                    @RightRotation.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightRotation;
+                    @RightPrimaryAxis.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightPrimaryAxis;
+                    @RightPrimaryAxis.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightPrimaryAxis;
+                    @RightPrimaryAxis.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightPrimaryAxis;
+                    @RightGrip.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightGrip;
+                    @RightGrip.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightGrip;
+                    @RightGrip.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightGrip;
+                    @RightTrigger.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightTrigger;
+                    @RightTrigger.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightTrigger;
+                    @RightTrigger.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightTrigger;
+                    @RightGripButton.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightGripButton;
+                    @RightGripButton.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightGripButton;
+                    @RightGripButton.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightGripButton;
+                    @RightTriggerButton.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightTriggerButton;
+                    @RightTriggerButton.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightTriggerButton;
+                    @RightTriggerButton.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightTriggerButton;
+                    @RightPrimaryButton.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightPrimaryButton;
+                    @RightPrimaryButton.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightPrimaryButton;
+                    @RightPrimaryButton.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightPrimaryButton;
+                    @RightSecondaryButton.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightSecondaryButton;
+                    @RightSecondaryButton.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightSecondaryButton;
+                    @RightSecondaryButton.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightSecondaryButton;
+                    @RightPrimaryAxisClick.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightPrimaryAxisClick;
+                    @RightPrimaryAxisClick.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightPrimaryAxisClick;
+                    @RightPrimaryAxisClick.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightPrimaryAxisClick;
+                    @RightPrimaryAxisTouch.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightPrimaryAxisTouch;
+                    @RightPrimaryAxisTouch.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightPrimaryAxisTouch;
+                    @RightPrimaryAxisTouch.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnRightPrimaryAxisTouch;
+                    @LeftPosition.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftPosition;
+                    @LeftPosition.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftPosition;
+                    @LeftPosition.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftPosition;
+                    @LeftRotation.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftRotation;
+                    @LeftRotation.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftRotation;
+                    @LeftRotation.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftRotation;
+                    @LeftPrimaryAxis.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftPrimaryAxis;
+                    @LeftPrimaryAxis.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftPrimaryAxis;
+                    @LeftPrimaryAxis.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftPrimaryAxis;
+                    @LeftGrip.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftGrip;
+                    @LeftGrip.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftGrip;
+                    @LeftGrip.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftGrip;
+                    @LeftTrigger.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftTrigger;
+                    @LeftTrigger.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftTrigger;
+                    @LeftTrigger.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftTrigger;
+                    @LeftGripButton.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftGripButton;
+                    @LeftGripButton.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftGripButton;
+                    @LeftGripButton.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftGripButton;
+                    @LeftTriggerButton.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftTriggerButton;
+                    @LeftTriggerButton.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftTriggerButton;
+                    @LeftTriggerButton.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftTriggerButton;
+                    @LeftPrimaryButton.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftPrimaryButton;
+                    @LeftPrimaryButton.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftPrimaryButton;
+                    @LeftPrimaryButton.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftPrimaryButton;
+                    @LeftSecondaryButton.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftSecondaryButton;
+                    @LeftSecondaryButton.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftSecondaryButton;
+                    @LeftSecondaryButton.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftSecondaryButton;
+                    @LeftPrimaryAxisClick.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftPrimaryAxisClick;
+                    @LeftPrimaryAxisClick.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftPrimaryAxisClick;
+                    @LeftPrimaryAxisClick.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftPrimaryAxisClick;
+                    @LeftPrimaryAxisTouch.started -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftPrimaryAxisTouch;
+                    @LeftPrimaryAxisTouch.performed -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftPrimaryAxisTouch;
+                    @LeftPrimaryAxisTouch.canceled -= m_Wrapper.m_OpenVRActionsCallbackInterface.OnLeftPrimaryAxisTouch;
                 }
-                m_Wrapper.m_HMDActionsCallbackInterface = instance;
+                m_Wrapper.m_OpenVRActionsCallbackInterface = instance;
                 if (instance != null)
                 {
-                    @Rotation.started += instance.OnRotation;
-                    @Rotation.performed += instance.OnRotation;
-                    @Rotation.canceled += instance.OnRotation;
-                    @Position.started += instance.OnPosition;
-                    @Position.performed += instance.OnPosition;
-                    @Position.canceled += instance.OnPosition;
+                    @HeadRotation.started += instance.OnHeadRotation;
+                    @HeadRotation.performed += instance.OnHeadRotation;
+                    @HeadRotation.canceled += instance.OnHeadRotation;
+                    @HeadPosition.started += instance.OnHeadPosition;
+                    @HeadPosition.performed += instance.OnHeadPosition;
+                    @HeadPosition.canceled += instance.OnHeadPosition;
+                    @RightPosition.started += instance.OnRightPosition;
+                    @RightPosition.performed += instance.OnRightPosition;
+                    @RightPosition.canceled += instance.OnRightPosition;
+                    @RightRotation.started += instance.OnRightRotation;
+                    @RightRotation.performed += instance.OnRightRotation;
+                    @RightRotation.canceled += instance.OnRightRotation;
+                    @RightPrimaryAxis.started += instance.OnRightPrimaryAxis;
+                    @RightPrimaryAxis.performed += instance.OnRightPrimaryAxis;
+                    @RightPrimaryAxis.canceled += instance.OnRightPrimaryAxis;
+                    @RightGrip.started += instance.OnRightGrip;
+                    @RightGrip.performed += instance.OnRightGrip;
+                    @RightGrip.canceled += instance.OnRightGrip;
+                    @RightTrigger.started += instance.OnRightTrigger;
+                    @RightTrigger.performed += instance.OnRightTrigger;
+                    @RightTrigger.canceled += instance.OnRightTrigger;
+                    @RightGripButton.started += instance.OnRightGripButton;
+                    @RightGripButton.performed += instance.OnRightGripButton;
+                    @RightGripButton.canceled += instance.OnRightGripButton;
+                    @RightTriggerButton.started += instance.OnRightTriggerButton;
+                    @RightTriggerButton.performed += instance.OnRightTriggerButton;
+                    @RightTriggerButton.canceled += instance.OnRightTriggerButton;
+                    @RightPrimaryButton.started += instance.OnRightPrimaryButton;
+                    @RightPrimaryButton.performed += instance.OnRightPrimaryButton;
+                    @RightPrimaryButton.canceled += instance.OnRightPrimaryButton;
+                    @RightSecondaryButton.started += instance.OnRightSecondaryButton;
+                    @RightSecondaryButton.performed += instance.OnRightSecondaryButton;
+                    @RightSecondaryButton.canceled += instance.OnRightSecondaryButton;
+                    @RightPrimaryAxisClick.started += instance.OnRightPrimaryAxisClick;
+                    @RightPrimaryAxisClick.performed += instance.OnRightPrimaryAxisClick;
+                    @RightPrimaryAxisClick.canceled += instance.OnRightPrimaryAxisClick;
+                    @RightPrimaryAxisTouch.started += instance.OnRightPrimaryAxisTouch;
+                    @RightPrimaryAxisTouch.performed += instance.OnRightPrimaryAxisTouch;
+                    @RightPrimaryAxisTouch.canceled += instance.OnRightPrimaryAxisTouch;
+                    @LeftPosition.started += instance.OnLeftPosition;
+                    @LeftPosition.performed += instance.OnLeftPosition;
+                    @LeftPosition.canceled += instance.OnLeftPosition;
+                    @LeftRotation.started += instance.OnLeftRotation;
+                    @LeftRotation.performed += instance.OnLeftRotation;
+                    @LeftRotation.canceled += instance.OnLeftRotation;
+                    @LeftPrimaryAxis.started += instance.OnLeftPrimaryAxis;
+                    @LeftPrimaryAxis.performed += instance.OnLeftPrimaryAxis;
+                    @LeftPrimaryAxis.canceled += instance.OnLeftPrimaryAxis;
+                    @LeftGrip.started += instance.OnLeftGrip;
+                    @LeftGrip.performed += instance.OnLeftGrip;
+                    @LeftGrip.canceled += instance.OnLeftGrip;
+                    @LeftTrigger.started += instance.OnLeftTrigger;
+                    @LeftTrigger.performed += instance.OnLeftTrigger;
+                    @LeftTrigger.canceled += instance.OnLeftTrigger;
+                    @LeftGripButton.started += instance.OnLeftGripButton;
+                    @LeftGripButton.performed += instance.OnLeftGripButton;
+                    @LeftGripButton.canceled += instance.OnLeftGripButton;
+                    @LeftTriggerButton.started += instance.OnLeftTriggerButton;
+                    @LeftTriggerButton.performed += instance.OnLeftTriggerButton;
+                    @LeftTriggerButton.canceled += instance.OnLeftTriggerButton;
+                    @LeftPrimaryButton.started += instance.OnLeftPrimaryButton;
+                    @LeftPrimaryButton.performed += instance.OnLeftPrimaryButton;
+                    @LeftPrimaryButton.canceled += instance.OnLeftPrimaryButton;
+                    @LeftSecondaryButton.started += instance.OnLeftSecondaryButton;
+                    @LeftSecondaryButton.performed += instance.OnLeftSecondaryButton;
+                    @LeftSecondaryButton.canceled += instance.OnLeftSecondaryButton;
+                    @LeftPrimaryAxisClick.started += instance.OnLeftPrimaryAxisClick;
+                    @LeftPrimaryAxisClick.performed += instance.OnLeftPrimaryAxisClick;
+                    @LeftPrimaryAxisClick.canceled += instance.OnLeftPrimaryAxisClick;
+                    @LeftPrimaryAxisTouch.started += instance.OnLeftPrimaryAxisTouch;
+                    @LeftPrimaryAxisTouch.performed += instance.OnLeftPrimaryAxisTouch;
+                    @LeftPrimaryAxisTouch.canceled += instance.OnLeftPrimaryAxisTouch;
                 }
             }
         }
-        public HMDActions @HMD => new HMDActions(this);
-
-        // RightHand
-        private readonly InputActionMap m_RightHand;
-        private IRightHandActions m_RightHandActionsCallbackInterface;
-        private readonly InputAction m_RightHand_Position;
-        private readonly InputAction m_RightHand_Rotation;
-        private readonly InputAction m_RightHand_GripButton;
-        private readonly InputAction m_RightHand_Grip;
-        private readonly InputAction m_RightHand_TriggerButton;
-        private readonly InputAction m_RightHand_Trigger;
-        private readonly InputAction m_RightHand_PrimaryButton;
-        private readonly InputAction m_RightHand_SecondaryButton;
-        private readonly InputAction m_RightHand_PrimaryAxis;
-        private readonly InputAction m_RightHand_PrimaryAxisClicked;
-        private readonly InputAction m_RightHand_TriggerTouch;
-        private readonly InputAction m_RightHand_PrimaryButtonTouch;
-        private readonly InputAction m_RightHand_ThumbstickTouch;
-        public struct RightHandActions
+        public OpenVRActions @OpenVR => new OpenVRActions(this);
+        public interface IOpenVRActions
         {
-            private @XRInputActions m_Wrapper;
-            public RightHandActions(@XRInputActions wrapper) { m_Wrapper = wrapper; }
-            public InputAction @Position => m_Wrapper.m_RightHand_Position;
-            public InputAction @Rotation => m_Wrapper.m_RightHand_Rotation;
-            public InputAction @GripButton => m_Wrapper.m_RightHand_GripButton;
-            public InputAction @Grip => m_Wrapper.m_RightHand_Grip;
-            public InputAction @TriggerButton => m_Wrapper.m_RightHand_TriggerButton;
-            public InputAction @Trigger => m_Wrapper.m_RightHand_Trigger;
-            public InputAction @PrimaryButton => m_Wrapper.m_RightHand_PrimaryButton;
-            public InputAction @SecondaryButton => m_Wrapper.m_RightHand_SecondaryButton;
-            public InputAction @PrimaryAxis => m_Wrapper.m_RightHand_PrimaryAxis;
-            public InputAction @PrimaryAxisClicked => m_Wrapper.m_RightHand_PrimaryAxisClicked;
-            public InputAction @TriggerTouch => m_Wrapper.m_RightHand_TriggerTouch;
-            public InputAction @PrimaryButtonTouch => m_Wrapper.m_RightHand_PrimaryButtonTouch;
-            public InputAction @ThumbstickTouch => m_Wrapper.m_RightHand_ThumbstickTouch;
-            public InputActionMap Get() { return m_Wrapper.m_RightHand; }
-            public void Enable() { Get().Enable(); }
-            public void Disable() { Get().Disable(); }
-            public bool enabled => Get().enabled;
-            public static implicit operator InputActionMap(RightHandActions set) { return set.Get(); }
-            public void SetCallbacks(IRightHandActions instance)
-            {
-                if (m_Wrapper.m_RightHandActionsCallbackInterface != null)
-                {
-                    @Position.started -= m_Wrapper.m_RightHandActionsCallbackInterface.OnPosition;
-                    @Position.performed -= m_Wrapper.m_RightHandActionsCallbackInterface.OnPosition;
-                    @Position.canceled -= m_Wrapper.m_RightHandActionsCallbackInterface.OnPosition;
-                    @Rotation.started -= m_Wrapper.m_RightHandActionsCallbackInterface.OnRotation;
-                    @Rotation.performed -= m_Wrapper.m_RightHandActionsCallbackInterface.OnRotation;
-                    @Rotation.canceled -= m_Wrapper.m_RightHandActionsCallbackInterface.OnRotation;
-                    @GripButton.started -= m_Wrapper.m_RightHandActionsCallbackInterface.OnGripButton;
-                    @GripButton.performed -= m_Wrapper.m_RightHandActionsCallbackInterface.OnGripButton;
-                    @GripButton.canceled -= m_Wrapper.m_RightHandActionsCallbackInterface.OnGripButton;
-                    @Grip.started -= m_Wrapper.m_RightHandActionsCallbackInterface.OnGrip;
-                    @Grip.performed -= m_Wrapper.m_RightHandActionsCallbackInterface.OnGrip;
-                    @Grip.canceled -= m_Wrapper.m_RightHandActionsCallbackInterface.OnGrip;
-                    @TriggerButton.started -= m_Wrapper.m_RightHandActionsCallbackInterface.OnTriggerButton;
-                    @TriggerButton.performed -= m_Wrapper.m_RightHandActionsCallbackInterface.OnTriggerButton;
-                    @TriggerButton.canceled -= m_Wrapper.m_RightHandActionsCallbackInterface.OnTriggerButton;
-                    @Trigger.started -= m_Wrapper.m_RightHandActionsCallbackInterface.OnTrigger;
-                    @Trigger.performed -= m_Wrapper.m_RightHandActionsCallbackInterface.OnTrigger;
-                    @Trigger.canceled -= m_Wrapper.m_RightHandActionsCallbackInterface.OnTrigger;
-                    @PrimaryButton.started -= m_Wrapper.m_RightHandActionsCallbackInterface.OnPrimaryButton;
-                    @PrimaryButton.performed -= m_Wrapper.m_RightHandActionsCallbackInterface.OnPrimaryButton;
-                    @PrimaryButton.canceled -= m_Wrapper.m_RightHandActionsCallbackInterface.OnPrimaryButton;
-                    @SecondaryButton.started -= m_Wrapper.m_RightHandActionsCallbackInterface.OnSecondaryButton;
-                    @SecondaryButton.performed -= m_Wrapper.m_RightHandActionsCallbackInterface.OnSecondaryButton;
-                    @SecondaryButton.canceled -= m_Wrapper.m_RightHandActionsCallbackInterface.OnSecondaryButton;
-                    @PrimaryAxis.started -= m_Wrapper.m_RightHandActionsCallbackInterface.OnPrimaryAxis;
-                    @PrimaryAxis.performed -= m_Wrapper.m_RightHandActionsCallbackInterface.OnPrimaryAxis;
-                    @PrimaryAxis.canceled -= m_Wrapper.m_RightHandActionsCallbackInterface.OnPrimaryAxis;
-                    @PrimaryAxisClicked.started -= m_Wrapper.m_RightHandActionsCallbackInterface.OnPrimaryAxisClicked;
-                    @PrimaryAxisClicked.performed -= m_Wrapper.m_RightHandActionsCallbackInterface.OnPrimaryAxisClicked;
-                    @PrimaryAxisClicked.canceled -= m_Wrapper.m_RightHandActionsCallbackInterface.OnPrimaryAxisClicked;
-                    @TriggerTouch.started -= m_Wrapper.m_RightHandActionsCallbackInterface.OnTriggerTouch;
-                    @TriggerTouch.performed -= m_Wrapper.m_RightHandActionsCallbackInterface.OnTriggerTouch;
-                    @TriggerTouch.canceled -= m_Wrapper.m_RightHandActionsCallbackInterface.OnTriggerTouch;
-                    @PrimaryButtonTouch.started -= m_Wrapper.m_RightHandActionsCallbackInterface.OnPrimaryButtonTouch;
-                    @PrimaryButtonTouch.performed -= m_Wrapper.m_RightHandActionsCallbackInterface.OnPrimaryButtonTouch;
-                    @PrimaryButtonTouch.canceled -= m_Wrapper.m_RightHandActionsCallbackInterface.OnPrimaryButtonTouch;
-                    @ThumbstickTouch.started -= m_Wrapper.m_RightHandActionsCallbackInterface.OnThumbstickTouch;
-                    @ThumbstickTouch.performed -= m_Wrapper.m_RightHandActionsCallbackInterface.OnThumbstickTouch;
-                    @ThumbstickTouch.canceled -= m_Wrapper.m_RightHandActionsCallbackInterface.OnThumbstickTouch;
-                }
-                m_Wrapper.m_RightHandActionsCallbackInterface = instance;
-                if (instance != null)
-                {
-                    @Position.started += instance.OnPosition;
-                    @Position.performed += instance.OnPosition;
-                    @Position.canceled += instance.OnPosition;
-                    @Rotation.started += instance.OnRotation;
-                    @Rotation.performed += instance.OnRotation;
-                    @Rotation.canceled += instance.OnRotation;
-                    @GripButton.started += instance.OnGripButton;
-                    @GripButton.performed += instance.OnGripButton;
-                    @GripButton.canceled += instance.OnGripButton;
-                    @Grip.started += instance.OnGrip;
-                    @Grip.performed += instance.OnGrip;
-                    @Grip.canceled += instance.OnGrip;
-                    @TriggerButton.started += instance.OnTriggerButton;
-                    @TriggerButton.performed += instance.OnTriggerButton;
-                    @TriggerButton.canceled += instance.OnTriggerButton;
-                    @Trigger.started += instance.OnTrigger;
-                    @Trigger.performed += instance.OnTrigger;
-                    @Trigger.canceled += instance.OnTrigger;
-                    @PrimaryButton.started += instance.OnPrimaryButton;
-                    @PrimaryButton.performed += instance.OnPrimaryButton;
-                    @PrimaryButton.canceled += instance.OnPrimaryButton;
-                    @SecondaryButton.started += instance.OnSecondaryButton;
-                    @SecondaryButton.performed += instance.OnSecondaryButton;
-                    @SecondaryButton.canceled += instance.OnSecondaryButton;
-                    @PrimaryAxis.started += instance.OnPrimaryAxis;
-                    @PrimaryAxis.performed += instance.OnPrimaryAxis;
-                    @PrimaryAxis.canceled += instance.OnPrimaryAxis;
-                    @PrimaryAxisClicked.started += instance.OnPrimaryAxisClicked;
-                    @PrimaryAxisClicked.performed += instance.OnPrimaryAxisClicked;
-                    @PrimaryAxisClicked.canceled += instance.OnPrimaryAxisClicked;
-                    @TriggerTouch.started += instance.OnTriggerTouch;
-                    @TriggerTouch.performed += instance.OnTriggerTouch;
-                    @TriggerTouch.canceled += instance.OnTriggerTouch;
-                    @PrimaryButtonTouch.started += instance.OnPrimaryButtonTouch;
-                    @PrimaryButtonTouch.performed += instance.OnPrimaryButtonTouch;
-                    @PrimaryButtonTouch.canceled += instance.OnPrimaryButtonTouch;
-                    @ThumbstickTouch.started += instance.OnThumbstickTouch;
-                    @ThumbstickTouch.performed += instance.OnThumbstickTouch;
-                    @ThumbstickTouch.canceled += instance.OnThumbstickTouch;
-                }
-            }
-        }
-        public RightHandActions @RightHand => new RightHandActions(this);
-
-        // LeftHand
-        private readonly InputActionMap m_LeftHand;
-        private ILeftHandActions m_LeftHandActionsCallbackInterface;
-        private readonly InputAction m_LeftHand_Position;
-        private readonly InputAction m_LeftHand_Rotation;
-        private readonly InputAction m_LeftHand_GripButton;
-        private readonly InputAction m_LeftHand_Grip;
-        private readonly InputAction m_LeftHand_TriggerButton;
-        private readonly InputAction m_LeftHand_Trigger;
-        private readonly InputAction m_LeftHand_PrimaryButton;
-        private readonly InputAction m_LeftHand_SecondaryButton;
-        private readonly InputAction m_LeftHand_PrimaryAxis;
-        private readonly InputAction m_LeftHand_PrimaryAxisClicked;
-        private readonly InputAction m_LeftHand_TriggerTouch;
-        private readonly InputAction m_LeftHand_PrimaryButtonTouch;
-        private readonly InputAction m_LeftHand_ThumbstickTouch;
-        public struct LeftHandActions
-        {
-            private @XRInputActions m_Wrapper;
-            public LeftHandActions(@XRInputActions wrapper) { m_Wrapper = wrapper; }
-            public InputAction @Position => m_Wrapper.m_LeftHand_Position;
-            public InputAction @Rotation => m_Wrapper.m_LeftHand_Rotation;
-            public InputAction @GripButton => m_Wrapper.m_LeftHand_GripButton;
-            public InputAction @Grip => m_Wrapper.m_LeftHand_Grip;
-            public InputAction @TriggerButton => m_Wrapper.m_LeftHand_TriggerButton;
-            public InputAction @Trigger => m_Wrapper.m_LeftHand_Trigger;
-            public InputAction @PrimaryButton => m_Wrapper.m_LeftHand_PrimaryButton;
-            public InputAction @SecondaryButton => m_Wrapper.m_LeftHand_SecondaryButton;
-            public InputAction @PrimaryAxis => m_Wrapper.m_LeftHand_PrimaryAxis;
-            public InputAction @PrimaryAxisClicked => m_Wrapper.m_LeftHand_PrimaryAxisClicked;
-            public InputAction @TriggerTouch => m_Wrapper.m_LeftHand_TriggerTouch;
-            public InputAction @PrimaryButtonTouch => m_Wrapper.m_LeftHand_PrimaryButtonTouch;
-            public InputAction @ThumbstickTouch => m_Wrapper.m_LeftHand_ThumbstickTouch;
-            public InputActionMap Get() { return m_Wrapper.m_LeftHand; }
-            public void Enable() { Get().Enable(); }
-            public void Disable() { Get().Disable(); }
-            public bool enabled => Get().enabled;
-            public static implicit operator InputActionMap(LeftHandActions set) { return set.Get(); }
-            public void SetCallbacks(ILeftHandActions instance)
-            {
-                if (m_Wrapper.m_LeftHandActionsCallbackInterface != null)
-                {
-                    @Position.started -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnPosition;
-                    @Position.performed -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnPosition;
-                    @Position.canceled -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnPosition;
-                    @Rotation.started -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnRotation;
-                    @Rotation.performed -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnRotation;
-                    @Rotation.canceled -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnRotation;
-                    @GripButton.started -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnGripButton;
-                    @GripButton.performed -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnGripButton;
-                    @GripButton.canceled -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnGripButton;
-                    @Grip.started -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnGrip;
-                    @Grip.performed -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnGrip;
-                    @Grip.canceled -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnGrip;
-                    @TriggerButton.started -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnTriggerButton;
-                    @TriggerButton.performed -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnTriggerButton;
-                    @TriggerButton.canceled -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnTriggerButton;
-                    @Trigger.started -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnTrigger;
-                    @Trigger.performed -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnTrigger;
-                    @Trigger.canceled -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnTrigger;
-                    @PrimaryButton.started -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnPrimaryButton;
-                    @PrimaryButton.performed -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnPrimaryButton;
-                    @PrimaryButton.canceled -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnPrimaryButton;
-                    @SecondaryButton.started -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnSecondaryButton;
-                    @SecondaryButton.performed -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnSecondaryButton;
-                    @SecondaryButton.canceled -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnSecondaryButton;
-                    @PrimaryAxis.started -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnPrimaryAxis;
-                    @PrimaryAxis.performed -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnPrimaryAxis;
-                    @PrimaryAxis.canceled -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnPrimaryAxis;
-                    @PrimaryAxisClicked.started -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnPrimaryAxisClicked;
-                    @PrimaryAxisClicked.performed -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnPrimaryAxisClicked;
-                    @PrimaryAxisClicked.canceled -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnPrimaryAxisClicked;
-                    @TriggerTouch.started -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnTriggerTouch;
-                    @TriggerTouch.performed -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnTriggerTouch;
-                    @TriggerTouch.canceled -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnTriggerTouch;
-                    @PrimaryButtonTouch.started -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnPrimaryButtonTouch;
-                    @PrimaryButtonTouch.performed -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnPrimaryButtonTouch;
-                    @PrimaryButtonTouch.canceled -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnPrimaryButtonTouch;
-                    @ThumbstickTouch.started -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnThumbstickTouch;
-                    @ThumbstickTouch.performed -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnThumbstickTouch;
-                    @ThumbstickTouch.canceled -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnThumbstickTouch;
-                }
-                m_Wrapper.m_LeftHandActionsCallbackInterface = instance;
-                if (instance != null)
-                {
-                    @Position.started += instance.OnPosition;
-                    @Position.performed += instance.OnPosition;
-                    @Position.canceled += instance.OnPosition;
-                    @Rotation.started += instance.OnRotation;
-                    @Rotation.performed += instance.OnRotation;
-                    @Rotation.canceled += instance.OnRotation;
-                    @GripButton.started += instance.OnGripButton;
-                    @GripButton.performed += instance.OnGripButton;
-                    @GripButton.canceled += instance.OnGripButton;
-                    @Grip.started += instance.OnGrip;
-                    @Grip.performed += instance.OnGrip;
-                    @Grip.canceled += instance.OnGrip;
-                    @TriggerButton.started += instance.OnTriggerButton;
-                    @TriggerButton.performed += instance.OnTriggerButton;
-                    @TriggerButton.canceled += instance.OnTriggerButton;
-                    @Trigger.started += instance.OnTrigger;
-                    @Trigger.performed += instance.OnTrigger;
-                    @Trigger.canceled += instance.OnTrigger;
-                    @PrimaryButton.started += instance.OnPrimaryButton;
-                    @PrimaryButton.performed += instance.OnPrimaryButton;
-                    @PrimaryButton.canceled += instance.OnPrimaryButton;
-                    @SecondaryButton.started += instance.OnSecondaryButton;
-                    @SecondaryButton.performed += instance.OnSecondaryButton;
-                    @SecondaryButton.canceled += instance.OnSecondaryButton;
-                    @PrimaryAxis.started += instance.OnPrimaryAxis;
-                    @PrimaryAxis.performed += instance.OnPrimaryAxis;
-                    @PrimaryAxis.canceled += instance.OnPrimaryAxis;
-                    @PrimaryAxisClicked.started += instance.OnPrimaryAxisClicked;
-                    @PrimaryAxisClicked.performed += instance.OnPrimaryAxisClicked;
-                    @PrimaryAxisClicked.canceled += instance.OnPrimaryAxisClicked;
-                    @TriggerTouch.started += instance.OnTriggerTouch;
-                    @TriggerTouch.performed += instance.OnTriggerTouch;
-                    @TriggerTouch.canceled += instance.OnTriggerTouch;
-                    @PrimaryButtonTouch.started += instance.OnPrimaryButtonTouch;
-                    @PrimaryButtonTouch.performed += instance.OnPrimaryButtonTouch;
-                    @PrimaryButtonTouch.canceled += instance.OnPrimaryButtonTouch;
-                    @ThumbstickTouch.started += instance.OnThumbstickTouch;
-                    @ThumbstickTouch.performed += instance.OnThumbstickTouch;
-                    @ThumbstickTouch.canceled += instance.OnThumbstickTouch;
-                }
-            }
-        }
-        public LeftHandActions @LeftHand => new LeftHandActions(this);
-        public interface IHMDActions
-        {
-            void OnRotation(InputAction.CallbackContext context);
-            void OnPosition(InputAction.CallbackContext context);
-        }
-        public interface IRightHandActions
-        {
-            void OnPosition(InputAction.CallbackContext context);
-            void OnRotation(InputAction.CallbackContext context);
-            void OnGripButton(InputAction.CallbackContext context);
-            void OnGrip(InputAction.CallbackContext context);
-            void OnTriggerButton(InputAction.CallbackContext context);
-            void OnTrigger(InputAction.CallbackContext context);
-            void OnPrimaryButton(InputAction.CallbackContext context);
-            void OnSecondaryButton(InputAction.CallbackContext context);
-            void OnPrimaryAxis(InputAction.CallbackContext context);
-            void OnPrimaryAxisClicked(InputAction.CallbackContext context);
-            void OnTriggerTouch(InputAction.CallbackContext context);
-            void OnPrimaryButtonTouch(InputAction.CallbackContext context);
-            void OnThumbstickTouch(InputAction.CallbackContext context);
-        }
-        public interface ILeftHandActions
-        {
-            void OnPosition(InputAction.CallbackContext context);
-            void OnRotation(InputAction.CallbackContext context);
-            void OnGripButton(InputAction.CallbackContext context);
-            void OnGrip(InputAction.CallbackContext context);
-            void OnTriggerButton(InputAction.CallbackContext context);
-            void OnTrigger(InputAction.CallbackContext context);
-            void OnPrimaryButton(InputAction.CallbackContext context);
-            void OnSecondaryButton(InputAction.CallbackContext context);
-            void OnPrimaryAxis(InputAction.CallbackContext context);
-            void OnPrimaryAxisClicked(InputAction.CallbackContext context);
-            void OnTriggerTouch(InputAction.CallbackContext context);
-            void OnPrimaryButtonTouch(InputAction.CallbackContext context);
-            void OnThumbstickTouch(InputAction.CallbackContext context);
+            void OnHeadRotation(InputAction.CallbackContext context);
+            void OnHeadPosition(InputAction.CallbackContext context);
+            void OnRightPosition(InputAction.CallbackContext context);
+            void OnRightRotation(InputAction.CallbackContext context);
+            void OnRightPrimaryAxis(InputAction.CallbackContext context);
+            void OnRightGrip(InputAction.CallbackContext context);
+            void OnRightTrigger(InputAction.CallbackContext context);
+            void OnRightGripButton(InputAction.CallbackContext context);
+            void OnRightTriggerButton(InputAction.CallbackContext context);
+            void OnRightPrimaryButton(InputAction.CallbackContext context);
+            void OnRightSecondaryButton(InputAction.CallbackContext context);
+            void OnRightPrimaryAxisClick(InputAction.CallbackContext context);
+            void OnRightPrimaryAxisTouch(InputAction.CallbackContext context);
+            void OnLeftPosition(InputAction.CallbackContext context);
+            void OnLeftRotation(InputAction.CallbackContext context);
+            void OnLeftPrimaryAxis(InputAction.CallbackContext context);
+            void OnLeftGrip(InputAction.CallbackContext context);
+            void OnLeftTrigger(InputAction.CallbackContext context);
+            void OnLeftGripButton(InputAction.CallbackContext context);
+            void OnLeftTriggerButton(InputAction.CallbackContext context);
+            void OnLeftPrimaryButton(InputAction.CallbackContext context);
+            void OnLeftSecondaryButton(InputAction.CallbackContext context);
+            void OnLeftPrimaryAxisClick(InputAction.CallbackContext context);
+            void OnLeftPrimaryAxisTouch(InputAction.CallbackContext context);
         }
     }
 }

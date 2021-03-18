@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
@@ -8,7 +7,7 @@ using static CoreSystems.XR.Input.XRInputMap;
 
 namespace CoreSystems.XR.Input
 {
-    [CreateAssetMenu(fileName = "XRInputMapperSO", menuName = "XR/Input/Mapper")]
+    [CreateAssetMenu(fileName = "XRInputMapperSO", menuName = "XR/Input/Mapper SO")]
     public class XRInputMapperSO : ScriptableObject
     {
         [SerializeField] XRInputEventsSO _inputEventsSO;
@@ -77,13 +76,13 @@ namespace CoreSystems.XR.Input
 
             _inputEventsSO.onLeftPosition += OnLeftPosition;
             _inputEventsSO.onLeftRotation += OnLeftRotation;
-            _inputEventsSO.onLeftJoystick += OnLeftJoystick;
+            _inputEventsSO.onLeftPrimaryAxis += OnLeftJoystick;
             _inputEventsSO.onLeftGripButton += OnLeftGripButton;
             _inputEventsSO.onLeftGripButtonReleased += OnLeftGripButtonReleased;
             _inputEventsSO.onLeftTriggerButton += OnLeftTriggerButton;
             _inputEventsSO.onLeftTriggerButtonReleased += OnLeftTriggerButtonReleased;
-            _inputEventsSO.onLeftJoystickClicked += OnLeftJoystickClicked;
-            _inputEventsSO.onLeftJoystickReleased += OnLeftJoystickReleased;
+            _inputEventsSO.onLeftPrimaryAxisClick += OnLeftJoystickClicked;
+            _inputEventsSO.onLeftPrimaryAxisClickReleased += OnLeftJoystickReleased;
             _inputEventsSO.onLeftPrimaryButton += OnLeftPrimaryButton;
             _inputEventsSO.onLeftPrimaryButtonReleased += OnLeftPrimaryButtonReleased;
             _inputEventsSO.onLeftSecondaryButton += OnLeftSecondaryButton;
@@ -94,13 +93,13 @@ namespace CoreSystems.XR.Input
 
             _inputEventsSO.onRightPosition += OnRightPosition;
             _inputEventsSO.onRightRotation += OnRightRotation;
-            _inputEventsSO.onRightJoystick += OnRightJoystick;
+            _inputEventsSO.onRightPrimaryAxis += OnRightJoystick;
             _inputEventsSO.onRightGripButton += OnRightGripButton;
             _inputEventsSO.onRightGripButtonReleased += OnRightGripButtonReleased;
             _inputEventsSO.onRightTriggerButton += OnRightTriggerButton;
             _inputEventsSO.onRightTriggerButtonReleased += OnRightTriggerButtonReleased;
-            _inputEventsSO.onRightJoystickClicked += OnRightJoystickClicked;
-            _inputEventsSO.onRightJoystickReleased += OnRightJoystickReleased;
+            _inputEventsSO.onRightPrimaryAxisClick += OnRightJoystickClicked;
+            _inputEventsSO.onRightPrimaryAxisClickReleased += OnRightJoystickReleased;
             _inputEventsSO.onRightPrimaryButton += OnRightPrimaryButton;
             _inputEventsSO.onRightPrimaryButtonReleased += OnRightPrimaryButtonReleased;
             _inputEventsSO.onRightSecondaryButton += OnRightSecondaryButton;
@@ -115,13 +114,13 @@ namespace CoreSystems.XR.Input
 
             _inputEventsSO.onLeftPosition -= OnLeftPosition;
             _inputEventsSO.onLeftRotation -= OnLeftRotation;
-            _inputEventsSO.onLeftJoystick -= OnLeftJoystick;
+            _inputEventsSO.onLeftPrimaryAxis -= OnLeftJoystick;
             _inputEventsSO.onLeftGripButton -= OnLeftGripButton;
             _inputEventsSO.onLeftGripButtonReleased -= OnLeftGripButtonReleased;
             _inputEventsSO.onLeftTriggerButton -= OnLeftTriggerButton;
             _inputEventsSO.onLeftTriggerButtonReleased -= OnLeftTriggerButtonReleased;
-            _inputEventsSO.onLeftJoystickClicked -= OnLeftJoystickClicked;
-            _inputEventsSO.onLeftJoystickReleased -= OnLeftJoystickReleased;
+            _inputEventsSO.onLeftPrimaryAxisClick -= OnLeftJoystickClicked;
+            _inputEventsSO.onLeftPrimaryAxisClickReleased -= OnLeftJoystickReleased;
             _inputEventsSO.onLeftPrimaryButton -= OnLeftPrimaryButton;
             _inputEventsSO.onLeftPrimaryButtonReleased -= OnLeftPrimaryButtonReleased;
             _inputEventsSO.onLeftSecondaryButton -= OnLeftSecondaryButton;
@@ -129,13 +128,13 @@ namespace CoreSystems.XR.Input
 
             _inputEventsSO.onLeftPosition -= OnRightPosition;
             _inputEventsSO.onLeftRotation -= OnRightRotation;
-            _inputEventsSO.onRightJoystick -= OnRightJoystick;
+            _inputEventsSO.onRightPrimaryAxis -= OnRightJoystick;
             _inputEventsSO.onRightGripButton -= OnRightGripButton;
             _inputEventsSO.onRightGripButtonReleased -= OnRightGripButtonReleased;
             _inputEventsSO.onRightTriggerButton -= OnRightTriggerButton;
             _inputEventsSO.onRightTriggerButtonReleased -= OnRightTriggerButtonReleased;
-            _inputEventsSO.onRightJoystickClicked -= OnRightJoystickClicked;
-            _inputEventsSO.onRightJoystickReleased -= OnRightJoystickReleased;
+            _inputEventsSO.onRightPrimaryAxisClick -= OnRightJoystickClicked;
+            _inputEventsSO.onRightPrimaryAxisClickReleased -= OnRightJoystickReleased;
             _inputEventsSO.onRightPrimaryButton -= OnRightPrimaryButton;
             _inputEventsSO.onRightPrimaryButtonReleased -= OnRightPrimaryButtonReleased;
             _inputEventsSO.onRightSecondaryButton -= OnRightSecondaryButton;
