@@ -1,10 +1,11 @@
 using UnityEngine;
 using System.Collections.Generic;
+using CoreSystems.Input;
 
 namespace CoreSystems.XR.Input
 {
     [CreateAssetMenu(fileName = "XRInputMap1", menuName = "XR/Input/Maps/Map1")]
-    public class XRInputMap1 : XRInputMap<
+    public class XRInputMap1 : InputMapSO<
         CoreSystems.XR.Input.XRInputTriggerBool,
         CoreSystems.XR.Input.XRInputTriggerFloat,
         CoreSystems.XR.Input.XRInputTriggerVector2,
@@ -88,7 +89,7 @@ namespace CoreSystems.XR.Input
         {
             QuaternionActions = new List<MappedInputQuaternion>()
             {
-                 headRotation,
+                headRotation,
                 leftHandRotation,
                 rightHandRotation
             };

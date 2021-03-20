@@ -3,14 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace CoreSystems.XR.Input
+namespace CoreSystems.Input
 {
-    public abstract class XRInputMap<T1, T2, T3, T4, T5> : ScriptableObject where T1 : Enum
+    public abstract class InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum> : ScriptableObject 
+        where boolEnum : Enum
+        where floatEnum : Enum
+        where vector2Enum : Enum
+        where vector3Enum : Enum
+        where quaternionEnum : Enum
     {
+        public Type GetBoolEnumType()
+        {
+            return typeof(boolEnum);
+        }
+        public Type GetFloatEnumType()
+        {
+            return typeof(floatEnum);
+        }
+        public Type GetVector2EnumType()
+        {
+            return typeof(vector2Enum);
+        }
+        public Type GetVector3EnumType()
+        {
+            return typeof(vector3Enum);
+        }
+        public Type GetQuaternionEnumType()
+        {
+            return typeof(quaternionEnum);
+        }
         public abstract class MappedInput
         {
             public Type type;
-            public List<XRInputTriggerBool> activationGates; //buttons which should be pressed to activate input
+            public List<boolEnum> activationGates; //buttons which should be pressed to activate input
             [ShowOnly] public string valueType;
 
             protected void SetValueType()
@@ -24,7 +49,7 @@ namespace CoreSystems.XR.Input
         public class MappedInputBool : MappedInput
         {
             [SerializeField]private bool _value;
-            public T1 inputTrigger;
+            public boolEnum inputTrigger;
             public Type _valueType;
             public MappedInputBool()
             {
@@ -54,7 +79,7 @@ namespace CoreSystems.XR.Input
         public class MappedInputFloat : MappedInput
         {
             [SerializeField] private float _value;
-            public XRInputTriggerFloat inputTrigger;
+            public floatEnum inputTrigger;
             public MappedInputFloat()
             {
                 type = typeof(float);
@@ -83,7 +108,7 @@ namespace CoreSystems.XR.Input
         public class MappedInputVector2 : MappedInput
         {
             private Vector2 _value;
-            public XRInputTriggerVector2 inputTrigger;
+            public vector2Enum inputTrigger;
             public MappedInputVector2()
             {
                 type = typeof(Vector2);
@@ -112,7 +137,7 @@ namespace CoreSystems.XR.Input
         public class MappedInputVector3 : MappedInput
         {
             private Vector3 _value;
-            public XRInputTriggerVector3 inputTrigger;
+            public vector3Enum inputTrigger;
             public MappedInputVector3()
             {
                 type = typeof(Vector3);
@@ -141,7 +166,7 @@ namespace CoreSystems.XR.Input
         public class MappedInputQuaternion : MappedInput
         {
             private Quaternion _value;
-            public XRInputTriggerQuaternion inputTrigger;
+            public quaternionEnum inputTrigger;
             public MappedInputQuaternion()
             {
                 type = typeof(Quaternion);
@@ -167,12 +192,12 @@ namespace CoreSystems.XR.Input
             }
         }
 
-        protected List<int> ActionGatesTriggers = new List<int>(3);
-        protected List<MappedInputBool> BoolActions;
-        protected List<MappedInputFloat> FloatActions;
-        protected List<MappedInputVector2> Vector2Actions;
-        protected List<MappedInputVector3> Vector3Actions;
-        protected List<MappedInputQuaternion> QuaternionActions;
+        protected List<boolEnum> ActionGatesTriggers = new List<boolEnum>(3);
+        protected List<MappedInputBool> BoolActions = new List<MappedInputBool>();
+        protected List<MappedInputFloat> FloatActions = new List<MappedInputFloat>();
+        protected List<MappedInputVector2> Vector2Actions = new List<MappedInputVector2>();
+        protected List<MappedInputVector3> Vector3Actions = new List<MappedInputVector3>();
+        protected List<MappedInputQuaternion> QuaternionActions = new List<MappedInputQuaternion>();
 
              
         public List<MappedInputBool> GetBoolActions()
@@ -195,7 +220,7 @@ namespace CoreSystems.XR.Input
         {
             return QuaternionActions;
         }
-        public List<int> GetBoolActionGatesTriggers()
+        public List<boolEnum> GetBoolActionGatesTriggers()
         {
             return ActionGatesTriggers;
         }
@@ -207,16 +232,13 @@ namespace CoreSystems.XR.Input
             Vector2Actions.Clear();
             Vector3Actions.Clear();
             QuaternionActions.Clear();
+            ActionGatesTriggers.Clear();
             FillBoolActionList();
             FillFloatActionList();
             FillVector2ActionList();
             FillVector3ActionList();
             FillQuaternionActionList();
             FillBoolActionGatesTriggers();
-            foreach (XRInputTriggerBool item in ActionGatesTriggers)
-            {
-                Debug.Log("activation gate: " + item.ToString());
-            }
         }
         private void OnDisable()
         {
@@ -230,7 +252,7 @@ namespace CoreSystems.XR.Input
                 mappedInputBool = BoolActions[i];
                 if (mappedInputBool.activationGates.Count != 0)
                 {
-                    ActionGatesTriggers.AddRange(mappedInputBool.activationGates.Cast<int>());
+                    ActionGatesTriggers.AddRange(mappedInputBool.activationGates);
                 }
             }
             MappedInputFloat mappedInputFloat;
@@ -239,7 +261,7 @@ namespace CoreSystems.XR.Input
                 mappedInputFloat = FloatActions[i];
                 if (mappedInputFloat.activationGates.Count != 0)
                 {
-                    ActionGatesTriggers.AddRange(mappedInputFloat.activationGates.Cast<int>());
+                    ActionGatesTriggers.AddRange(mappedInputFloat.activationGates);
                 }
             }
             MappedInputVector2 mappedInputVector2;
@@ -248,7 +270,7 @@ namespace CoreSystems.XR.Input
                 mappedInputVector2 = Vector2Actions[i];
                 if (mappedInputVector2.activationGates.Count != 0)
                 {
-                    ActionGatesTriggers.AddRange(mappedInputVector2.activationGates.Cast<int>());
+                    ActionGatesTriggers.AddRange(mappedInputVector2.activationGates);
                 }
             }
             MappedInputVector3 mappedInputVector3;
@@ -257,7 +279,7 @@ namespace CoreSystems.XR.Input
                 mappedInputVector3 = Vector3Actions[i];
                 if (mappedInputVector3.activationGates.Count != 0)
                 {
-                    ActionGatesTriggers.AddRange(mappedInputVector3.activationGates.Cast<int>());
+                    ActionGatesTriggers.AddRange(mappedInputVector3.activationGates);
                 }
             }
             MappedInputQuaternion mappedInputQuaternion;
@@ -266,7 +288,7 @@ namespace CoreSystems.XR.Input
                 mappedInputQuaternion = QuaternionActions[i];
                 if (mappedInputQuaternion.activationGates.Count != 0)
                 {
-                    ActionGatesTriggers.AddRange(mappedInputQuaternion.activationGates.Cast<int>());
+                    ActionGatesTriggers.AddRange(mappedInputQuaternion.activationGates);
                 }
             }
             ActionGatesTriggers = ActionGatesTriggers.Distinct().ToList();

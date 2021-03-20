@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb2e812fdc28f1e4095994a0cb335255, type: 3}
-  m_Name: XRInputMapper
+  m_Script: {fileID: 11500000, guid: 9f17445910bbf6745a0c06185993e578, type: 3}
+  m_Name: XRInputMapperSO
   m_EditorClassIdentifier: 
-  _inputEventsSO: {fileID: 11400000, guid: 9674f7f718faef84b9b99d82a8bc0448, type: 2}
   _InputMaps:
   - map: {fileID: 11400000, guid: 699dff9cc2f832840b7c8c034650141a, type: 2}
     enabled: 1
-  floatActivationThreashold: 0.01
+  _inputEventsSO: {fileID: 11400000, guid: 9674f7f718faef84b9b99d82a8bc0448, type: 2}

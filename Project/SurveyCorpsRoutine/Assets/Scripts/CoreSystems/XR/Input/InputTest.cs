@@ -1,4 +1,5 @@
-﻿using Unity.Profiling;
+﻿using CoreSystems.Input;
+using Unity.Profiling;
 using UnityEngine;
 
 namespace CoreSystems.XR.Input
@@ -7,7 +8,6 @@ namespace CoreSystems.XR.Input
     {
         public XRInputMap1 inputMapLayer;
         public XRFeedbackSO xrFeedback;
-        public XRInputMapperSO mapper;
         private void OnEnable()
         {
       
@@ -28,22 +28,22 @@ namespace CoreSystems.XR.Input
             {
                 Debug.Log("rotateLeft" + inputMapLayer.rotateLeft.Get());
             }
-            if (inputMapLayer.move != Vector2.zero)
+           /* if (inputMapLayer.move != Vector2.zero)
             {
                 Debug.Log("move" + inputMapLayer.move.Get());
-            }
-            if (inputMapLayer.rightGesture)
+            }*/
+            if (inputMapLayer.sprint)
             {
-                Debug.Log("rightGesture" + inputMapLayer.rightGesture.Get());
+                Debug.Log("sprint" + inputMapLayer.sprint.Get());
             }
-            if (inputMapLayer.rightGestureChange)
+           /* if (inputMapLayer.rightGestureChange)
             {
                 Debug.Log("rightGestureChange" + inputMapLayer.rightGestureChange.Get());
             }
             if (inputMapLayer.rightHandGrab > 0)
             {
                 Debug.Log("rightHandGrab" + inputMapLayer.rightHandGrab.Get());
-            }
+            }*/
 
         }
         void OnButton()
