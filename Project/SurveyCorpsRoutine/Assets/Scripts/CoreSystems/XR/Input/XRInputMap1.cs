@@ -1,11 +1,17 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace CoreSystems.XR.Input
 {
     [CreateAssetMenu(fileName = "XRInputMap1", menuName = "XR/Input/Maps/Map1")]
-    public class XRInputMap1 : XRInputMap
+    public class XRInputMap1 : XRInputMap<
+        CoreSystems.XR.Input.XRInputTriggerBool,
+        CoreSystems.XR.Input.XRInputTriggerFloat,
+        CoreSystems.XR.Input.XRInputTriggerVector2,
+        CoreSystems.XR.Input.XRInputTriggerVector3,
+        CoreSystems.XR.Input.XRInputTriggerQuaternion>
     {
-        public XRMappedInput<bool>
+        public MappedInputBool
             jump,
             rotateLeft,
             rotateRight,
@@ -13,19 +19,30 @@ namespace CoreSystems.XR.Input
             rightGesture,
             leftGesture,
             rightGestureChange,
-            leftGestureChange;
+            leftGestureChange,
+            sprint;
 
-        public XRMappedInput<float>
-            sprint,
+
+        public MappedInputFloat
             leftHandGrab,
             rightHandGrab;
 
-        public XRMappedInput<Vector2> 
+        public MappedInputVector2
             move;
 
-        protected override void SetBoolInputs()
+        public MappedInputVector3
+            headPosition,
+            leftHandPosition,
+            rightHandPosition;
+
+        public MappedInputQuaternion
+            headRotation,
+            leftHandRotation,
+            rightHandRotation;
+
+        protected override void FillBoolActionList()
         {
-            BoolInputs = new XRMappedInput<bool>[]
+            BoolActions = new List<MappedInputBool>()
             {
                 jump,
                 rotateLeft,
@@ -34,26 +51,48 @@ namespace CoreSystems.XR.Input
                 rightGesture,
                 leftGesture,
                 rightGestureChange,
-                leftGestureChange
+                leftGestureChange,
+                sprint,
+
             };
+
         }
 
-        protected override void SetFloatInputs()
+        protected override void FillFloatActionList()
         {
-            FloatInputs = new XRMappedInput<float>[]
+            FloatActions = new List<MappedInputFloat>()
             {
-                sprint,
                 leftHandGrab,
                 rightHandGrab
             };
         }
 
-        protected override void SetVector2Inputs()
+        protected override void FillVector2ActionList()
         {
-            Vector2Inputs = new XRMappedInput<Vector2>[]
+            Vector2Actions = new List<MappedInputVector2>()
             {
                 move
             };
         }
+
+        protected override void FillVector3ActionList()
+        {
+            Vector3Actions = new List<MappedInputVector3>()
+            {
+                headPosition,
+                leftHandPosition,
+                rightHandPosition
+            };
+        }
+        protected override void FillQuaternionActionList()
+        {
+            QuaternionActions = new List<MappedInputQuaternion>()
+            {
+                 headRotation,
+                leftHandRotation,
+                rightHandRotation
+            };
+        }
+
     }
 }

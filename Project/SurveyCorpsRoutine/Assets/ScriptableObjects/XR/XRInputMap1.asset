@@ -12,65 +12,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1335be5f5a2d56846aedcf848224a423, type: 3}
   m_Name: XRInputMap1
   m_EditorClassIdentifier: 
-  FloatInputs:
-  - inputButton: 24
-    type: System.Single
-    value: 0
-  - inputButton: 37
-    type: System.Single
-    value: 0
-  - inputButton: 39
-    type: System.Single
-    value: 0
-  Vector2Inputs:
-  - inputButton: 41
-    type: UnityEngine.Vector2
-    value: {x: 0, y: 0}
   jump:
-    inputButton: 33
-    type: System.Boolean
-    value: 0
+    activationGates: 
+    valueType: System.Boolean
+    _value: 0
+    inputTrigger: 21
   rotateLeft:
-    inputButton: 27
-    type: System.Boolean
-    value: 0
+    activationGates: 
+    valueType: System.Boolean
+    _value: 0
+    inputTrigger: 27
   rotateRight:
-    inputButton: 26
-    type: System.Boolean
-    value: 0
+    activationGates: 
+    valueType: System.Boolean
+    _value: 0
+    inputTrigger: 26
   rotateBack:
-    inputButton: 25
-    type: System.Boolean
-    value: 0
+    activationGates: 
+    valueType: System.Boolean
+    _value: 0
+    inputTrigger: 21
   rightGesture:
-    inputButton: 20
-    type: System.Boolean
-    value: 0
+    activationGates: 15000000
+    valueType: System.Boolean
+    _value: 0
+    inputTrigger: 20
   leftGesture:
-    inputButton: 2
-    type: System.Boolean
-    value: 0
+    activationGates: 
+    valueType: System.Boolean
+    _value: 0
+    inputTrigger: 2
   rightGestureChange:
-    inputButton: 22
-    type: System.Boolean
-    value: 0
+    activationGates: 1500000014000000
+    valueType: System.Boolean
+    _value: 0
+    inputTrigger: 22
   leftGestureChange:
-    inputButton: 4
-    type: System.Boolean
-    value: 0
+    activationGates: 02000000
+    valueType: System.Boolean
+    _value: 0
+    inputTrigger: 4
   sprint:
-    inputButton: 24
-    type: System.Single
-    value: 0
+    activationGates: 
+    valueType: System.Single
+    _value: 0
+    inputTrigger: 24
   leftHandGrab:
-    inputButton: 37
-    type: System.Single
-    value: 0
+    activationGates: 
+    valueType: System.Single
+    _value: 0
+    inputTrigger: 1
   rightHandGrab:
-    inputButton: 39
-    type: System.Single
-    value: 0
+    activationGates: 13000000
+    valueType: System.Single
+    _value: 0
+    inputTrigger: 3
   move:
-    inputButton: 41
-    type: UnityEngine.Vector2
-    value: {x: 0, y: 0}
+    activationGates: 
+    valueType: UnityEngine.Vector2
+    inputTrigger: 1
+  headPosition:
+    activationGates: 
+    valueType: UnityEngine.Vector3
+    inputTrigger: 1
+  leftHandPosition:
+    activationGates: 
+    valueType: UnityEngine.Vector3
+    inputTrigger: 2
+  rightHandPosition:
+    activationGates: 
+    valueType: UnityEngine.Vector3
+    inputTrigger: 3
+  headRotation:
+    activationGates: 
+    valueType: UnityEngine.Quaternion
+    inputTrigger: 1
+  leftHandRotation:
+    activationGates: 
+    valueType: UnityEngine.Quaternion
+    inputTrigger: 2
+  rightHandRotation:
+    activationGates: 
+    valueType: UnityEngine.Quaternion
+    inputTrigger: 3

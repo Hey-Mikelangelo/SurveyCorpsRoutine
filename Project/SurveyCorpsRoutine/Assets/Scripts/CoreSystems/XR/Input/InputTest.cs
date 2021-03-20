@@ -10,7 +10,7 @@ namespace CoreSystems.XR.Input
         public XRInputMapperSO mapper;
         private void OnEnable()
         {
-            //input
+      
         }
         private void OnDisable()
         {
@@ -20,22 +20,30 @@ namespace CoreSystems.XR.Input
         public void Update()
         {
             // Debug.Log(inputMapLayer.jump.value);
-            /*if (inputMapLayer.jump.value)
+            if (inputMapLayer.jump)
             {
-                Debug.Log("jump" + inputMapLayer.jump.value);
+                Debug.Log("jump" + inputMapLayer.jump.Get());
             }
-            if (inputMapLayer.move.value != Vector2.zero)
+            if (inputMapLayer.rotateLeft)
             {
-                Debug.Log("move" + inputMapLayer.move);
+                Debug.Log("rotateLeft" + inputMapLayer.rotateLeft.Get());
+            }
+            if (inputMapLayer.move != Vector2.zero)
+            {
+                Debug.Log("move" + inputMapLayer.move.Get());
             }
             if (inputMapLayer.rightGesture)
             {
-                Debug.Log("rightGesture" + inputMapLayer.rightGesture);
+                Debug.Log("rightGesture" + inputMapLayer.rightGesture.Get());
             }
-            if(inputMapLayer.rightHandGrab.value > 0)
+            if (inputMapLayer.rightGestureChange)
             {
-                Debug.Log("rightHandGrab" + inputMapLayer.rightHandGrab);
-            }*/
+                Debug.Log("rightGestureChange" + inputMapLayer.rightGestureChange.Get());
+            }
+            if (inputMapLayer.rightHandGrab > 0)
+            {
+                Debug.Log("rightHandGrab" + inputMapLayer.rightHandGrab.Get());
+            }
 
         }
         void OnButton()

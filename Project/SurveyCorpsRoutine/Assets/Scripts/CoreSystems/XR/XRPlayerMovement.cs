@@ -8,7 +8,7 @@ namespace CoreSystems.XR
 {
     public class XRPlayerMovement : MonoBehaviour
     {
-        public XRInputMap1 input;
+        /*public XRInputMap1 input;
         public Rigidbody locomotionRb;
         public Transform rotationDirTransform;
         public GameObject playerCamera;
@@ -37,12 +37,12 @@ namespace CoreSystems.XR
         }
         void SetupLocomotionSphere()
         {
-           /* locomotionSphereRb.mass = _locomotionSphereMass;
+           *//* locomotionSphereRb.mass = _locomotionSphereMass;
             locomotionSphereRb.isKinematic = false;
             locomotionSphereRb.useGravity = true;
             locomotionSphereRb.angularDrag = 1;
             locomotionSphereRb.collisionDetectionMode = CollisionDetectionMode.Continuous;
-            locomotionSphereRb.constraints = RigidbodyConstraints.None;*/
+            locomotionSphereRb.constraints = RigidbodyConstraints.None;*//*
         }
         bool camNotInit = false;
         void UpdateCallback()
@@ -56,7 +56,7 @@ namespace CoreSystems.XR
             _prevHeadPos = input.headPosition;
             Vector3 headVelocity = headMovementAmount / Time.fixedDeltaTime;
             headVelocity.y = 0;
-            Vector3 joystickMoveAmount = new Vector3(input.move.value.x, 0, input.move.value.y);
+            Vector3 joystickMoveAmount = new Vector3(input.move.getVec2().x, 0, input.move.getVec2().y);
             Debug.Log(joystickMoveAmount);
             Vector3 joystickVelocity = joystickMoveAmount * speed * Time.fixedDeltaTime;
             locomotionRb.velocity = headVelocity + joystickVelocity;
@@ -80,6 +80,6 @@ namespace CoreSystems.XR
         void OnMove(Vector2 direction)
         {
             
-        }
+        }*/
     }
 }

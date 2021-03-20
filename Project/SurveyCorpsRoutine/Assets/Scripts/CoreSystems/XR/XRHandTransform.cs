@@ -7,9 +7,9 @@ namespace CoreSystems.XR
     [DisallowMultipleComponent]
     public class XRHandTransform : MonoBehaviour
     {
-        [SerializeField] XRInputMap _input;
+        [SerializeField] XRInputMap1 _input;
 
-        public XRInputMap input
+        public XRInputMap1 input
         {
             get
             {

@@ -267,12 +267,12 @@
                 },
                 {
                     "name": "",
-                    "id": "68824735-4320-4eb9-9c60-15390a6e0b76",
-                    "path": "<XRController>{RightHand}/trigger",
+                    "id": "44470bc9-8f88-41e7-853a-c4f4b9c45b0a",
+                    "path": "<XRController>{LeftHand}/grip",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "RightGrip",
+                    "action": "LeftGrip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -465,17 +465,6 @@
                 },
                 {
                     "name": "",
-                    "id": "0ad7a2c1-0b05-44ee-9818-e3ce7a7c3b4f",
-                    "path": "<XRController>{LeftHand}/grip",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "LeftGrip",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "f086a110-95f2-422c-bcf8-8091f5de4ca0",
                     "path": "<XRController>{LeftHand}/trigger",
                     "interactions": "",
@@ -658,6 +647,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "LeftPrimaryAxis",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9b7d1578-e8f6-4517-af8b-604c70dfac28",
+                    "path": "<XRController>{RightHand}/grip",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightGrip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

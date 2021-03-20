@@ -16,3 +16,4 @@ MonoBehaviour:
   _InputMaps:
   - map: {fileID: 11400000, guid: 699dff9cc2f832840b7c8c034650141a, type: 2}
     enabled: 1
+  floatActivationThreashold: 0.01
