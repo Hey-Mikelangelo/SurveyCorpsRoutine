@@ -152,7 +152,6 @@ namespace CoreSystems.XR.Input
         #region left
         void OnLeftPosition(Vector3 pos)
         {
-
             Vector3InputTriggered(XRInputTriggerVector3.leftHandPos, pos);
         }
         void OnLeftRotation(Quaternion rot)

@@ -48,7 +48,7 @@ namespace CoreSystems.Input
         [System.Serializable]
         public class MappedInputBool : MappedInput
         {
-            [SerializeField]private bool _value;
+            private bool _value;
             public boolEnum inputTrigger;
             public Type _valueType;
             public MappedInputBool()
@@ -78,7 +78,7 @@ namespace CoreSystems.Input
         [System.Serializable]
         public class MappedInputFloat : MappedInput
         {
-            [SerializeField] private float _value;
+            private float _value;
             public floatEnum inputTrigger;
             public MappedInputFloat()
             {
