@@ -12,7 +12,7 @@ namespace CoreSystems.XR.Input
         CoreSystems.XR.Input.XRInputTriggerVector3,
         CoreSystems.XR.Input.XRInputTriggerQuaternion>
     {
-        public MappedInputBool
+        public BoolAction
             jump,
             rotateLeft,
             rotateRight,
@@ -24,26 +24,26 @@ namespace CoreSystems.XR.Input
             sprint;
 
 
-        public MappedInputFloat
+        public FloatAction
             leftHandGrab,
             rightHandGrab;
 
-        public MappedInputVector2
+        public Vector2Action
             move;
 
-        public MappedInputVector3
+        public Vector3Action
             headPosition,
             leftHandPosition,
             rightHandPosition;
 
-        public MappedInputQuaternion
+        public QuaternionAction
             headRotation,
             leftHandRotation,
             rightHandRotation;
 
         protected override void FillBoolActionList()
         {
-            BoolActions = new List<MappedInputBool>()
+            BoolActions = new List<BoolAction>()
             {
                 jump,
                 rotateLeft,
@@ -61,7 +61,7 @@ namespace CoreSystems.XR.Input
 
         protected override void FillFloatActionList()
         {
-            FloatActions = new List<MappedInputFloat>()
+            FloatActions = new List<FloatAction>()
             {
                 leftHandGrab,
                 rightHandGrab
@@ -70,7 +70,7 @@ namespace CoreSystems.XR.Input
 
         protected override void FillVector2ActionList()
         {
-            Vector2Actions = new List<MappedInputVector2>()
+            Vector2Actions = new List<Vector2Action>()
             {
                 move
             };
@@ -78,7 +78,7 @@ namespace CoreSystems.XR.Input
 
         protected override void FillVector3ActionList()
         {
-            Vector3Actions = new List<MappedInputVector3>()
+            Vector3Actions = new List<Vector3Action>()
             {
                 headPosition,
                 leftHandPosition,
@@ -87,7 +87,7 @@ namespace CoreSystems.XR.Input
         }
         protected override void FillQuaternionActionList()
         {
-            QuaternionActions = new List<MappedInputQuaternion>()
+            QuaternionActions = new List<QuaternionAction>()
             {
                 headRotation,
                 leftHandRotation,

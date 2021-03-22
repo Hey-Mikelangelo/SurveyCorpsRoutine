@@ -1,4 +1,3 @@
-using CoreSystems.XR.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,21 +15,21 @@ namespace CoreSystems.Input
         where quaternionEnum : Enum
     {
         [SerializeField] List<InputMapAndEnabledStatus> _InputMaps = new List<InputMapAndEnabledStatus>();
-        private List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInput> _ActiveActionsWithGates
-            = new List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInput>();
+        private List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.Action> _ActiveActionsWithGates
+            = new List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.Action>();
 
-        private List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputBool> _ProcessedBoolActions;
-        private List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputFloat> _ProcessedFloatActions;
-        private List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputVector2> _ProcessedVector2Actions;
-        private List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputVector3> _ProcessedVector3Actions;
-        private List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputQuaternion> _ProcessedQuaternionActions;
+        private List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.BoolAction> _ProcessedBoolActions;
+        private List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.FloatAction> _ProcessedFloatActions;
+        private List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.Vector2Action> _ProcessedVector2Actions;
+        private List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.Vector3Action> _ProcessedVector3Actions;
+        private List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.QuaternionAction> _ProcessedQuaternionActions;
 
         private List<boolEnum> _ActivationGatesInputs = new List<boolEnum>();
-        private List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputBool> _MatchingBoolActions = new List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputBool>();
-        private List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputFloat> _MatchingFloatActions = new List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputFloat>();
-        private List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputVector2> _MatchingVector2Actions = new List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputVector2>();
-        private List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputVector3> _MatchingVector3Actions = new List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputVector3>();
-        private List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputQuaternion> _MatchingQuaternionActions = new List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputQuaternion>();
+        private List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.BoolAction> _MatchingBoolActions = new List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.BoolAction>();
+        private List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.FloatAction> _MatchingFloatActions = new List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.FloatAction>();
+        private List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.Vector2Action> _MatchingVector2Actions = new List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.Vector2Action>();
+        private List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.Vector3Action> _MatchingVector3Actions = new List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.Vector3Action>();
+        private List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.QuaternionAction> _MatchingQuaternionActions = new List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.QuaternionAction>();
 
 
         private Dictionary<boolEnum, bool> _BoolInputs = new Dictionary<boolEnum, bool>();
@@ -118,22 +117,32 @@ namespace CoreSystems.Input
             }
         }
 
-        bool ActivationGatesValid(InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInput mappedInput)
+        bool ActivationGatesValid(InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.Action action)
         {
-            for (int i = 0; i < mappedInput.activationGates.Count; i++)
+            List<boolEnum> ActivationGates;
+            
+            for (int i = 0; i < action.GetBindingsCount(); i++)
             {
-                boolEnum inputTrigger = mappedInput.activationGates[i];
-                //if any of action activation inputTriggers is not pressed - return value indicating that input cannot be activated
-                if (!BoolInputIsPressed(inputTrigger))
+                ActivationGates = action.GetActivationGates(i);
+                bool foundValidGates = true;
+                for (int j = 0; j < ActivationGates.Count; j++)
                 {
-                    return false;
+                    if (!BoolInputIsPressed(ActivationGates[j]))
+                    {
+                        foundValidGates = false;
+                    }
+                }
+                if (foundValidGates)
+                {
+                    action.SetPassedGatesIndx(i);
+                    return true;
                 }
             }
-            return true;
+            return false;
         }
         void SetBoolAction(boolEnum inputTrigger, bool value)
         {
-            InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputBool processedAction;
+            InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.BoolAction processedAction;
             for (int i = 0; i < _InputMaps.Count; i++)
             {
                 if (_InputMaps[i].enabled)
@@ -143,7 +152,7 @@ namespace CoreSystems.Input
                     {
                         processedAction = _ProcessedBoolActions[j];
                         //check if action button matches pressed button or if action butoon is set to any
-                        if (processedAction.inputTrigger.Equals(inputTrigger))
+                        if (processedAction.IsBindedToInput(inputTrigger))
                         {
                             processedAction.Set(value);
                         }
@@ -182,7 +191,7 @@ namespace CoreSystems.Input
         {
             _MatchingBoolActions.Clear();
             bool isAnyActionWithGates = false;
-            InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputBool processedAction;
+            InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.BoolAction processedAction;
             //check every enabled input map
             for (int i = 0; i < _InputMaps.Count; i++)
             {
@@ -192,10 +201,10 @@ namespace CoreSystems.Input
                     for (int j = 0; j < _ProcessedBoolActions.Count; j++)
                     {
                         processedAction = _ProcessedBoolActions[j];
-                        //check if action button matches pressed button or if action butoon is set to any
-                        if (processedAction.inputTrigger.Equals(inputTrigger) || processedAction.inputTrigger.Equals(0))
+                        //check if action button matches pressed button
+                        if (processedAction.IsBindedToInput(inputTrigger))
                         {
-                            if (processedAction.activationGates.Count != 0 && ActivationGatesValid(processedAction))
+                            if (processedAction.HasActivationGates() && ActivationGatesValid(processedAction))
                             {
                                 if (!isAnyActionWithGates)
                                 {
@@ -205,7 +214,7 @@ namespace CoreSystems.Input
                                 _MatchingBoolActions.Add(processedAction);
                             }
                             //if action has no activation gates - set as action to activate
-                            else if (processedAction.activationGates.Count == 0)
+                            else if (!processedAction.HasActivationGates())
                             {
                                 if (!isAnyActionWithGates)
                                 {
@@ -222,7 +231,7 @@ namespace CoreSystems.Input
         {
             _MatchingFloatActions.Clear();
             bool isAnyActionWithGates = false;
-            InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputFloat processedAction;
+            InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.FloatAction processedAction;
             //check every enabled input map
             for (int i = 0; i < _InputMaps.Count; i++)
             {
@@ -232,10 +241,10 @@ namespace CoreSystems.Input
                     for (int j = 0; j < _ProcessedFloatActions.Count; j++)
                     {
                         processedAction = _ProcessedFloatActions[j];
-                        //check if action button matches pressed button or if action butoon is set to any
-                        if (processedAction.inputTrigger.Equals(inputTrigger) || processedAction.inputTrigger.Equals(0))
+                        //check if action button matches pressed button 
+                        if (processedAction.IsBindedToInput(inputTrigger))
                         {
-                            if (processedAction.activationGates.Count != 0 && ActivationGatesValid(processedAction))
+                            if (processedAction.HasActivationGates() && ActivationGatesValid(processedAction))
                             {
                                 if (!isAnyActionWithGates)
                                 {
@@ -245,7 +254,7 @@ namespace CoreSystems.Input
                                 _MatchingFloatActions.Add(processedAction);
                             }
                             //if action has no activation gates - set as action to activate
-                            else if (processedAction.activationGates.Count == 0)
+                            else if (!processedAction.HasActivationGates())
                             {
                                 if (!isAnyActionWithGates)
                                 {
@@ -263,7 +272,7 @@ namespace CoreSystems.Input
         {
             _MatchingVector2Actions.Clear();
             bool isAnyActionWithGates = false;
-            InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputVector2 processedAction;
+            InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.Vector2Action processedAction;
             //check every enabled input map
             for (int i = 0; i < _InputMaps.Count; i++)
             {
@@ -273,10 +282,10 @@ namespace CoreSystems.Input
                     for (int j = 0; j < _ProcessedVector2Actions.Count; j++)
                     {
                         processedAction = _ProcessedVector2Actions[j];
-                        //check if action button matches pressed button or if action butoon is set to any
-                        if (processedAction.inputTrigger.Equals(inputTrigger) || processedAction.inputTrigger.Equals(0))
+                        //check if action button matches pressed button 
+                        if (processedAction.IsBindedToInput(inputTrigger))
                         {
-                            if (processedAction.activationGates.Count != 0 && ActivationGatesValid(processedAction))
+                            if (processedAction.HasActivationGates() && ActivationGatesValid(processedAction))
                             {
                                 if (!isAnyActionWithGates)
                                 {
@@ -286,7 +295,7 @@ namespace CoreSystems.Input
                                 _MatchingVector2Actions.Add(processedAction);
                             }
                             //if action has no activation gates - set as action to activate
-                            else if (processedAction.activationGates.Count == 0)
+                            else if (!processedAction.HasActivationGates())
                             {
                                 if (!isAnyActionWithGates)
                                 {
@@ -304,7 +313,7 @@ namespace CoreSystems.Input
         {
             _MatchingVector3Actions.Clear();
             bool isAnyActionWithGates = false;
-            InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputVector3 processedAction;
+            InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.Vector3Action processedAction;
             //check every enabled input map
             for (int i = 0; i < _InputMaps.Count; i++)
             {
@@ -314,10 +323,10 @@ namespace CoreSystems.Input
                     for (int j = 0; j < _ProcessedVector3Actions.Count; j++)
                     {
                         processedAction = _ProcessedVector3Actions[j];
-                        //check if action button matches pressed button or if action butoon is set to any
-                        if (processedAction.inputTrigger.Equals(inputTrigger) || processedAction.inputTrigger.Equals(0))
+                        //check if action button matches pressed button
+                        if (processedAction.IsBindedToInput(inputTrigger))
                         {
-                            if (processedAction.activationGates.Count != 0 && ActivationGatesValid(processedAction))
+                            if (processedAction.HasActivationGates() && ActivationGatesValid(processedAction))
                             {
                                 if (!isAnyActionWithGates)
                                 {
@@ -327,7 +336,7 @@ namespace CoreSystems.Input
                                 _MatchingVector3Actions.Add(processedAction);
                             }
                             //if action has no activation gates - set as action to activate
-                            else if (processedAction.activationGates.Count == 0)
+                            else if (!processedAction.HasActivationGates())
                             {
                                 if (!isAnyActionWithGates)
                                 {
@@ -344,7 +353,7 @@ namespace CoreSystems.Input
         {
             _MatchingQuaternionActions.Clear();
             bool isAnyActionWithGates = false;
-            InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputQuaternion processedAction;
+            InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.QuaternionAction processedAction;
             //check every enabled input map
             for (int i = 0; i < _InputMaps.Count; i++)
             {
@@ -354,10 +363,10 @@ namespace CoreSystems.Input
                     for (int j = 0; j < _ProcessedQuaternionActions.Count; j++)
                     {
                         processedAction = _ProcessedQuaternionActions[j];
-                        //check if action button matches pressed button or if action butoon is set to any
-                        if (processedAction.inputTrigger.Equals(inputTrigger) || processedAction.inputTrigger.Equals(0))
+                        //check if action button matches pressed button 
+                        if (processedAction.IsBindedToInput(inputTrigger) )
                         {
-                            if (processedAction.activationGates.Count != 0 && ActivationGatesValid(processedAction))
+                            if (processedAction.HasActivationGates() && ActivationGatesValid(processedAction))
                             {
                                 if (!isAnyActionWithGates)
                                 {
@@ -367,7 +376,7 @@ namespace CoreSystems.Input
                                 _MatchingQuaternionActions.Add(processedAction);
                             }
                             //if action has no activation gates - set as action to activate
-                            else if (processedAction.activationGates.Count == 0)
+                            else if (!processedAction.HasActivationGates())
                             {
                                 if (!isAnyActionWithGates)
                                 {
@@ -382,8 +391,8 @@ namespace CoreSystems.Input
         }
         void DisableNotValidActionsWithGates()
         {
-            InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInput actionWithGates;
-            List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInput> ActiveActionsWithGatesCopy = new List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInput>(_ActiveActionsWithGates);
+            InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.Action actionWithGates;
+            List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.Action> ActiveActionsWithGatesCopy = new List<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.Action>(_ActiveActionsWithGates);
             for (int i = 0; i < ActiveActionsWithGatesCopy.Count; i++)
             {
                 actionWithGates = ActiveActionsWithGatesCopy[i];
@@ -397,27 +406,27 @@ namespace CoreSystems.Input
                 }
             }
         }
-        IEnumerable<T> ProcessActionsWithGates<T>(InputActionPhase phase) where T : InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInput
+        IEnumerable<T> ProcessActionsWithGates<T>(InputActionPhase phase) where T : InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.Action
         {
             T actionWithGates;
             List<T> _MatchingActions;
-            if (typeof(T) == typeof(InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputBool))
+            if (typeof(T) == typeof(InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.BoolAction))
             {
                 _MatchingActions = _MatchingBoolActions as List<T>;
             }
-            else if (typeof(T) == typeof(InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputFloat))
+            else if (typeof(T) == typeof(InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.FloatAction))
             {
                 _MatchingActions = _MatchingFloatActions as List<T>;
             }
-            else if (typeof(T) == typeof(InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputVector2))
+            else if (typeof(T) == typeof(InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.Vector2Action))
             {
                 _MatchingActions = _MatchingVector2Actions as List<T>;
             }
-            else if (typeof(T) == typeof(InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputVector3))
+            else if (typeof(T) == typeof(InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.Vector3Action))
             {
                 _MatchingActions = _MatchingVector3Actions as List<T>;
             }
-            else if (typeof(T) == typeof(InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputQuaternion))
+            else if (typeof(T) == typeof(InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.QuaternionAction))
             {
                 _MatchingActions = _MatchingQuaternionActions as List<T>;
             }
@@ -430,10 +439,11 @@ namespace CoreSystems.Input
                 for (int i = 0; i < _MatchingActions.Count; i++)
                 {
                     actionWithGates = _MatchingActions[i];
-                    for (int j = 0; j < actionWithGates.activationGates.Count; j++)
+                    List<boolEnum> ActivationGates = actionWithGates.GetActivationGates(actionWithGates.GetPassedGatesIndx());
+                    for (int j = 0; j < ActivationGates.Count; j++)
                     {
                         //disable actions binded to the same inputTriggers as activation gates
-                        SetBoolAction(actionWithGates.activationGates[j], false);
+                        SetBoolAction(ActivationGates[j], false);
                     }
                     _ActiveActionsWithGates.Add(actionWithGates);
                     yield return actionWithGates as T;
@@ -446,15 +456,16 @@ namespace CoreSystems.Input
                 for (int i = 0; i < _MatchingActions.Count; i++)
                 {
                     actionWithGates = _MatchingActions[i];
-                    
-                    for (int j = 0; j < actionWithGates.activationGates.Count; j++)
-                    {
-                        //enable actions binded to the inputs same as activation gates of current actionWithGates
-                        BoolInputTriggered(actionWithGates.activationGates[j], InputActionPhase.Started);
-                        Debug.Log("Trigger: " + actionWithGates.activationGates[j]);
-                    }
                     _ActiveActionsWithGates.Remove(actionWithGates);
                     yield return actionWithGates as T;
+
+                    List<boolEnum> ActivationGates = actionWithGates.GetActivationGates(actionWithGates.GetPassedGatesIndx());
+                    for (int j = 0; j < ActivationGates.Count; j++)
+                    {
+                        //enable actions binded to the inputs same as activation gates of current actionWithGates
+                        BoolInputTriggered(ActivationGates[j], InputActionPhase.Started);
+                    }
+                    
                 }
             }
         }
@@ -476,16 +487,17 @@ namespace CoreSystems.Input
             }
             if (returnedActionsWithGates)
             {
-                foreach (var mappedInputBool in ProcessActionsWithGates<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputBool>(phase))
+                foreach (var boolAction in ProcessActionsWithGates
+                    <InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.BoolAction>(phase))
                 {
                     if (phase == InputActionPhase.Started)
                     {
                         //activate triggered action with valid gates
-                        mappedInputBool.Set(true);
+                        boolAction.Set(true);
                     }
                     else
                     {
-                        mappedInputBool.SetValueDisabled();
+                        boolAction.SetValueDisabled();
                     }
                 }
             }
@@ -524,16 +536,17 @@ namespace CoreSystems.Input
 
             if (returnedActionsWithGates)
             {
-                foreach (var mappedInputFloat in ProcessActionsWithGates<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputFloat>(phase))
+                foreach (var floatAction in ProcessActionsWithGates
+                    <InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.FloatAction>(phase))
                 {
                     if (phase == InputActionPhase.Started)
                     {
                         //activate triggered action with valid gates
-                        mappedInputFloat.Set(value);
+                        floatAction.Set(value);
                     }
                     else
                     {
-                        mappedInputFloat.SetValueDisabled();
+                        floatAction.SetValueDisabled();
                     }
                 }
             }
@@ -570,16 +583,17 @@ namespace CoreSystems.Input
 
             if (returnedActionsWithGates)
             {
-                foreach (var mappedInputVector2 in ProcessActionsWithGates<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputVector2>(phase))
+                foreach (var vector2Action in ProcessActionsWithGates
+                    <InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.Vector2Action>(phase))
                 {
                     if (phase == InputActionPhase.Started)
                     {
                         //activate triggered action with valid gates
-                        mappedInputVector2.Set(value);
+                        vector2Action.Set(value);
                     }
                     else
                     {
-                        mappedInputVector2.SetValueDisabled();
+                        vector2Action.SetValueDisabled();
                     }
                 }
             }
@@ -616,16 +630,17 @@ namespace CoreSystems.Input
 
             if (returnedActionsWithGates)
             {
-                foreach (var mappedInputVector3 in ProcessActionsWithGates<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputVector3>(phase))
+                foreach (var vector3Action in ProcessActionsWithGates
+                    <InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.Vector3Action>(phase))
                 {
                     if (phase == InputActionPhase.Started)
                     {
                         //activate triggered action with valid gates
-                        mappedInputVector3.Set(value);
+                        vector3Action.Set(value);
                     }
                     else
                     {
-                        mappedInputVector3.SetValueDisabled();
+                        vector3Action.SetValueDisabled();
                     }
                 }
             }
@@ -662,16 +677,17 @@ namespace CoreSystems.Input
 
             if (returnedActionsWithGates)
             {
-                foreach (var mappedInputQuaternion in ProcessActionsWithGates<InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.MappedInputQuaternion>(phase))
+                foreach (var quaternionAction in ProcessActionsWithGates
+                    <InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum>.QuaternionAction>(phase))
                 {
                     if (phase == InputActionPhase.Started)
                     {
                         //activate triggered action with valid gates
-                        mappedInputQuaternion.Set(value);
+                        quaternionAction.Set(value);
                     }
                     else
                     {
-                        mappedInputQuaternion.SetValueDisabled();
+                        quaternionAction.SetValueDisabled();
                     }
                 }
             }

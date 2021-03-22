@@ -12,78 +12,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1335be5f5a2d56846aedcf848224a423, type: 3}
   m_Name: XRInputMap1
   m_EditorClassIdentifier: 
-  ActionGatesTriggers: 1500000014000000
-  BoolActions:
-  - activationGates: 
-    valueType: System.Boolean
-    _value: 0
-    inputTrigger: 21
-  - activationGates: 15000000
-    valueType: System.Boolean
-    _value: 0
-    inputTrigger: 20
-  - activationGates: 1500000014000000
-    valueType: System.Single
-    _value: 0
-    inputTrigger: 22
-  FloatActions: []
-  Vector2Actions: []
-  Vector3Actions:
-  - activationGates: 
-    valueType: UnityEngine.Vector3
-    inputTrigger: 1
-  - activationGates: 
-    valueType: UnityEngine.Vector3
-    inputTrigger: 2
-  - activationGates: 
-    valueType: UnityEngine.Vector3
-    inputTrigger: 3
-  QuaternionActions:
-  - activationGates: 
-    valueType: UnityEngine.Quaternion
-    inputTrigger: 1
-  - activationGates: 
-    valueType: UnityEngine.Quaternion
-    inputTrigger: 2
-  - activationGates: 
-    valueType: UnityEngine.Quaternion
-    inputTrigger: 3
   jump:
-    activationGates: 
     valueType: System.Boolean
-    _value: 0
-    inputTrigger: 21
+    Bindings:
+    - activationGates: 
+      inputTrigger: 15
   rotateLeft:
-    activationGates: 15000000
     valueType: System.Boolean
-    _value: 0
-    inputTrigger: 20
+    Bindings: []
+  rotateRight:
+    valueType: System.Boolean
+    Bindings: []
+  rotateBack:
+    valueType: System.Boolean
+    Bindings: []
+  rightGesture:
+    valueType: System.Boolean
+    Bindings: []
+  leftGesture:
+    valueType: System.Boolean
+    Bindings: []
+  rightGestureChange:
+    valueType: System.Boolean
+    Bindings: []
+  leftGestureChange:
+    valueType: System.Boolean
+    Bindings: []
   sprint:
-    activationGates: 1500000014000000
     valueType: System.Single
-    _value: 0
-    inputTrigger: 22
+    Bindings: []
+  leftHandGrab:
+    valueType: System.Single
+    Bindings: []
+  rightHandGrab:
+    valueType: System.Single
+    Bindings: []
+  move:
+    valueType: UnityEngine.Vector2
+    Bindings: []
   headPosition:
-    activationGates: 
     valueType: UnityEngine.Vector3
-    inputTrigger: 1
+    Bindings:
+    - activationGates: 
+      inputTrigger: 1
   leftHandPosition:
-    activationGates: 
     valueType: UnityEngine.Vector3
-    inputTrigger: 2
+    Bindings:
+    - activationGates: 
+      inputTrigger: 2
   rightHandPosition:
-    activationGates: 
     valueType: UnityEngine.Vector3
-    inputTrigger: 3
+    Bindings:
+    - activationGates: 
+      inputTrigger: 3
   headRotation:
-    activationGates: 
     valueType: UnityEngine.Quaternion
-    inputTrigger: 1
+    Bindings:
+    - activationGates: 
+      inputTrigger: 1
   leftHandRotation:
-    activationGates: 
     valueType: UnityEngine.Quaternion
-    inputTrigger: 2
+    Bindings:
+    - activationGates: 
+      inputTrigger: 2
   rightHandRotation:
-    activationGates: 
     valueType: UnityEngine.Quaternion
-    inputTrigger: 3
+    Bindings:
+    - activationGates: 
+      inputTrigger: 3

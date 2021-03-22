@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace CoreSystems.Input
@@ -32,55 +33,116 @@ namespace CoreSystems.Input
         {
             return typeof(quaternionEnum);
         }
-        public abstract class MappedInput
+        public abstract class Action
         {
             public Type type;
-            public List<boolEnum> activationGates; //buttons which should be pressed to activate input
             [ShowOnly] public string valueType;
+            protected int _passedGatesIndx;
+            protected bool _hasActivationGates;
 
             protected void SetValueType()
             {
                 valueType = type.ToString();
             }
             public abstract void SetValueDisabled();
+            public abstract List<boolEnum> GetActivationGates(int bindingIndx);
+            public abstract int GetBindingsCount();
+            public abstract bool HasActivationGates();
+            public abstract void SetPassedGatesIndx(int indx);
+            public abstract int GetPassedGatesIndx();
         }
-
+        [InitializeOnLoad]
         [System.Serializable]
-        public class MappedInputBool : MappedInput
+        public class BoolAction : Action
         {
+            [System.Serializable]
+            public class Binding
+            {
+                public List<boolEnum> activationGates; //buttons which should be pressed to activate input
+                public boolEnum inputTrigger;
+            }
+            public List<Binding> Bindings;
             private bool _value;
-            public boolEnum inputTrigger;
+           
             public Type _valueType;
-            public MappedInputBool()
+            public BoolAction()
             {
                 type = typeof(bool);
                 SetValueType();
             }
             public void Set(bool value)
             {
-                this._value = value;
+                _value = value;
             }
             public bool Get()
             {
                 return _value;
             }
-
+            
             public override void SetValueDisabled()
             {
                 Set(false);
             }
-
-            public static implicit operator bool(MappedInputBool mappedInput)
+            public bool IsBindedToInput(boolEnum inputTrigger)
             {
-                return mappedInput.Get();
+                for (int i = 0; i < Bindings.Count; i++)
+                {
+                    if (Bindings[i].inputTrigger.Equals(inputTrigger))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            public override List<boolEnum> GetActivationGates(int bindingIndx)
+            {
+                return Bindings[bindingIndx].activationGates;
+            }
+
+            public override int GetBindingsCount()
+            {
+                return Bindings.Count;
+            }
+
+            public override bool HasActivationGates()
+            {
+                for (int i = 0; i < Bindings.Count; i++)
+                {
+                    if (Bindings[i].activationGates != null && Bindings[i].activationGates.Count > 0)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            public override void SetPassedGatesIndx(int indx)
+            {
+                _passedGatesIndx = indx;
+            }
+
+            public override int GetPassedGatesIndx()
+            {
+                return _passedGatesIndx;
+            }
+
+            public static implicit operator bool(BoolAction action)
+            {
+                return action.Get();
             }
         }
         [System.Serializable]
-        public class MappedInputFloat : MappedInput
+        public class FloatAction : Action
         {
+            [System.Serializable]
+            public class Binding
+            {
+                public List<boolEnum> activationGates; //buttons which should be pressed to activate input
+                public floatEnum inputTrigger;
+            }
+            public List<Binding> Bindings;
             private float _value;
-            public floatEnum inputTrigger;
-            public MappedInputFloat()
+            public FloatAction()
             {
                 type = typeof(float);
                 SetValueType();
@@ -98,18 +160,66 @@ namespace CoreSystems.Input
             {
                 Set(0);
             }
-
-            public static implicit operator float(MappedInputFloat mappedInput)
+            public bool IsBindedToInput(floatEnum inputTrigger)
             {
-                return mappedInput.Get();
+                for (int i = 0; i < Bindings.Count; i++)
+                {
+                    if (Bindings[i].inputTrigger.Equals(inputTrigger))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            public override List<boolEnum> GetActivationGates(int bindingIndx)
+            {
+                return Bindings[bindingIndx].activationGates;
+            }
+
+            public override int GetBindingsCount()
+            {
+                return Bindings.Count;
+            }
+
+            public override bool HasActivationGates()
+            {
+                for (int i = 0; i < Bindings.Count; i++)
+                {
+                    if (Bindings[i].activationGates != null && Bindings[i].activationGates.Count > 0)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            public override void SetPassedGatesIndx(int indx)
+            {
+                _passedGatesIndx = indx;
+            }
+
+            public override int GetPassedGatesIndx()
+            {
+                return _passedGatesIndx;
+            }
+
+            public static implicit operator float(FloatAction action)
+            {
+                return action.Get();
             }
         }
         [System.Serializable]
-        public class MappedInputVector2 : MappedInput
+        public class Vector2Action : Action
         {
+            [System.Serializable]
+            public class Binding
+            {
+                public List<boolEnum> activationGates; //buttons which should be pressed to activate input
+                public vector2Enum inputTrigger;
+            }
+            public List<Binding> Bindings;
             private Vector2 _value;
-            public vector2Enum inputTrigger;
-            public MappedInputVector2()
+            public Vector2Action()
             {
                 type = typeof(Vector2);
                 SetValueType();
@@ -127,18 +237,66 @@ namespace CoreSystems.Input
             {
                 Set(new Vector2(0, 0));
             }
-
-            public static implicit operator Vector2(MappedInputVector2 mappedInput)
+            public bool IsBindedToInput(vector2Enum inputTrigger)
             {
-                return mappedInput.Get();
+                for (int i = 0; i < Bindings.Count; i++)
+                {
+                    if (Bindings[i].inputTrigger.Equals(inputTrigger))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            public override List<boolEnum> GetActivationGates(int bindingIndx)
+            {
+                return Bindings[bindingIndx].activationGates;
+            }
+
+            public override int GetBindingsCount()
+            {
+                return Bindings.Count;
+            }
+
+            public override bool HasActivationGates()
+            {
+                for (int i = 0; i < Bindings.Count; i++)
+                {
+                    if (Bindings[i].activationGates != null && Bindings[i].activationGates.Count > 0)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            public override void SetPassedGatesIndx(int indx)
+            {
+                _passedGatesIndx = indx;
+            }
+
+            public override int GetPassedGatesIndx()
+            {
+                return _passedGatesIndx;
+            }
+
+            public static implicit operator Vector2(Vector2Action action)
+            {
+                return action.Get();
             }
         }
         [System.Serializable]
-        public class MappedInputVector3 : MappedInput
+        public class Vector3Action : Action
         {
+            [System.Serializable]
+            public class Binding
+            {
+                public List<boolEnum> activationGates; //buttons which should be pressed to activate input
+                public vector3Enum inputTrigger;
+            }
+            public List<Binding> Bindings;
             private Vector3 _value;
-            public vector3Enum inputTrigger;
-            public MappedInputVector3()
+            public Vector3Action()
             {
                 type = typeof(Vector3);
                 SetValueType();
@@ -156,18 +314,66 @@ namespace CoreSystems.Input
             {
                 Set(new Vector3(0,0,0));
             }
-
-            public static implicit operator Vector3(MappedInputVector3 mappedInput)
+            public bool IsBindedToInput(vector3Enum inputTrigger)
             {
-                return mappedInput.Get();
+                for (int i = 0; i < Bindings.Count; i++)
+                {
+                    if (Bindings[i].inputTrigger.Equals(inputTrigger))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            public override List<boolEnum> GetActivationGates(int bindingIndx)
+            {
+                return Bindings[bindingIndx].activationGates;
+            }
+
+            public override int GetBindingsCount()
+            {
+                return Bindings.Count;
+            }
+
+            public override bool HasActivationGates()
+            {
+                for (int i = 0; i < Bindings.Count; i++)
+                {
+                    if (Bindings[i].activationGates != null && Bindings[i].activationGates.Count > 0)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            public override void SetPassedGatesIndx(int indx)
+            {
+                _passedGatesIndx = indx;
+            }
+
+            public override int GetPassedGatesIndx()
+            {
+                return _passedGatesIndx;
+            }
+
+            public static implicit operator Vector3(Vector3Action action)
+            {
+                return action.Get();
             }
         }
         [System.Serializable]
-        public class MappedInputQuaternion : MappedInput
+        public class QuaternionAction : Action
         {
+            [System.Serializable]
+            public class Binding
+            {
+                public List<boolEnum> activationGates; //buttons which should be pressed to activate input
+                public quaternionEnum inputTrigger;
+            }
+            public List<Binding> Bindings;
             private Quaternion _value;
-            public quaternionEnum inputTrigger;
-            public MappedInputQuaternion()
+            public QuaternionAction()
             {
                 type = typeof(Quaternion);
                 SetValueType();
@@ -185,38 +391,81 @@ namespace CoreSystems.Input
             {
                 Set(Quaternion.identity);
             }
-
-            public static implicit operator Quaternion(MappedInputQuaternion mappedInput)
+            public bool IsBindedToInput(quaternionEnum inputTrigger)
             {
-                return mappedInput.Get();
+                for (int i = 0; i < Bindings.Count; i++)
+                {
+                    if (Bindings[i].inputTrigger.Equals(inputTrigger))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            public override List<boolEnum> GetActivationGates(int bindingIndx)
+            {
+                return Bindings[bindingIndx].activationGates;
+            }
+
+            public override int GetBindingsCount()
+            {
+                return Bindings.Count;
+            }
+
+            public override bool HasActivationGates()
+            {
+                for (int i = 0; i < Bindings.Count; i++)
+                {
+                    if (Bindings[i].activationGates != null && Bindings[i].activationGates.Count > 0)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            public override void SetPassedGatesIndx(int indx)
+            {
+                _passedGatesIndx = indx;
+            }
+
+            public override int GetPassedGatesIndx()
+            {
+                return _passedGatesIndx;
+            }
+
+
+            public static implicit operator Quaternion(QuaternionAction action)
+            {
+                return action.Get();
             }
         }
 
         protected List<boolEnum> ActionGatesTriggers = new List<boolEnum>(3);
-        protected List<MappedInputBool> BoolActions = new List<MappedInputBool>();
-        protected List<MappedInputFloat> FloatActions = new List<MappedInputFloat>();
-        protected List<MappedInputVector2> Vector2Actions = new List<MappedInputVector2>();
-        protected List<MappedInputVector3> Vector3Actions = new List<MappedInputVector3>();
-        protected List<MappedInputQuaternion> QuaternionActions = new List<MappedInputQuaternion>();
+        protected List<BoolAction> BoolActions = new List<BoolAction>();
+        protected List<FloatAction> FloatActions = new List<FloatAction>();
+        protected List<Vector2Action> Vector2Actions = new List<Vector2Action>();
+        protected List<Vector3Action> Vector3Actions = new List<Vector3Action>();
+        protected List<QuaternionAction> QuaternionActions = new List<QuaternionAction>();
 
              
-        public List<MappedInputBool> GetBoolActions()
+        public List<BoolAction> GetBoolActions()
         {
             return BoolActions;
         }
-        public List<MappedInputFloat> GetFloatActions()
+        public List<FloatAction> GetFloatActions()
         {
             return FloatActions;
         }
-        public List<MappedInputVector2> GetVector2Actions()
+        public List<Vector2Action> GetVector2Actions()
         {
             return Vector2Actions;
         }
-        public List<MappedInputVector3> GetVector3Actions()
+        public List<Vector3Action> GetVector3Actions()
         {
             return Vector3Actions;
         }
-        public List<MappedInputQuaternion> GetQuaternionActions()
+        public List<QuaternionAction> GetQuaternionActions()
         {
             return QuaternionActions;
         }
@@ -246,49 +495,50 @@ namespace CoreSystems.Input
         }
         void FillBoolActionGatesTriggers()
         {
-            MappedInputBool mappedInputBool;
+            BoolAction boolAction;
             for (int i = 0; i < BoolActions.Count; i++)
             {
-                mappedInputBool = BoolActions[i];
-                if (mappedInputBool.activationGates.Count != 0)
+                boolAction = BoolActions[i];
+                for (int j = 0; j < boolAction.Bindings.Count; j++)
                 {
-                    ActionGatesTriggers.AddRange(mappedInputBool.activationGates);
+                    ActionGatesTriggers.AddRange(boolAction.GetActivationGates(j));
                 }
+                
             }
-            MappedInputFloat mappedInputFloat;
+            FloatAction floatAction;
             for (int i = 0; i < FloatActions.Count; i++)
             {
-                mappedInputFloat = FloatActions[i];
-                if (mappedInputFloat.activationGates.Count != 0)
+                floatAction = FloatActions[i];
+                for (int j = 0; j < floatAction.Bindings.Count; j++)
                 {
-                    ActionGatesTriggers.AddRange(mappedInputFloat.activationGates);
+                    ActionGatesTriggers.AddRange(floatAction.GetActivationGates(j));
                 }
             }
-            MappedInputVector2 mappedInputVector2;
+            Vector2Action vector2Action;
             for (int i = 0; i < Vector2Actions.Count; i++)
             {
-                mappedInputVector2 = Vector2Actions[i];
-                if (mappedInputVector2.activationGates.Count != 0)
+                vector2Action = Vector2Actions[i];
+                for (int j = 0; j < vector2Action.Bindings.Count; j++)
                 {
-                    ActionGatesTriggers.AddRange(mappedInputVector2.activationGates);
+                    ActionGatesTriggers.AddRange(vector2Action.GetActivationGates(j));
                 }
             }
-            MappedInputVector3 mappedInputVector3;
+            Vector3Action vector3Action;
             for (int i = 0; i < Vector3Actions.Count; i++)
             {
-                mappedInputVector3 = Vector3Actions[i];
-                if (mappedInputVector3.activationGates.Count != 0)
+                vector3Action = Vector3Actions[i];
+                for (int j = 0; j < vector3Action.Bindings.Count; j++)
                 {
-                    ActionGatesTriggers.AddRange(mappedInputVector3.activationGates);
+                    ActionGatesTriggers.AddRange(vector3Action.GetActivationGates(j));
                 }
             }
-            MappedInputQuaternion mappedInputQuaternion;
+            QuaternionAction quaternionAction;
             for (int i = 0; i < QuaternionActions.Count; i++)
             {
-                mappedInputQuaternion = QuaternionActions[i];
-                if (mappedInputQuaternion.activationGates.Count != 0)
+                quaternionAction = QuaternionActions[i];
+                for (int j = 0; j < quaternionAction.Bindings.Count; j++)
                 {
-                    ActionGatesTriggers.AddRange(mappedInputQuaternion.activationGates);
+                    ActionGatesTriggers.AddRange(quaternionAction.GetActivationGates(j));
                 }
             }
             ActionGatesTriggers = ActionGatesTriggers.Distinct().ToList();
