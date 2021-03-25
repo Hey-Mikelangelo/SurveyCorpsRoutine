@@ -1,5 +1,4 @@
-﻿using CoreSystems.Input;
-using Unity.Profiling;
+﻿using Unity.Profiling;
 using UnityEngine;
 
 namespace CoreSystems.XR.Input
@@ -22,28 +21,28 @@ namespace CoreSystems.XR.Input
             // Debug.Log(inputMapLayer.jump.value);
             if (inputMapLayer.jump)
             {
-                Debug.Log("jump" + inputMapLayer.jump.Get());
+                Debug.Log("jump " + inputMapLayer.jump.Get());
             }
             if (inputMapLayer.rotateLeft)
             {
-                Debug.Log("rotateLeft" + inputMapLayer.rotateLeft.Get());
+                Debug.Log("rotateLeft " + inputMapLayer.rotateLeft.Get());
             }
-           /* if (inputMapLayer.move != Vector2.zero)
+            if (inputMapLayer.move != Vector2.zero)
             {
                 Debug.Log("move" + inputMapLayer.move.Get());
-            }*/
-            if (inputMapLayer.sprint)
-            {
-                Debug.Log("sprint" + inputMapLayer.sprint.Get());
             }
-           /* if (inputMapLayer.rightGestureChange)
+            if (inputMapLayer.rotateRight)
+            {
+                Debug.Log("rotateRight " + inputMapLayer.rotateRight.Get());
+            }
+            if (inputMapLayer.rightGestureChange)
             {
                 Debug.Log("rightGestureChange" + inputMapLayer.rightGestureChange.Get());
             }
             if (inputMapLayer.rightHandGrab > 0)
             {
                 Debug.Log("rightHandGrab" + inputMapLayer.rightHandGrab.Get());
-            }*/
+            }
 
         }
         void OnButton()

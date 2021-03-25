@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
-using Unity.Collections;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GestureLibrary", menuName = "Game/Gestures/Library")]
@@ -11,6 +10,8 @@ public class GestureLibrary : ScriptableObject
 {
     public enum GestureName
     {
+        none,
+
         circleCounterClockwise,
         circleClockwise,
 
@@ -36,15 +37,15 @@ public class GestureLibrary : ScriptableObject
         DownAndUpRight,
         DownAndUpLeft,
     }
-    [Serializable]
 
-    public struct Gesture
+    [Serializable]
+    public struct Gesture<gestureEnum> where gestureEnum : Enum
     {
-        [ShowOnly] public GestureName name;
+        [ShowOnly] public gestureEnum name;
         [ShowOnly] public string pattern;
         [ShowOnly] public int maxRecognitionDistance;
 
-        public Gesture(GestureName name, string pattern, int maxRecognitionDistance)
+        public Gesture(gestureEnum name, string pattern, int maxRecognitionDistance)
         {
             this.name = name;
             this.pattern = pattern;
@@ -52,32 +53,32 @@ public class GestureLibrary : ScriptableObject
         }
     }
     [SerializeField]
-    public List<Gesture> GesturesList = new List<Gesture>()
+    public List<Gesture<GestureName>> GesturesList = new List<Gesture<GestureName>>()
     {
-        new Gesture(GestureName.circleCounterClockwise, "dhbgceafd", 2),
-        new Gesture(GestureName.circleClockwise, "cgbhdfaec", 2),
+        new Gesture<GestureName>(GestureName.circleCounterClockwise, "dhbgceafd", 2),
+        new Gesture<GestureName>(GestureName.circleClockwise, "cgbhdfaec", 2),
 
-        new Gesture(GestureName.Up, "a", 0),
-        new Gesture(GestureName.Down, "b", 0),
-        new Gesture(GestureName.Right, "c", 0),
-        new Gesture(GestureName.Left, "d", 0),
+        new Gesture<GestureName>(GestureName.Up, "a", 0),
+        new Gesture<GestureName>(GestureName.Down, "b", 0),
+        new Gesture<GestureName>(GestureName.Right, "c", 0),
+        new Gesture<GestureName>(GestureName.Left, "d", 0),
 
-        new Gesture(GestureName.UpRight, "e", 0),
-        new Gesture(GestureName.UpLeft, "f", 0),
-        new Gesture(GestureName.DownRight, "g", 0),
-        new Gesture(GestureName.DownLeft, "h", 0),
+        new Gesture<GestureName>(GestureName.UpRight, "e", 0),
+        new Gesture<GestureName>(GestureName.UpLeft, "f", 0),
+        new Gesture<GestureName>(GestureName.DownRight, "g", 0),
+        new Gesture<GestureName>(GestureName.DownLeft, "h", 0),
 
-        new Gesture(GestureName.UpAndRight, "ac", 0),
-        new Gesture(GestureName.UpAndLeft, "ad", 0),
-        new Gesture(GestureName.UpAndDown, "ab", 0),
-        new Gesture(GestureName.UpAndDownRight, "ag", 0),
-        new Gesture(GestureName.UpAndDownLeft, "ah", 0),
+        new Gesture<GestureName>(GestureName.UpAndRight, "ac", 0),
+        new Gesture<GestureName>(GestureName.UpAndLeft, "ad", 0),
+        new Gesture<GestureName>(GestureName.UpAndDown, "ab", 0),
+        new Gesture<GestureName>(GestureName.UpAndDownRight, "ag", 0),
+        new Gesture<GestureName>(GestureName.UpAndDownLeft, "ah", 0),
 
-        new Gesture(GestureName.DownAndRight, "bc", 0),
-        new Gesture(GestureName.DownAndLeft, "bd", 0),
-        new Gesture(GestureName.DownAndUp, "ba", 0),
-        new Gesture(GestureName.DownAndUpRight, "be", 0),
-        new Gesture(GestureName.DownAndUpLeft, "bf", 0),
+        new Gesture<GestureName>(GestureName.DownAndRight, "bc", 0),
+        new Gesture<GestureName>(GestureName.DownAndLeft, "bd", 0),
+        new Gesture<GestureName>(GestureName.DownAndUp, "ba", 0),
+        new Gesture<GestureName>(GestureName.DownAndUpRight, "be", 0),
+        new Gesture<GestureName>(GestureName.DownAndUpLeft, "bf", 0),
 
 
     };

@@ -1671,19 +1671,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 753404768, guid: b4de32f4061283643be5f3375dcb0e21, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 913906021, guid: b4de32f4061283643be5f3375dcb0e21, type: 3}
-      propertyPath: input
-      value: 
-      objectReference: {fileID: 11400000, guid: 699dff9cc2f832840b7c8c034650141a,
-        type: 2}
-    - target: {fileID: 913906021, guid: b4de32f4061283643be5f3375dcb0e21, type: 3}
-      propertyPath: locomotionRb
-      value: 
-      objectReference: {fileID: 863998215}
     - target: {fileID: 8423180588229381812, guid: b4de32f4061283643be5f3375dcb0e21,
         type: 3}
       propertyPath: m_Name
