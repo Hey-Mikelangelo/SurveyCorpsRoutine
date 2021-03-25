@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace CoreSystems.Input
 {
-    public abstract class InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum> : ScriptableObject 
+    public abstract class InputMapSO<boolEnum, floatEnum, vector2Enum, vector3Enum, quaternionEnum> : ScriptableObject
         where boolEnum : Enum
         where floatEnum : Enum
         where vector2Enum : Enum
@@ -35,11 +36,20 @@ namespace CoreSystems.Input
         }
         public abstract class Action
         {
-            public Type type;
-            [ShowOnly] public string valueType;
+            public Type type { get; set; }
+            [SerializeField] protected bool enabled = true;
+            [ShowOnly] [SerializeField] string valueType;
             protected int _passedGatesIndx;
-            protected bool _hasActivationGates;
 
+            public void SetEnabled(bool enabled)
+            {
+                this.enabled = enabled;
+                if (!enabled)
+                {
+                    SetValueDisabled();
+                }
+
+            }
             protected void SetValueType()
             {
                 valueType = type.ToString();
@@ -50,6 +60,7 @@ namespace CoreSystems.Input
             public abstract bool HasActivationGates();
             public abstract void SetPassedGatesIndx(int indx);
             public abstract int GetPassedGatesIndx();
+
         }
         [InitializeOnLoad]
         [System.Serializable]
@@ -61,9 +72,10 @@ namespace CoreSystems.Input
                 public List<boolEnum> activationGates; //buttons which should be pressed to activate input
                 public boolEnum inputTrigger;
             }
-            public List<Binding> Bindings;
+            public List<Binding> Bindings = new List<Binding>();
             private bool _value;
-           
+            public event UnityAction canceled;
+
             public Type _valueType;
             public BoolAction()
             {
@@ -72,13 +84,21 @@ namespace CoreSystems.Input
             }
             public void Set(bool value)
             {
+                if (!enabled)
+                {
+                    return;
+                }
+                if (_value == true && value == false)
+                {
+                    canceled?.Invoke();
+                }
                 _value = value;
             }
             public bool Get()
             {
                 return _value;
             }
-            
+
             public override void SetValueDisabled()
             {
                 Set(false);
@@ -149,6 +169,10 @@ namespace CoreSystems.Input
             }
             public void Set(float value)
             {
+                if (!enabled)
+                {
+                    return;
+                }
                 this._value = value;
             }
             public float Get()
@@ -226,6 +250,10 @@ namespace CoreSystems.Input
             }
             public void Set(Vector2 value)
             {
+                if (!enabled)
+                {
+                    return;
+                }
                 this._value = value;
             }
             public Vector2 Get()
@@ -303,6 +331,10 @@ namespace CoreSystems.Input
             }
             public void Set(Vector3 value)
             {
+                if (!enabled)
+                {
+                    return;
+                }
                 this._value = value;
             }
             public Vector3 Get()
@@ -312,7 +344,7 @@ namespace CoreSystems.Input
 
             public override void SetValueDisabled()
             {
-                Set(new Vector3(0,0,0));
+                Set(new Vector3(0, 0, 0));
             }
             public bool IsBindedToInput(vector3Enum inputTrigger)
             {
@@ -380,6 +412,10 @@ namespace CoreSystems.Input
             }
             public void Set(Quaternion value)
             {
+                if (!enabled)
+                {
+                    return;
+                }
                 this._value = value;
             }
             public Quaternion Get()
@@ -448,7 +484,7 @@ namespace CoreSystems.Input
         protected List<Vector3Action> Vector3Actions = new List<Vector3Action>();
         protected List<QuaternionAction> QuaternionActions = new List<QuaternionAction>();
 
-             
+
         public List<BoolAction> GetBoolActions()
         {
             return BoolActions;
@@ -491,7 +527,7 @@ namespace CoreSystems.Input
         }
         private void OnDisable()
         {
-           
+
         }
         void FillBoolActionGatesTriggers()
         {
@@ -503,7 +539,7 @@ namespace CoreSystems.Input
                 {
                     ActionGatesTriggers.AddRange(boolAction.GetActivationGates(j));
                 }
-                
+
             }
             FloatAction floatAction;
             for (int i = 0; i < FloatActions.Count; i++)

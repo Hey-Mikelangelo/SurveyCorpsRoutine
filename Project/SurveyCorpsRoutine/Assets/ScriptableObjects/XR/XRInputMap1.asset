@@ -28,14 +28,34 @@ MonoBehaviour:
     Bindings: []
   rightGesture:
     valueType: System.Boolean
-    Bindings: []
+    Bindings:
+    - activationGates: 
+      inputTrigger: 20
+  rightGestureChange:
+    valueType: System.Boolean
+    Bindings:
+    - activationGates: 14000000
+      inputTrigger: 22
+  rightGestureEnd:
+    valueType: System.Boolean
+    Bindings:
+    - activationGates: 
+      inputTrigger: 29
+  rightGestureChangeEnd:
+    valueType: System.Boolean
+    Bindings:
+    - activationGates: 14000000
+      inputTrigger: 31
   leftGesture:
     valueType: System.Boolean
     Bindings: []
-  rightGestureChange:
+  leftGestureChange:
     valueType: System.Boolean
     Bindings: []
-  leftGestureChange:
+  leftGestureEnd:
+    valueType: System.Boolean
+    Bindings: []
+  leftGestureChangeEnd:
     valueType: System.Boolean
     Bindings: []
   sprint:

@@ -14,14 +14,18 @@ namespace CoreSystems.XR.Input
     {
         public BoolAction
             jump,
-            rotateLeft,
-            rotateRight,
-            rotateBack,
-            rightGesture,
-            leftGesture,
-            rightGestureChange,
-            leftGestureChange,
-            sprint;
+                rotateLeft,
+                rotateRight,
+                rotateBack,
+                rightGesture,
+                rightGestureChange,
+                rightGestureEnd,
+                rightGestureChangeEnd,
+                leftGesture,
+                leftGestureChange,
+                leftGestureEnd,
+                leftGestureChangeEnd,
+                sprint;
 
 
         public FloatAction
@@ -50,11 +54,14 @@ namespace CoreSystems.XR.Input
                 rotateRight,
                 rotateBack,
                 rightGesture,
-                leftGesture,
                 rightGestureChange,
+                rightGestureEnd,
+                rightGestureChangeEnd,
+                leftGesture,
                 leftGestureChange,
-                sprint,
-
+                leftGestureEnd,
+                leftGestureChangeEnd,
+                sprint
             };
 
         }
